@@ -3,11 +3,6 @@
 Webová aplikace pro výuku základních symetrických a asymetrických šifer.  
 Cílem je vizualizace procesu šifrování a dešifrování vybraných algoritmů.
 
-## Funkce
-- Vizualizace kroků šifer
-- Interaktivní vstupy
-- Vysvětlující obsah u každé šifry
-
 ## Instalace
 
 ### Požadavky
