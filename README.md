@@ -1,7 +1,7 @@
 # Šifrovač - Interaktivní nástroj pro kryptografii
 
-Webová aplikace pro výuku základních symetrických a asymetrických šifer.  
-Cílem je vizualizace procesu šifrování a dešifrování vybraných algoritmů.
+Webová aplikace zaměřená na výuku symetrických a asymetrických šifer.
+Cílem projektu je usnadnit pochopení principů šifrování a dešifrování skrze interaktivní vizualizaci vybraných algoritmů.
 
 ## Instalace
 
