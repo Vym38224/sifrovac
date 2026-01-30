@@ -1,0 +1,15 @@
+/* Header */
+h2 {
+  font-size: 2em;
+}
+
+.info-icon {
+  margin: 0.5em;
+  margin-top: 0;
+  width: 1em;
+  cursor: pointer;
+}
+
+.info-icon:hover {
+  transform: scale(1.1);
+}

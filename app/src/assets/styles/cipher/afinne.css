@@ -1,0 +1,55 @@
+/* Vizualizace - tabulka */
+.afinne.secondary-content {
+  margin-top: -14px;
+}
+.affine-table thead {
+  border: 2px solid var(--viz-border);
+}
+
+.affine-table tbody {
+  border: 2px solid var(--viz-border);
+}
+
+.affine-table {
+  flex: 1 1 0;
+  height: 640px;
+  width: 640px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.affine-table table {
+  width: 50%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  background: var(--viz-bg);
+}
+
+.affine-table td {
+  padding: 0.5em;
+  text-align: center;
+}
+
+.affine-table th,
+.affine-table td {
+  padding: 0.01em 1.5em;
+  text-align: center;
+  border: 1.5px solid var(--viz-border);
+  border-right: 2px solid var(--viz-border);
+}
+
+/* Vizualizace - vzorce */
+.afinne.viz-step {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.secondary-content-info {
+  gap: 0;
+}
+
+.box-formula {
+  background-color: #42b98314;
+  border: 1px solid #2d3e506a;
+  padding: 0.4em;
+}

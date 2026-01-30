@@ -1,0 +1,99 @@
+.sbox-modal-wrapper {
+  position: relative;
+  background: var(--viz-bg);
+  border-radius: 8px;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 70vw;
+  max-height: 65vh;
+  display: block;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  left: calc(-11%);
+  transform: translateY(-80px);
+}
+
+[data-theme="dark"] .sbox-modal-wrapper {
+  background: #000000;
+}
+
+.ip-image-container.sbox .ip-close-button {
+  right: 4px;
+  top: -1px;
+}
+
+.sbox-modal-content h3 {
+  text-align: center;
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.1em;
+}
+
+.sbox-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
+  background: rgb(249, 249, 249);
+}
+
+[data-theme="dark"] .sbox-table {
+  background: #141312;
+}
+
+.sbox-table th,
+.sbox-table td {
+  border: 1px solid rgb(167, 167, 167);
+  padding: 3px;
+  text-align: center;
+}
+
+[data-theme="dark"] .sbox-table th,
+[data-theme="dark"] .sbox-table td {
+  border: 1px solid #444;
+}
+
+.corner-cell {
+  border: none;
+}
+
+[data-theme="dark"] .corner-cell {
+  background: #141312;
+}
+
+.col-header,
+.row-header {
+  background: var(--primary-color);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.cell-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0.9;
+}
+
+.decimal-value {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.binary-value {
+  font-size: 10px;
+  color: var(--text-color);
+}
+
+.selected-cell {
+  background-color: #42b98342;
+}
+
+.sbox-legend {
+  font-size: 12px;
+  color: var(--light-text-color);
+  margin-bottom: 5px;
+  gap: 5px;
+}

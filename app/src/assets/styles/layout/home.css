@@ -1,0 +1,150 @@
+.home.content {
+  width: 92%;
+  margin: 0 auto;
+}
+/* Nadpis*/
+.home.content section {
+  gap: 22px;
+}
+
+.home header {
+  flex: 15%;
+}
+h1 {
+  position: relative;
+  font-size: 2.5em;
+}
+
+h1 p {
+  font-size: 13.5px;
+  margin-top: -1rem;
+  color: var(--text-color);
+}
+
+.z-two {
+  z-index: 2;
+}
+
+.logo-inline {
+  position: absolute;
+  left: 12%;
+  top: 42%;
+  transform: translateY(-50%);
+  height: 12rem;
+  opacity: 0.29;
+  z-index: 1;
+}
+
+.lead {
+  flex: 68%;
+  margin-top: 2.17rem;
+  position: relative;
+  font-size: 16.5px;
+  text-align: justify;
+}
+
+/* Home bile obláčky*/
+.home.viz-step {
+  margin-top: 1rem;
+}
+
+.home.viz-step:last-child {
+  margin-bottom: 3rem;
+}
+
+.home.viz-step p {
+  margin-top: -0.7rem;
+  font-size: 14.6px;
+  text-align: justify;
+}
+
+/* Home timeline */
+.timeline {
+  position: relative;
+  padding-left: 0.3rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #42b98350, #42b983);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 0.8rem;
+  padding-left: 0.7rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -0.7rem;
+  top: 0.82rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #42b983;
+  border: 2px solid var(--primary-bg);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+}
+
+.timeline-content {
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--viz-bg);
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+  height: 90px;
+}
+
+.timeline-content:hover {
+  transform: translateX(5px);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #42b983;
+  background: rgba(66, 185, 131, 0.1);
+  padding: 0.13rem 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-content h4 {
+  margin: 0.2rem 0 0.1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--light-text-color);
+  line-height: 1.4;
+}
+
+.timeline-img {
+  width: 125px;
+  margin-right: 1.5rem;
+}
+
+.timeline-content.force-hover {
+  transform: translateX(5px);
+}
+
+.timeline-content.force-hover .timeline-dot {
+  transform: scale(1.3);
+}

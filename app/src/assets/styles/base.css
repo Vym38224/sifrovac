@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* CSS proměnné pro Light a Dark mode */
+:root {
+  /* Pozadí */
+  --primary-bg: #f5f3f5;
+  --input-bg: #f5f4f1;
+  --info-bg: #eaedee;
+  --viz-bg: white;
+
+  /* Text */
+  --text-color: #2c3e50;
+  --light-text-color: #666;
+  --highlight-color: #42b983;
+
+  /* Border */
+  --border-color: #d1d5db;
+  --viz-border: #000;
+
+  /* Buttons */
+  --primary-btn-bg: #42b983;
+  --primary-btn-bg-hover: #369870;
+  --view-btn-bg: #6e6a587b;
+  --view-btn-bg-hover: #6e6a58d0;
+  --delete-btn-bg: #f17c6f;
+  --delete-btn-bg-hover: #d95f5a;
+}
+
+[data-theme="dark"] {
+  /* Pozadí */
+  --primary-bg: #303030;
+  --input-bg: #282828;
+  --info-bg: #555555;
+  --viz-bg: #212121;
+
+  /* Text */
+  --text-color: #d3dadf;
+  --light-text-color: #cecece;
+
+  /* Border */
+  --border-color: #3d453d;
+  --viz-border: #585858;
+
+  /* Buttons */
+  --primary-btn-bg: #2a7555;
+  --primary-btn-bg-hover: #25634a;
+  --view-btn-bg: #4d493e98;
+  --view-btn-bg-hover: #3f3b34d0;
+  --delete-btn-bg: #974d45;
+  --delete-btn-bg-hover: #8d3e3c;
+}
+
+/* Základní třídy */
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  font-family: "Inter";
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 5em;
+  gap: 4em;
+}
+
+.content {
+  flex-direction: column;
+  gap: 0.5em;
+  width: 24.56em;
+}
+
+.secondary-content {
+  gap: 2em;
+  width: 40em;
+  position: relative;
+  overflow: hidden;
+}
+
+.secondary-content-info {
+  gap: 1em;
+  max-width: 300px;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.center {
+  align-items: center;
+}
+
+.without-underline {
+  text-decoration: none;
+}
+
+.zero-gap {
+  gap: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.courier-new {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Barvy */
+.primary-color {
+  color: #42b983;
+}
+
+.primary-background {
+  background: #42b983;
+}
+
+.secondary-background {
+  background: #2d3e50;
+}
+
+.tertiary-color {
+  color: #0f8bddb7;
+}
+
+.tertiary-background {
+  background: #0f8bddb7;
+}
+
+.quaternary-color {
+  color: var(--light-text-color);
+}
+
+.neutral-color {
+  color: white;
+}
+
+.neutral-background {
+  background: white;
+}
+
+.delete-color {
+  color: #f17c6f;
+}
+
+.delete-background {
+  background: #f17c6f;
+}
+
+.warning-color {
+  color: #d32f2f;
+}
+
+.invalid-background {
+  background-color: #d32f2f26;
+}
+
+.invalid-border {
+  border: 1px solid #d32f2f;
+}
+
+/* Parametry šifer */
+.params {
+  gap: 0.75em;
+  padding-bottom: 0.25em;
+  margin-top: -0.8em;
+}
+
+input,
+select {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.3em 0.3em;
+  font-size: 0.95em;
+  background: var(--input-bg);
+  color: var(--text-color);
+  text-align: center;
+  width: 60px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--text-color);
+}
+
+/* Vizualizace - Bile obláčky */
+.viz-step {
+  background-color: var(--viz-bg);
+  border-radius: 8px;
+  padding: 20px;
+  padding-top: 5px;
+  margin-bottom: 11.5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.no-params {
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+  opacity: 75%;
+}
+
+.input-type-selector {
+  margin: 0 0 0 -20px;
+  border: none;
+  padding: 0;
+}
+
+.input-type-selector input[type="radio"] {
+  accent-color: var(--text-color);
+  cursor: pointer;
+  size: 26px;
+}
+
+.input-type-selector label {
+  margin-left: -17px;
+  margin-top: 2px;
+}
+
+/* Responzivita */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .content,
+  .secondary-content {
+    max-width: 90%;
+  }
+
+  .secondary-content {
+    flex: 1 1;
+    max-width: 100%;
+  }
+
+  #app {
+    height: 200vh;
+    max-height: 200vh;
+  }
+
+}

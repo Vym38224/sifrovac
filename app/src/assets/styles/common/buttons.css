@@ -1,0 +1,76 @@
+/* Tlačítka */
+.copy-btn {
+  position: absolute;
+  bottom: 16px;
+  left: 3px;
+  height: 28px;
+  width: 28px;
+  border: none;
+  background: #f7f6f0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  padding-left: 1em;
+  margin-top: -0.4em;
+}
+
+.button-group button {
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+  width: 120px;
+}
+
+.button-group .btn-encrypt,
+.button-group .btn-decrypt {
+  background: var(--primary-btn-bg);
+}
+
+.button-group .btn-delete {
+  background: var(--delete-btn-bg);
+}
+
+.button-group .btn-encrypt:hover,
+.button-group .btn-decrypt:hover {
+  background: var(--primary-btn-bg-hover);
+}
+
+.button-group .btn-delete:hover {
+  background: var(--delete-btn-bg-hover);
+}
+
+.btn-encrypt:disabled,
+.btn-decrypt:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Tlačítko pro vizualizaci */
+.btn-view {
+  background: var(--view-btn-bg);
+  border-radius: 6px;
+  border: none;
+  padding: 0.4em 1.2em;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-view:hover {
+  background: var(--view-btn-bg-hover);
+}
+
+.btn-view:disabled,
+.btn-view:disabled:hover {
+  background: #6e6a5837;
+  cursor: default;
+}

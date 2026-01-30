@@ -1,0 +1,43 @@
+/* Vizualizace - tabulka */
+.vigenere.secondary-content {
+  margin-top: -25px;
+}
+
+.vigenere-table {
+  border-collapse: collapse;
+  font-size: 0.64em;
+  border: 2px solid var(--viz-border);
+  background: var(--viz-bg);
+}
+
+.vigenere-table th,
+.vigenere-table td {
+  border: 1px solid var(--viz-border);
+  padding: 0.3em 0.6em;
+  text-align: center;
+}
+
+.vigenere-table th:first-child {
+  border-right: 2px solid var(--viz-border);
+}
+
+.vigenere-table thead tr th {
+  border-bottom: 2px solid var(--viz-border);
+}
+
+/* Vizualizace - opakování klíče */
+.key-repetition {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  gap: 2px;
+  overflow-wrap: anywhere;
+  max-height: 130px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.table-legend {
+  font-size: 12px;
+  color: var(--light-text-color);
+}

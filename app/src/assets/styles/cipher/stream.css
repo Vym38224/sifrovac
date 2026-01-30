@@ -1,0 +1,95 @@
+/* Parametry pro Stream */
+.stream-params {
+  gap: 8px;
+  width: 415px;
+}
+
+.stream-params .row {
+  gap: 15px;
+  border: none;
+  padding: 0;
+}
+
+.input-pv {
+  margin-left: 2px;
+}
+
+.input-m {
+  margin-left: 14px;
+}
+
+.input.wide {
+  width: 76px;
+}
+
+.stream.input-type-selector{
+  margin-left: auto;
+}
+
+/* Vizualizace - znaky, čísla */
+.char-breakdown {
+  gap: 7px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.char-label {
+  color: var(--text-color);
+}
+
+.char-binary {
+  font-size: 0.9em;
+}
+
+/* Vizualizace - Generování proudu klíčů*/
+.lfsr-register {
+  margin-top: 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.register-bit {
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  border: 2px solid var(--text-color);
+  border-left: 0;
+}
+
+.register-bit:first-child {
+  border-left: 2px solid var(--text-color);
+}
+
+.register-bit.feedback-bit {
+  background-color: #42b9832f;
+  border-color: var(--text-color);
+}
+
+.viz-stream {
+  margin-right: 80px;
+  margin-bottom: 0;
+}
+
+/* Vizualizace - Šifrování vstupu pomocí XOR*/
+.xor-visualization {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.xor-row th,
+.xor-row td {
+  text-align: left;
+  padding: 4px 10px;
+  min-height: 24px;
+}
+
+.xor-label {
+  width: 80px;
+  font-weight: normal;
+}
+
+.xor-divider {
+  margin: 5px 0;
+}

@@ -1,0 +1,41 @@
+/* Parametry */
+.form-range {
+  accent-color: #42b983;
+  width: 41%;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Vizualizace - kolo */
+.wheel {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: -35px;
+  width: 38em;
+  height: 38em;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.wheel.inner {
+  content: url("@/assets/images/ui/inner-wheel.png");
+  width: 28em;
+  height: 27.8em;
+  left: 81px;
+  top: 48px;
+  z-index: 2;
+}
+
+.wheel.outer {
+  content: url("@/assets/images/ui/outer-wheel.png");
+  transform: rotate(75deg);
+}
+
+[data-theme="dark"] .wheel.outer {
+  content: url("@/assets/images/ui/outer-wheel-dark.png");
+}
+
+[data-theme="dark"] .wheel.inner {
+  content: url("@/assets/images/ui/inner-wheel-dark.png");
+}

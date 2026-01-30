@@ -1,0 +1,69 @@
+/* Vizualizace - Tlačítka na přepínání */
+.tab-buttons {
+  padding-top: 0;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  margin: 0;
+  background: #8e8e8237;
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+}
+
+.tab-btn:first-child {
+  border-top-left-radius: 6px;
+}
+
+.tab-btn:last-child {
+  border-top-right-radius: 6px;
+}
+
+.tab-btn:hover {
+  background: #91918352;
+}
+
+.tab-btn.active {
+  background: #9090854e;
+}
+
+/* Vizualizace - Úprava obláčku */
+.rsa.viz-step {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 15px;
+  width: 100%;
+  max-height: fit-content;
+}
+
+.steps {
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.step {
+  background: rgba(132, 130, 116, 0.108);
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 3px solid #6e6a580d;
+}
+
+.step:last-child {
+  border-left: 3px solid #42b983;
+}
+
+.step:nth-last-child(2) {
+  border-left: 3px solid #42b983;
+}
+
+.step p {
+  margin: 0;
+}
+
+.no-params {
+  text-align: center;
+  font-style: italic;
+  opacity: 75%;
+}

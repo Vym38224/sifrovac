@@ -1,0 +1,241 @@
+.des.secondary-content {
+  gap:0;
+  margin-top: -6px;
+}
+
+.des.viz-step {
+  width: 600px;
+}
+
+.bin-visualization {
+  font-size: 0.85em;
+  gap: 2.5em;
+}
+
+.binary {
+  margin-top: -0.7em;
+}
+
+.binary-display {
+  letter-spacing: 2px;
+}
+
+.next {
+  margin-top: 0.5em;
+  padding-left: 119px;
+  padding-right: 139px;
+}
+
+.ip-image-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 12px;
+}
+
+.ip-image {
+  max-height: 400px;
+  max-width: 800px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  cursor: default;
+}
+
+[data-theme="dark"] .ip-image {
+  filter: invert(1);
+}
+
+.ip-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.ip-close-button {
+  position: absolute;
+  top: -1px;
+  right: 7px;
+  width: 1em;
+  height: 1em;
+  background: rgba(255, 255, 255, 0);
+  color: var(--delete-btn-bg);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1003;
+}
+
+.binary-half {
+  transition: 0.3s ease;
+}
+
+.binary-half.clickable {
+  cursor: pointer;
+}
+
+.binary-half.clickable:hover {
+  transform: translateX(3px);
+}
+
+.step-description {
+  font-size: 14px;
+  opacity: 85%;
+}
+
+.step-description h4 {
+  margin: 5px;
+}
+
+.left.step-description {
+  margin: 0.7em;
+}
+
+.expansion-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+}
+
+.expansion-result .binary-display {
+  text-align: center;
+}
+
+.sbox-result {
+  display: flex;
+  gap: 39.8px;
+  padding-left: 2px;
+}
+
+.step-description {
+  margin: 0;
+}
+
+.sbox-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 24px;
+}
+
+.sbox-item {
+  background: #8e8e8237;
+  color: var(--text-color);
+  border-radius: 6px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.sbox-item:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.sbox-label {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.sbox-io small {
+  font-size: 11px;
+}
+
+.arrow-down {
+  font-size: 11px;
+}
+
+.rund-key {
+  background: #8e8e8237;
+  color: var(--text-color);
+  padding: 4px;
+  width: 585px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.rund-key:hover {
+  cursor: pointer;
+  transform: translateY(-0.5px);
+
+}
+
+.gen.rund-key {
+  width: 599px;
+}
+
+.ip-image-container.sbox {
+  top: 88%;
+  left: 60%;
+}
+
+.sbox.ip-close-button {
+  top: -3px;
+  right: 0;
+}
+
+.clickable-highlight {
+  cursor: pointer;
+}
+
+.highlight-left {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic;
+  transform: translateX(4px);
+}
+
+.e.ip-image-container {
+  top: 72%;
+  left: calc(50% - 200px);
+  transform: translate(-50%, -50%);
+}
+
+.ip-image-container.p {
+  left: 64%;
+  top: 79%;
+}
+
+.ip-image-container.ip {
+  left: 77%;
+  top: 72%;
+}
+
+.ip-image-container.pc2 {
+  top: 31.5%;
+  left: 24%;
+}
+
+.ip-image-container.pc1 {
+  left: 50%;
+  top: 69%;
+}
+
+.binary-display.result {
+  font-size: 11px;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-top: 10px;
+}
+
+.ip-image-container.ip-inv {
+  left: 64%;
+  top: 38.5%;
+}
+
+sub {
+  font-size: 9px;
+}
+
+.des.input-type-selector label {
+  margin-top: 4px;
+}
+
+.des.input-type-selector{
+  margin-left: auto;
+  margin-right: -19px;
+}
