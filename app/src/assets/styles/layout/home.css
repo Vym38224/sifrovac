@@ -39,7 +39,7 @@ h1 p {
 
 .lead {
   flex: 68%;
-  margin-top: 2.17rem;
+  margin-top: 4.47rem;
   position: relative;
   font-size: 16.5px;
   text-align: justify;
@@ -165,5 +165,9 @@ h1 p {
     height: 12rem;
     opacity: 0.29;
     z-index: 1;
+  }
+
+  .lead {
+    margin-top: 1.5em;
   }
 }
