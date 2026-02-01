@@ -49,7 +49,7 @@
 
       <!-- Tabulka recta  -->
       <section class="vigenere-table-wrapper">
-        <legend class="table-legend"> první sloupec: klíč, první řádek: otevřený text</legend>
+        <legend class="table-legend">Řádek (klíč) × Sloupec (otevřený text) = Šifrovaný text</legend>
         <table class="vigenere-table neutral-background">
           <thead>
             <tr>
@@ -59,8 +59,9 @@
                 v-for="(col, indexSloupec) in abeceda" 
                 :key="'col-' + col"
                 :class="{
-                  'primary-background neutral-color': zvyrazneneSloupce.includes(indexSloupec),
-                  'tertiary-background neutral-color': aktualniSloupec === indexSloupec,
+                  'primary-background neutral-color': vysledky.includes('sloupec-' + indexSloupec) && aktualniVysledek !== 'sloupec-' + indexSloupec,
+                  'tertiary-background neutral-color': aktualniVysledek === 'sloupec-' + indexSloupec,
+                  'tertiary-background neutral-color low-highlight': aktualniSloupec === indexSloupec,
                 }"
               >
                 {{ col }}
@@ -72,15 +73,21 @@
               v-for="(pismenoRadek, indexRadek) in abeceda"
               :key="'row-' + pismenoRadek"
             >
-              <th class="bold">{{ pismenoRadek }}</th>
+              <th class="bold"
+                :class="{
+                  'tertiary-background neutral-color low-highlight': aktualniRadek === indexRadek,
+                }"
+              >{{ pismenoRadek }}</th>
               <td
               v-for="(pismenoSloupec, indexSloupec) in abeceda"
               :key="pismenoRadek + '-' + pismenoSloupec"
               :class="{
                 'neutral-color bold primary-background':
-                  rezim !== 'decrypt' && zvyraznenePary.includes(`${indexRadek}-${indexSloupec}`),
+                  vysledky.includes(`${indexRadek}-${indexSloupec}`) && aktualniVysledek !== `${indexRadek}-${indexSloupec}`,
                 'neutral-color bold tertiary-background':
-                  rezim !== 'decrypt' && aktualniPar === `${indexRadek}-${indexSloupec}`,
+                  aktualniVysledek === `${indexRadek}-${indexSloupec}`,
+                'neutral-color bold tertiary-background low-highlight':
+                  aktualniPar === `${indexRadek}-${indexSloupec}`,
               }"
             >
               {{ abeceda[(indexSloupec + indexRadek) % 26] }}
@@ -177,12 +184,15 @@ export default {
   computed: {
     // vizualizace zvýraznění v tabulce
     zvyrazneni() {
-      // objekt s výsledky
       const vysledek = {
-        pary: [],
-        sloupce: [],
+        pary: [], // cesta -buňky které vedly k výsledku
+        sloupce: [], // cesta - sloupce (otevřený text)
+        radky: [], // cesta - řádky (klíč)
+        vysledky: [], // zelené - buňky s výsledky
         aktualniPar: null,
         aktualniSloupec: null,
+        aktualniRadek: null,
+        aktualniVysledek: null,
       };
 
       if (this.klic === "" || this.vstupniText === "") {
@@ -210,23 +220,50 @@ export default {
           // dešifrování: hledáme sloupec s dešifrovaným písmenem
           sloupec = (pozicePismena - radek + 26) % 26;
           
-          const jeUzVSeznamu = vysledek.sloupce.includes(sloupec);
+          const jeUzVSeznamu = vysledek.vysledky.includes('sloupec-' + sloupec);
           if (!jeUzVSeznamu) {
-            vysledek.sloupce.push(sloupec);
+            vysledek.vysledky.push('sloupec-' + sloupec);
           }
+          
+          const jeRadekVSeznamu = vysledek.radky.includes(radek);
+          if (!jeRadekVSeznamu) {
+            vysledek.radky.push(radek);
+          }
+          
+          vysledek.pary.push(radek + "-" + sloupec);
         } else {
           // šifrování: sloupec je pozice původního písmena
           sloupec = pozicePismena;
+          
+          const vysledekBunka = radek + "-" + sloupec;
+          const jeUzVSeznamu = vysledek.vysledky.includes(vysledekBunka);
+          if (!jeUzVSeznamu) {
+            vysledek.vysledky.push(vysledekBunka);
+          }
+          
+          const jeSloupecVSeznamu = vysledek.sloupce.includes(sloupec);
+          if (!jeSloupecVSeznamu) {
+            vysledek.sloupce.push(sloupec);
+          }
+          
+          const jeRadekVSeznamu = vysledek.radky.includes(radek);
+          if (!jeRadekVSeznamu) {
+            vysledek.radky.push(radek);
+          }
         }
-        vysledek.pary.push(radek + "-" + sloupec);
 
         // pokud je to poslední písmeno, ulož jako aktuální (modře)
         const jePoslední = (i === this.vstupniText.length - 1);
         if (jePoslední) {
-          vysledek.aktualniPar = radek + "-" + sloupec;
-          
           if (desifrujeme) {
+            vysledek.aktualniPar = radek + "-" + sloupec;
+            vysledek.aktualniVysledek = 'sloupec-' + sloupec;
+            vysledek.aktualniRadek = radek;
+          } else {
+            const vysledekBunka = radek + "-" + sloupec;
+            vysledek.aktualniVysledek = vysledekBunka;
             vysledek.aktualniSloupec = sloupec;
+            vysledek.aktualniRadek = radek;
           }
         }
 
@@ -243,11 +280,23 @@ export default {
     zvyrazneneSloupce() {
       return this.zvyrazneni.sloupce;
     },
+    zvyrazneneRadky() {
+      return this.zvyrazneni.radky;
+    },
+    vysledky() {
+      return this.zvyrazneni.vysledky;
+    },
     aktualniPar() {
       return this.zvyrazneni.aktualniPar;
     },
     aktualniSloupec() {
       return this.zvyrazneni.aktualniSloupec;
+    },
+    aktualniRadek() {
+      return this.zvyrazneni.aktualniRadek;
+    },
+    aktualniVysledek() {
+      return this.zvyrazneni.aktualniVysledek;
     },
 
     // opakování klíče pro vstupní text
