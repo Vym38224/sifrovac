@@ -1,27 +1,22 @@
 # Šifrovač - Interaktivní nástroj pro kryptografii
 
-Webová aplikace pro výuku základních symetrických a asymetrických šifer.  
-Cílem je vizualizace procesu šifrování a dešifrování vybraných algoritmů.
+Webová aplikace zaměřená na výuku symetrických a asymetrických šifer.
+Cílem projektu je usnadnit pochopení principů šifrování a dešifrování skrze interaktivní vizualizaci vybraných algoritmů.
 
-## Funkce
-- Vizualizace kroků šifer
-- Interaktivní vstupy
-- Vysvětlující obsah u každé šifry
-
-## Instalace
+## Návod Instalace
 
 ### Požadavky
 - Node.js (https://nodejs.org/en/download)
+- Git (https://git-scm.com/downloads)
 
-### Instalace a spuštění (lokálně)
+### Stažení projektu
+```bash
+git clone https://github.com/Vym38224/sifrovac.git
+```
+
+### Instalace a lokální spuštění
 ````bash
 cd app
 npm install
 npm run serve
-````
-
-### Produkční build (GitHub Pages)
-````bash
-cd app
-npm run build
 ````

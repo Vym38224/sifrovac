@@ -179,8 +179,8 @@ export default {
       }
     },    // validace parametrů A a B a zvyraznění změny v tabulce
     priVstupuA() {
-      if (this.hodnotaA < 1) {
-        this.hodnotaA = 1;
+      if (this.hodnotaA < 0) {
+        this.hodnotaA = 0;
       }
       if (this.hodnotaA > 25) {
         this.hodnotaA = 25;

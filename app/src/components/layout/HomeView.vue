@@ -2,8 +2,8 @@
   <main class="container">
     <section class="home content flex">
   
-      <section class="flex">
-        <header class="home">
+      <section class="flex header-column">
+        <header class="flex center home">
           <h1 class="flex column center">
             <span class="z-two">Šifrovač</span>
             <img
