@@ -195,7 +195,7 @@ export default {
       }
     },
   },
-  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí (né pokaždé když je volána)
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
     jePermutaceNeplatna() {
       if (this.permutace.length !== 26) {
