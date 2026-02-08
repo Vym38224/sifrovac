@@ -354,7 +354,6 @@ export default {
   components: {
     RsaInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       vstupniText: "",
@@ -373,7 +372,6 @@ export default {
     };
   },
   methods: {
-    // šifrování a dešifrování
     sifrovat() {
       try {
         this.vystupniText = rsaEncrypt(this.vstupniText, this.e, this.n);
@@ -390,7 +388,6 @@ export default {
         alert("Chyba při dešifrování, zkontrolujte parametry.");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -416,7 +413,7 @@ export default {
         udalost.preventDefault();
       }
     },
-    // fce pro mazaní celých šifrovaných hodnot, když mažu na vstupu 
+    // fce pro mazaní celých šifrovaných hodnot, když mažu na vstupu zašifrované znaky (tedy čísla oddělené mezerami)
     handleBackspace(event) {
       if (event.key === 'Backspace' && this.jeCislo(this.vstupniText)) {
         const textarea = event.target;
@@ -426,7 +423,7 @@ export default {
         if (cursorPos === text.length) {
           event.preventDefault(); // preventDefault() zastaví výchozí chování události (backspace pro nas)
           
-          const posledniMezera = text.lastIndexOf(' '); // lastIndexOf najde pouici poslední mezery v textu, -1 když není mezera
+          const posledniMezera = text.lastIndexOf(' '); 
           
           if (posledniMezera !== -1) {
             this.vstupniText = text.substring(0, posledniMezera); // substring(0, posledniMezera) vezme text od začatku až k poslední mezeře (smaže posledni blok čísel)
@@ -436,17 +433,15 @@ export default {
         }
       }
     },
-    // kontrola zda je text jsou čísla 0-9
     jeCislo(text) {
       if (!text) return false;
-      const prvniZnak = text.trim().charAt(0); // trim odstraní mezery a charAt(0) vrati prvni znak řeťezce
+      const prvniZnak = text.trim().charAt(0); 
       return prvniZnak >= "0" && prvniZnak <= "9";
     },
-    // kontrola prvočíselnosti čísla
     jePrvocislo(num) {
       return jePrvocislo(num);
     },
-    // vypočítání všech potřebných parametrů(n,phi,e,d) na zakladě vstupních p a q, ktere jsou vw WATCHERS a vždy se tato funkce vola při jejich změně . 
+    // vypočítání všech potřebných parametrů(n,phi,e,d) na zakladě vstupních p a q, ktere jsou ve WATCHERS a vždy se tato funkce vola při jejich změně
     vypocitatRSAParametry() {
       const vysledek = vypocitatNaPhi(this.p, this.q);
       
@@ -519,13 +514,12 @@ export default {
         }
       };
     },
-    // funkce pro vizualizaci
     aktualniZnak() {
       return ziskatAktualniZnak(this.vstupniText, this.e, this.d, this.n);
     },
     posledniIndexMezery() {
     if (!this.vstupniText) return -1;
-    const posledniMezera = this.vstupniText.lastIndexOf(' '); // lastIndexOf najde pouici poslední mezery v textu, -1 když není mezera
+    const posledniMezera = this.vstupniText.lastIndexOf(' '); 
     // pokud není mezera, zvýrazní celý text (vrátí -1)
     return posledniMezera;
     },
