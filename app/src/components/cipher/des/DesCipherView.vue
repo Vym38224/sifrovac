@@ -394,7 +394,6 @@ import {
   ziskejC1,
   ziskejD1,
   ziskejKlic56PoPC1,
-  feistelFunkce,
   sifrovat,
   desifrovat,
   rozdelNaPulky,
@@ -432,26 +431,6 @@ export default {
       dVizData: null,
     };
   },
-  watch: {
-    vstupniText() {
-      this.prepocitejVizualizaci();
-    },
-    klic() {
-      this.prepocitejVizualizaci();
-      if (this.klic.length !== 8) {
-        this.vstupniText = "";
-        this.vystupniText = "";
-      }
-    },
-    typVstupu() {
-      if (this.automatickePrepnuti) {
-        this.automatickePrepnuti = false;
-        return;
-      }
-      this.vstupniText = "";
-      this.vystupniText = "";
-    }
-  },
   methods: {
     sifrovat() {
       if (this.klic.length !== 8) {
@@ -469,7 +448,6 @@ export default {
         alert("Chyba při šifrování: " + error.message);
       }
     },
-
     desifrovat() {
       if (this.klic.length !== 8) {
         alert("Klíč musí mít přesně 8 znaků!");
@@ -486,7 +464,6 @@ export default {
         alert("Chyba při dešifrování: " + error.message);
       }
     },
-
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -496,13 +473,11 @@ export default {
         }, 2000);
       }
     },
-
     vymazatVse() {
       this.vstupniText = "";
       this.vystupniText = "";
       this.klic = "";
     },
-
     filtrovatKlic(udalost) {
       const hodnota = udalost.target.value;
       let filtrovanaHodnota = "";
@@ -546,9 +521,8 @@ export default {
         return vysledek;
       }
     },
-
     prepocitejVizualizaci() {
-      // reset
+      // reset Cache
       this.vizData = null;
       this.dVizData = null;
 
@@ -632,23 +606,41 @@ export default {
         };
       }
     },
-
     zobrazitLevy() {
       this.zobrazeniStrana = "left";
     },
-
     zobrazitPravy() {
       this.zobrazeniStrana = "right";
     },
-
     zobrazRundovniKlic() {
       this.zobrazitRundovniKlic = true;
     },
-
     skrytRundovniKlic() {
       this.zobrazitRundovniKlic = false;
     },
   },
+  // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
+  watch: {
+    vstupniText() {
+      this.prepocitejVizualizaci();
+    },
+    klic() {
+      this.prepocitejVizualizaci();
+      if (this.klic.length !== 8) {
+        this.vstupniText = "";
+        this.vystupniText = "";
+      }
+    },
+    typVstupu() {
+      if (this.automatickePrepnuti) {
+        this.automatickePrepnuti = false;
+        return;
+      }
+      this.vstupniText = "";
+      this.vystupniText = "";
+    }
+  },
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
     vizPodminky() {
       return this.klic.length === 8 && 

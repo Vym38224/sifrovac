@@ -127,13 +127,12 @@ export default {
   components: {
     SubstitutionInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       vstupniText: "",
       vystupniText: "",
       permutace: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), // split("") mi udělá pole 26 znaků ze stringu
+      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), 
       zobrazitInfo: false,
       zobrazitToast: false,
       jeCervena: false,
@@ -141,7 +140,6 @@ export default {
     };
   },
   methods: {
-    // šifrování a dešifrování
     async sifrovat() {
       try {
         this.vystupniText = encrypt(this.vstupniText, this.permutace);
@@ -158,7 +156,6 @@ export default {
         alert("Chyba při dešifrování, zkontrolujte parametry");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -179,13 +176,12 @@ export default {
       this.permutace = filtrovanaHodnota;
     },
     generovatNahodnouPermutaci() {
-      this.permutace = this.permutace.split("").sort(() => Math.random() -0.5).join(""); // join("") spojí pole ze split("") zpět na string
+      this.permutace = this.permutace.split("").sort(() => Math.random() -0.5).join("");
     }
   },
   // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
   watch: {
     permutace() {
-      console.log("Permutace se změnila!");
       if (this.jePermutaceNeplatna) {
         this.jeCervena = true;
         this.jeZelena = false;
@@ -199,9 +195,8 @@ export default {
       }
     },
   },
-  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí (né pokaždé když je volána)
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
-    // validace permutace
     jePermutaceNeplatna() {
       if (this.permutace.length !== 26) {
         return true;

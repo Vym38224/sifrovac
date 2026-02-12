@@ -115,7 +115,6 @@ export default {
   components: {
     VigenereInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       klic: "",
@@ -123,16 +122,14 @@ export default {
       vystupniText: "",
       zobrazitInfo: false,
       zobrazitToast: false,
-      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), // split("") mi udělá pole 26 znaků ze stringu
+      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
       rezim: "encrypt"
     };
   },
   methods: {
-    // šifrování a dešifrování
     async sifrovat() {
       this.rezim = "encrypt";
 
-      // není klíč, vrať vstupní text
       if (!this.klic || this.klic.trim() === "") {
         this.vystupniText = this.vstupniText;
         return;
@@ -148,7 +145,6 @@ export default {
     async desifrovat() {
       this.rezim = "decrypt";
 
-      // není klíč, vrať vstupní text
       if (!this.klic || this.klic.trim() === "") {
         this.vystupniText = this.vstupniText;
         return;
@@ -161,7 +157,6 @@ export default {
         alert("Chyba při dešifrování, zkontrolujte parametry");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -180,7 +175,7 @@ export default {
       this.klic = this.klic.toUpperCase().replace(/[^A-Z]/g, "");
     },
   },
-  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí (né pokaždé když je volána)
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
     // vizualizace zvýraznění v tabulce
     zvyrazneni() {
@@ -299,7 +294,6 @@ export default {
       return this.zvyrazneni.aktualniVysledek;
     },
 
-    // opakování klíče pro vstupní text
     opakovaniKlice() {
       if (this.klic === "") {
         return "";
@@ -311,7 +305,6 @@ export default {
       let poziceKlice = 0;
       for (let i = 0; i < this.vstupniText.length; i++) {
         const znak = this.vstupniText[i];
-        // pro mezery a tečky přidat mezeru do opakovaného klíče
         if (znak === " " || znak === ".") {
           opakovanyKlic += znak;
         } else {

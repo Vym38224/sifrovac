@@ -226,7 +226,6 @@ export default {
   components: {
     StreamInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       vstupniText: "",
@@ -244,7 +243,6 @@ export default {
     };
   },
   methods: {
-    // šifrování a dešifrování
     sifrovat() {
       try {
         this.vystupniText = encrypt(
@@ -271,7 +269,6 @@ export default {
         alert("Chyba při dešifrování, zkontrolujte parametry");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -311,7 +308,7 @@ export default {
       // Zablokuj "e", "E", "+", "-", "." a další nečíselné znaky
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
       if (zakazaneKlavesy.includes(udalost.key)) {
-        udalost.preventDefault();  // preventDefault() zabrání výchozímu chování události
+        udalost.preventDefault();  // preventDefault() zabrání výchozímu chování události (backspace pro nas)
       }
     },
     // fce pro vizualizaci dalsiKrok = výpočet jednoho bitu proudu klíčů, generovatCelyproud = výpočet celého proudu
@@ -399,7 +396,6 @@ export default {
       }
     },
     typVstupu() {
-      // Nemazat vstup při automatickém přepnutí
       if (this.automatickePrepnuti) {
         this.automatickePrepnuti = false;
         return;
@@ -408,7 +404,7 @@ export default {
       this.vystupniText = "";
     },
   },
-  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí (né pokaždé když je volána)
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
     // custom filter pro vstup 
     customFilter() {
@@ -425,14 +421,12 @@ export default {
         return filtrovanaHodnota;
       };
     },
-    // kontrola správného nastavení parametrů
     isKoeficientyInvalid() {
       return this.koeficientyBity.length !== this.m;
     },
     isPocatecniVektorInvalid() {
       return this.pocatecniVektorBity.length !== this.m;
     },
-    // fce pro vizualizaci
     vizualizaceCistehoTextuBity() {
       if (this.typVstupu === "text") {
         return this.textNaBinarni(this.vstupniText);

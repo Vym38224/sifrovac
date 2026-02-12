@@ -25,8 +25,6 @@
           max="25"
           v-model.number="posun"
           class="input"
-          @input="priZmenePosunu"
-          @change="priZmenePosunu"
           @keydown="blokujNeciselnePismena"
         />
       </form>
@@ -71,7 +69,6 @@ export default {
   components: {
     CaesarInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       posun: 0,
@@ -83,7 +80,6 @@ export default {
     };
   },
   methods: {
-    // šifrování a dešifrování 
     async sifrovat() {
       try {
         this.vystupniText = encrypt(this.vstupniText, this.posun);
@@ -100,7 +96,6 @@ export default {
         alert("Chyba při dešifrování, zkontrolujte parametry");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -116,26 +111,29 @@ export default {
       this.posun = 0;
       this.uhelKola = 75;
     },
-    // otáčení kola při změně posunu (klíče)
-    otocitKolo() {
-      const korekce = 75;
-      this.uhelKola = this.posun * (360 / 26) + korekce;
-    },
-    priZmenePosunu() {
-      if (this.posun > 25) {
-        this.posun = 25;
-      }
-      if (this.posun < 0) {
-        this.posun = 0;
-      }
-      this.otocitKolo();
-    },
     blokujNeciselnePismena(udalost) {
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
       if (zakazaneKlavesy.includes(udalost.key)) {
         udalost.preventDefault();
       }
     },
+    // otáčení kola při změně posunu (klíče)
+    otocitKolo() {
+      const korekce = 75;
+      this.uhelKola = this.posun * (360 / 26) + korekce;
+    },
+  },
+  // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
+  watch: {
+    posun() {
+      if (this.posun < 0) {
+        this.posun = 0;
+      }
+      if (this.posun > 25) {
+        this.posun = 25;
+      }
+      this.otocitKolo();
+    }
   },
 };
 </script>

@@ -126,21 +126,19 @@ export default {
   components: {
     AffineInfoContent
   },
-  // reaktivní proměnné 
   data() {
     return {
       vstupniText: "",
       hodnotaA: 1,
       hodnotaB: 0,
       vystupniText: "",
-      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), // split("") mi udělá pole 26 znaků ze stringu
+      abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
       zvyrazneneIndexy: [],
       zobrazitInfo: false,
       zobrazitToast: false,
     };
   },
   methods: {
-    // šifrování a dešifrování
     async sifrovat() {
       try {
         this.vystupniText = encrypt(this.vstupniText, this.hodnotaA, this.hodnotaB);
@@ -157,7 +155,6 @@ export default {
         alert(error.message || "Chyba při dešifrování, zkontrolujte parametry");
       }
     },
-    // základní funkce pro práci s UI
     kopirovat(text) {
       if (text !== "") {
         navigator.clipboard.writeText(text);
@@ -172,30 +169,13 @@ export default {
       this.vystupniText = "";
       this.hodnotaA = 1;
       this.hodnotaB = 0;
-    },    blokujNeciselnePismena(udalost) {
+    },
+    blokujNeciselnePismena(udalost) {
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
       if (zakazaneKlavesy.includes(udalost.key)) {
         udalost.preventDefault();
       }
-    },    // validace parametrů A a B a zvyraznění změny v tabulce
-    priVstupuA() {
-      if (this.hodnotaA < 0) {
-        this.hodnotaA = 0;
-      }
-      if (this.hodnotaA > 25) {
-        this.hodnotaA = 25;
-      }
-      this.zmenitZvyrazneni();
-    },
-    priVstupuB() {
-      if (this.hodnotaB < 0) {
-        this.hodnotaB = 0;
-      }
-      if (this.hodnotaB > 26) {
-        this.hodnotaB = 26;
-      }
-      this.zmenitZvyrazneni();
-    },
+    }, 
     // zvýraznění textu v tabulce při změně parametrů
     zmenitZvyrazneni() {
       for (let i = 0; i < this.abeceda.length; i++) {
@@ -217,7 +197,6 @@ export default {
       const kod = (this.hodnotaA * index + this.hodnotaB) % 26;
       return this.abeceda[kod];
     },
-    // výpočet inverze A, vrací inverzi A (má inverzi) nebo null (nemá inverzi)
     inverzniA() {
       for (let x = 1; x < 26; x++) {
         if ((this.hodnotaA * x) % 26 === 1) {
@@ -229,12 +208,28 @@ export default {
   },
   // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
   watch: {
-    hodnotaB: "priVstupuB",
-    hodnotaA: "priVstupuA",
+    hodnotaB() {
+      if (this.hodnotaB < 0) {
+        this.hodnotaB = 0;
+      }
+      if (this.hodnotaB > 26) {
+        this.hodnotaB = 26;
+      }
+      this.zmenitZvyrazneni();
+    },
+    hodnotaA() {
+      if (this.hodnotaA < 0) {
+        this.hodnotaA = 0;
+      }
+      if (this.hodnotaA > 25) {
+        this.hodnotaA = 25;
+      }
+      this.zmenitZvyrazneni();
+    }
   },
-  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí (né pokaždé když je volána)
+  // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
-    // kontrola zda A je nesoudělné s 26 (má inverzi)
+    // je nesoudělné == má inverzi
     jeAckoNesoudelne() {
       const inverze = this.inverzniA();
       if (inverze === null) {
