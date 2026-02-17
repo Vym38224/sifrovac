@@ -18,8 +18,8 @@
           <p>
             Tato aplikace slouží k vizualizaci šifrovacích algoritmů. Můžete si zde
             vyzkoušet různé historické i moderní šifry. Stačí zadat text, klíč a
-            aplikace vám ukáže postup šifrování nebo dešifrování. Aplikace používá pouze
-            znaky anglické abecedy. Pokud vás zajímá teorie a použité vzorce, najdete
+            vizualizace vám ukáže postup šifrování nebo dešifrování. Pracuje pouze
+            se znaky anglické abecedy a pokud vás zajímá teorie a použité vzorce, najdete
             je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
