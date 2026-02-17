@@ -18,8 +18,9 @@
           <p>
             Tato aplikace slouží k vizualizaci šifrovacích algoritmů. Můžete si zde
             vyzkoušet různé historické i moderní šifry. Stačí zadat text, klíč a
-            aplikace vám ukáže postup šifrování a dešifrování. Pokud vás zajímá teorie a
-            použité vzorce, najdete je vždy pod ikonou
+            aplikace vám ukáže postup šifrování nebo dešifrování. Aplikace používá pouze
+            znaky anglické abecedy. Pokud vás zajímá teorie a použité vzorce, najdete
+            je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
               style="width: 14px"
