@@ -110,10 +110,10 @@
           <!-- Komponenta pro binární zobrazení -->
           <DesBinaryDisplay 
             :binary-data="textBin"
-            :title="vstupniText.length === 8 ? 'Binární reprezentace textu' : `${vstupniText.length}/8 znaků`"
+            :title="vstupniText.length === 8 ? 'Binární reprezentace textu' : `${vstupniText.length}/8 znaků (ASCII)`"
             :title-warning="vstupniText.length !== 8"
             :show-count="vstupniText.length === 8"
-            :count="`${vstupniText.length}/8 znaků`"
+            :count="`${vstupniText.length}/8 znaků (ASCII)`"
           />
           <!-- Když jsou splněny všechny podmínky-->
           <div v-if="vizPodminky && vstupniText.length === 8 && klic.length === 8" >
@@ -362,7 +362,7 @@
             >
               <span class="primary-color">IP<sup style="font-size: 9px">-1</sup></span>
             </a>
-            a převod na znaky
+            a převod na znaky pomocí ASCII
           </p>
 
           <code class="binary-display bold result box-formula">{{ dKonecnaPermutaceNaZnaky }}</code>
