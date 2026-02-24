@@ -9,7 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex" style="gap:10px;">
-        <label id="key-label" for="key">Klíč:</label>
+        <label id="key-label" for="key" style="margin-top:1px;">Klíč:</label>
         <input
           type="text"
           id="key"
@@ -18,13 +18,15 @@
           @input="filtrovatKlic"
           placeholder="Zadejte 8 znaků"
           class="input"
-          style="width: 30%"
+          style="width: 110px;"
         />
-        <div v-if="klic.length > 0 && klic.length !== 8" style="margin-top: 3px;">
-            <small class="warning-color"
-              >{{ klic.length }}/8</small
+        <button
+              type="button"
+              class="btn-view neutral-color center"
+              @click="generovatNahodnyKlic"
             >
-          </div>
+              Náhodně
+            </button>
         <div class="des input-type-selector flex">
           <input
             type="radio"
@@ -69,6 +71,11 @@
           (vstupniText.length > 0 && !/^[01]+$/.test(vstupniText))
         "
       />
+      <div v-if="klic.length > 0 && klic.length !== 8">
+        <p class="warning-color"
+          >Klíč má {{ klic.length }}/8 znaků</p
+        >
+      </div>
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
@@ -520,6 +527,16 @@ export default {
         }
         return vysledek;
       }
+    },
+    generovatNahodnyKlic() {
+      const kryptoSlova = [
+        "PASSWORD", "SECURITY", "ENCODING", "DECIPHER",
+        "PROTOCOL", "EXCHANGE", "BACKDOOR", "FIREWALL",
+        "METADATA"
+      ];
+
+      const nahodnyIndex = Math.floor(Math.random() * kryptoSlova.length);
+      this.klic = kryptoSlova[nahodnyIndex];
     },
     prepocitejVizualizaci() {
       // reset Cache
