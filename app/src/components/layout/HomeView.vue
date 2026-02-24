@@ -19,7 +19,8 @@
             Tato aplikace slouží k vizualizaci šifrovacích algoritmů. Můžete si zde
             vyzkoušet různé historické i moderní šifry. Stačí zadat text, klíč a
             vizualizace vám ukáže postup šifrování nebo dešifrování. Pracuje pouze
-            se znaky anglické abecedy a pokud vás zajímá teorie a použité vzorce, najdete
+            se znaky anglické abecedy, některé šifry přitom převádí znaky na čísla pomocí <a class="primary-color without-underline" target="_blank" href="https://cs.wikipedia.org/wiki/ASCII">ASCII</a>.
+            Pokud vás zajímá teorie a použité vzorce, najdete
             je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
