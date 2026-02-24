@@ -72,8 +72,9 @@
         "
       />
       <div v-if="klic.length > 0 && klic.length !== 8">
-        <p class="warning-color"
-          >Klíč má {{ klic.length }}/8 znaků</p
+        <p class="warning-color"> 
+          Šifrování a dešifrování není k dispozici! <br />
+          Klíč má {{ klic.length }}/8 znaků</p
         >
       </div>
     </section>

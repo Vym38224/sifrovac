@@ -87,6 +87,13 @@
         :disable-encrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0"
         :disable-decrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0"
       />
+
+      <div v-if="isPocatecniVektorInvalid || isKoeficientyInvalid">
+        <p class="warning-color">Šifrování a dešifrování není k dispozici!
+          <br />
+          Počáteční vektor a koeficienty musí mít přesně {{ m }} {{ bituvText }}
+        </p>
+      </div>
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
@@ -426,6 +433,11 @@ export default {
     },
     isPocatecniVektorInvalid() {
       return this.pocatecniVektorBity.length !== this.m;
+    },
+    bituvText() {
+      if (this.m === 1) return 'bit';
+      if (this.m >= 2 && this.m <= 4) return 'bity';
+      return 'bitů';
     },
     vizualizaceCistehoTextuBity() {
       if (this.typVstupu === "text") {
