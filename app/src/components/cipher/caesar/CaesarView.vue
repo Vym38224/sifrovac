@@ -11,6 +11,7 @@
       <form class="params flex">
         <label for="shift-slider">Zvolte klíč šifry:</label>
         <input
+          id="shift-slider"
           type="range"
           class="form-range"
           min="0"
