@@ -113,7 +113,7 @@
             :title="vstupniText.length === 8 ? 'Binární reprezentace textu' : `${vstupniText.length}/8 znaků (ASCII)`"
             :title-warning="vstupniText.length !== 8"
             :show-count="vstupniText.length === 8"
-            :count="`${vstupniText.length}/8 znaků (ASCII)`"
+            :count="`${vstupniText.length}/8 znaků`"
           />
           <!-- Když jsou splněny všechny podmínky-->
           <div v-if="vizPodminky && vstupniText.length === 8 && klic.length === 8" >
@@ -130,7 +130,7 @@
               <span class="tertiary-color">L<sub>0</sub></span>,
               <span class="tertiary-color">R<sub>0</sub></span>
             </h4>
-            <div class="binary flex column center">
+            <div class="binary flex column center" style="opacity: 85%; font-size: 14px">
               <code
                 class="binary-display binary-half clickable tertiary-color"
                 :class="{
@@ -213,7 +213,7 @@
             a
             <span class="primary-color bold">L<sub>1</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px">
+          <code class="binary-display primary-color result" style="margin-top: 7px; font-size: 9.9px;">
             {{ spojenoBlokyFormatovano }}
           </code>
 
@@ -228,7 +228,7 @@
             </a>
           </p>
 
-          <code class="binary-display bold result box-formula">{{ konecnaPermutace }}</code>
+          <code class="binary-display bold result box-formula" style="font-size: 9.9px;">{{ konecnaPermutace }}</code>
         </section>
 
         <DesPermutationModal ref="ipInvModal" table-type="IP_INV" modal-class="ip-inv" />
@@ -349,7 +349,7 @@
             a
             <span class="primary-color bold">R<sub>0</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px">
+          <code class="binary-display primary-color result" style="margin-top: 7px ; font-size: 9.9px;">
             {{ dSpojenoBlokyFormatovano }}
           </code>
 

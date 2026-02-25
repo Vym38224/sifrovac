@@ -73,6 +73,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Normalizace monospace fontu napříč OS */
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.69em;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

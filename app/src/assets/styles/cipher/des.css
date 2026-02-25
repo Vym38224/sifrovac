@@ -18,6 +18,9 @@
 
 .binary-display {
   letter-spacing: 2px;
+  font-family: "Inter", sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
 
 .next {
