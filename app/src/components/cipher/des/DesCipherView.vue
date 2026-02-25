@@ -23,7 +23,7 @@
         <button
               type="button"
               class="btn-view neutral-color center"
-              @click="generovatNahodnyKlic"
+              @click="generovatNahodny"
             >
               Náhodně
             </button>
@@ -527,15 +527,17 @@ export default {
         return vysledek;
       }
     },
-    generovatNahodnyKlic() {
-      const kryptoSlova = [
+    generovatNahodny() {
+      const key = [
         "PASSWORD", "SECURITY", "ENCODING", "DECIPHER",
         "PROTOCOL", "EXCHANGE", "BACKDOOR", "FIREWALL",
-        "METADATA"
+        "COMPUTER", "SOFTWARE",
       ];
+      const message = "MESSAGES"
 
-      const nahodnyIndex = Math.floor(Math.random() * kryptoSlova.length);
-      this.klic = kryptoSlova[nahodnyIndex];
+      const nahodnyIndex = Math.floor(Math.random() * key.length);
+      this.klic = key[nahodnyIndex];
+      this.vstupniText = message;
     },
     prepocitejVizualizaci() {
       // reset Cache
