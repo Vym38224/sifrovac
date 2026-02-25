@@ -67,6 +67,10 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  /* optimalizace vykreslování textu pro MAC */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
