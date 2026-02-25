@@ -536,8 +536,10 @@ export default {
       const message = "MESSAGES"
 
       const nahodnyIndex = Math.floor(Math.random() * key.length);
+      this.typVstupu = "text";
       this.klic = key[nahodnyIndex];
       this.vstupniText = message;
+      
     },
     prepocitejVizualizaci() {
       // reset Cache
