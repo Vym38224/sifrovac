@@ -213,7 +213,7 @@
             a
             <span class="primary-color bold">L<sub>1</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px; font-size: 9.9px;">
+          <code class="binary-display primary-color result" style="margin-top: 7px; font-size: 9px;">
             {{ spojenoBlokyFormatovano }}
           </code>
 
@@ -228,7 +228,7 @@
             </a>
           </p>
 
-          <code class="binary-display bold result box-formula" style="font-size: 9.9px;">{{ konecnaPermutace }}</code>
+          <code class="binary-display bold result box-formula" style="font-size: 9px;">{{ konecnaPermutace }}</code>
         </section>
 
         <DesPermutationModal ref="ipInvModal" table-type="IP_INV" modal-class="ip-inv" />
@@ -349,7 +349,7 @@
             a
             <span class="primary-color bold">R<sub>0</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px ; font-size: 9.9px;">
+          <code class="binary-display primary-color result" style="margin-top: 7px ; font-size: 9px;">
             {{ dSpojenoBlokyFormatovano }}
           </code>
 
