@@ -16,8 +16,8 @@ export function encrypt(text, shift) {
     for (let char of text) {
         if (ALPHABET.includes(char)) {
             const oldIndex = ALPHABET.indexOf(char);
-            // +26 a druhý % 26 zajistí správnou funkci i se zápornými čísly (při dešifrování)
-            const newIndex = ((oldIndex + shift) % 26 + 26) % 26;
+            // +26 zajistí správnou funkci i se zápornými čísly (při dešifrování)
+            const newIndex = ((oldIndex + shift) + 26) % 26;
             result += ALPHABET[newIndex];
         } else if (char === ' ' || char === '.') {
             result += char;
