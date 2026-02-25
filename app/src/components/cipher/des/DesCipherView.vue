@@ -130,7 +130,7 @@
               <span class="tertiary-color">L<sub>0</sub></span>,
               <span class="tertiary-color">R<sub>0</sub></span>
             </h4>
-            <div class="binary flex column center" style="opacity: 85%; font-size: 14px">
+            <div class="binary flex column center">
               <code
                 class="binary-display binary-half clickable tertiary-color"
                 :class="{
@@ -392,10 +392,8 @@ import {
   textNaBinarni,
   binarniNaText,
   aplikujPermutaci,
-  aplikujExpanzi,
   xorOperace,
-  aplikujSBoxy,
-  aplikujPBox,
+  feistelFunkce,
   vygenerujPrvniRundovniKlic,
   ziskejC0,
   ziskejD0,
@@ -552,11 +550,8 @@ export default {
         const { leva, prava } = rozdelNaPulky(permutovany);
         
         const pravaBits = prava.replace(/\s/g, "");
-        const expanded = aplikujExpanzi(pravaBits);
         const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const xorResult = xorOperace(expanded, roundKey);
-        const sBoxOutput = aplikujSBoxy(xorResult);
-        const pBoxOutput = aplikujPBox(sBoxOutput);
+        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
         const novaPrava = xorOperace(leva.replace(/\s/g, ""), pBoxOutput);
         const spojeno = novaPrava + prava.replace(/\s/g, "");
         const konecna = aplikujPermutaci(spojeno, IP_INV);
@@ -592,11 +587,8 @@ export default {
         
         const R0 = L1;
         const pravaBits = R0.replace(/\s/g, "");
-        const expanded = aplikujExpanzi(pravaBits);
         const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const xorResult = xorOperace(expanded, roundKey);
-        const sBoxOutput = aplikujSBoxy(xorResult);
-        const pBoxOutput = aplikujPBox(sBoxOutput);
+        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
         const L0 = xorOperace(R1.replace(/\s/g, ""), pBoxOutput);
         const spojeno = L0 + R0.replace(/\s/g, "");
         const konecna = aplikujPermutaci(spojeno, IP_INV);

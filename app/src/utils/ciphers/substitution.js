@@ -16,8 +16,7 @@ export function encrypt(text, permutation) {
     for (let char of text) {
         if (ALPHABET.includes(char)) {
             const position = ALPHABET.indexOf(char);
-            const encryptedChar = permutation[position];
-            result += encryptedChar;
+            result += permutation[position];
         } else if (char === ' ' || char === '.') {
             result += char;
         }
@@ -38,8 +37,7 @@ export function decrypt(text, permutation) {
     for (let char of text) {
         if (permutation.includes(char)) {
             const position = permutation.indexOf(char);
-            const decryptedChar = ALPHABET[position];
-            result += decryptedChar;
+            result += ALPHABET[position];
         } else if (char === ' ' || char === '.') {
             result += char;
         }
