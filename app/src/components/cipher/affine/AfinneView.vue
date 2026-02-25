@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import { encrypt, decrypt } from '@/utils/ciphers/affine';
+import { encrypt, decrypt, inverseA } from '@/utils/ciphers/affine';
 import AffineInfoContent from './components/AffineInfoContent.vue';
 export default {
   name: "AfinneView",
@@ -198,12 +198,7 @@ export default {
       return this.abeceda[kod];
     },
     inverzniA() {
-      for (let x = 1; x < 26; x++) {
-        if ((this.hodnotaA * x) % 26 === 1) {
-          return x;
-        }
-      }
-      return null;
+      return inverseA(this.hodnotaA);
     },
   },
   // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
