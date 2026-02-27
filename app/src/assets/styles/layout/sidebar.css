@@ -176,3 +176,12 @@
     display: none;
   }
 }
+
+@media (max-width: 1200px) {
+
+  .sidebar,
+  #sidebar {
+    height: 328vh;
+    max-height: 328vh;
+  }
+}

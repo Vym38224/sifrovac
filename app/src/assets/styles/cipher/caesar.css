@@ -39,3 +39,13 @@
 [data-theme="dark"] .wheel.inner {
   content: url("@/assets/images/ui/inner-wheel-dark.png");
 }
+
+@media (max-width: 1200px) {
+  .wheel {
+    left: 27px;
+  }
+
+  .wheel.inner {
+    left: 106px;
+  }
+}

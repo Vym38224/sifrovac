@@ -90,7 +90,7 @@
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
-    <aside class="secondary-content flex column zero-gap">
+    <aside class="stream secondary-content flex column zero-gap">
 
       <!-- bod1(pokud je vstup text): Převod znaků vstupu na bity -->
       <section

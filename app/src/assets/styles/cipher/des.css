@@ -1,5 +1,5 @@
 .des.secondary-content {
-  gap:0;
+  gap: 0;
   margin-top: -6px;
 }
 
@@ -235,7 +235,15 @@ sub {
   margin-top: 4px;
 }
 
-.des.input-type-selector{
+.des.input-type-selector {
   margin-left: auto;
   margin-right: -19px;
+}
+
+@media (max-width: 1200px) {
+
+  .des.secondary-content {
+    margin-left: 25px;
+  }
+
 }

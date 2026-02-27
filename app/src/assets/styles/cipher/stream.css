@@ -22,7 +22,7 @@
   width: 76px;
 }
 
-.stream.input-type-selector{
+.stream.input-type-selector {
   margin-left: auto;
 }
 
@@ -92,4 +92,12 @@
 
 .xor-divider {
   margin: 5px 0;
+}
+
+@media (max-width: 1200px) {
+
+  .stream.secondary-content {
+    margin-left: 20px;
+  }
+
 }
