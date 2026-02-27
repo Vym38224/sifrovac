@@ -1,15 +1,15 @@
 
 <!-- Komponenta pro zobrazení binárních dat v DES s volitelným počítadlem bitů a nadpisem -->
 <template>
-  <div class="binary-display-wrapper">
-    <h4 v-if="title" style="opacity: 85%; font-size: 14px" :class="{ 'warning-color': titleWarning }">
+  <div class="binary-display-wrapper" style="opacity: 85%; font-size: 14px">
+    <h4 v-if="title" :class="{ 'warning-color': titleWarning }">
       {{ title }}
       <slot name="link"></slot>
       <small v-if="showCount">
         {{ count }}
       </small>
     </h4>
-    <div class="binary flex column center" style="padding-top: 2.5px;">
+    <div class="binary flex column center" style="padding-top: 4.2px; gap:1.5px; font-size: 13.5px">
       <code 
         v-for="(line, index) in naformatovaneRadky" 
         :key="index"

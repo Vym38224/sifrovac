@@ -9,7 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex" style="gap:10px;">
-        <label id="key-label" for="key">Klíč:</label>
+        <label id="key-label" for="key" style="margin-top:1px;">Klíč:</label>
         <input
           type="text"
           id="key"
@@ -18,13 +18,15 @@
           @input="filtrovatKlic"
           placeholder="Zadejte 8 znaků"
           class="input"
-          style="width: 30%"
+          style="width: 110px;"
         />
-        <div v-if="klic.length > 0 && klic.length !== 8" style="margin-top: 3px;">
-            <small class="warning-color"
-              >{{ klic.length }}/8</small
+        <button
+              type="button"
+              class="btn-view neutral-color center"
+              @click="generovatNahodny"
             >
-          </div>
+              Náhodně
+            </button>
         <div class="des input-type-selector flex">
           <input
             type="radio"
@@ -69,6 +71,12 @@
           (vstupniText.length > 0 && !/^[01]+$/.test(vstupniText))
         "
       />
+      <div v-if="klic.length > 0 && klic.length !== 8">
+        <p class="warning-color"> 
+          Šifrování a dešifrování není k dispozici! <br />
+          Klíč má {{ klic.length }}/8 znaků</p
+        >
+      </div>
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
@@ -102,7 +110,7 @@
           <!-- Komponenta pro binární zobrazení -->
           <DesBinaryDisplay 
             :binary-data="textBin"
-            :title="vstupniText.length === 8 ? 'Binární reprezentace textu' : `${vstupniText.length}/8 znaků`"
+            :title="vstupniText.length === 8 ? 'Binární reprezentace textu' : `${vstupniText.length}/8 znaků (ASCII)`"
             :title-warning="vstupniText.length !== 8"
             :show-count="vstupniText.length === 8"
             :count="`${vstupniText.length}/8 znaků`"
@@ -205,7 +213,7 @@
             a
             <span class="primary-color bold">L<sub>1</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px">
+          <code class="binary-display primary-color result" style="margin-top: 7px; font-size: 9px;">
             {{ spojenoBlokyFormatovano }}
           </code>
 
@@ -220,7 +228,7 @@
             </a>
           </p>
 
-          <code class="binary-display bold result box-formula">{{ konecnaPermutace }}</code>
+          <code class="binary-display bold result box-formula" style="font-size: 9px;">{{ konecnaPermutace }}</code>
         </section>
 
         <DesPermutationModal ref="ipInvModal" table-type="IP_INV" modal-class="ip-inv" />
@@ -341,7 +349,7 @@
             a
             <span class="primary-color bold">R<sub>0</sub></span>
           </p>
-          <code class="binary-display primary-color result" style="margin-top: 7px">
+          <code class="binary-display primary-color result" style="margin-top: 7px ; font-size: 9px;">
             {{ dSpojenoBlokyFormatovano }}
           </code>
 
@@ -354,7 +362,7 @@
             >
               <span class="primary-color">IP<sup style="font-size: 9px">-1</sup></span>
             </a>
-            a převod na znaky
+            a převod na znaky pomocí ASCII
           </p>
 
           <code class="binary-display bold result box-formula">{{ dKonecnaPermutaceNaZnaky }}</code>
@@ -384,10 +392,8 @@ import {
   textNaBinarni,
   binarniNaText,
   aplikujPermutaci,
-  aplikujExpanzi,
   xorOperace,
-  aplikujSBoxy,
-  aplikujPBox,
+  feistelFunkce,
   vygenerujPrvniRundovniKlic,
   ziskejC0,
   ziskejD0,
@@ -521,6 +527,20 @@ export default {
         return vysledek;
       }
     },
+    generovatNahodny() {
+      const key = [
+        "PASSWORD", "SECURITY", "ENCODING", "DECIPHER",
+        "PROTOCOL", "EXCHANGE", "BACKDOOR", "FIREWALL",
+        "COMPUTER", "SOFTWARE",
+      ];
+      const message = "MESSAGES"
+
+      const nahodnyIndex = Math.floor(Math.random() * key.length);
+      this.typVstupu = "text";
+      this.klic = key[nahodnyIndex];
+      this.vstupniText = message;
+      
+    },
     prepocitejVizualizaci() {
       // reset Cache
       this.vizData = null;
@@ -534,11 +554,8 @@ export default {
         const { leva, prava } = rozdelNaPulky(permutovany);
         
         const pravaBits = prava.replace(/\s/g, "");
-        const expanded = aplikujExpanzi(pravaBits);
         const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const xorResult = xorOperace(expanded, roundKey);
-        const sBoxOutput = aplikujSBoxy(xorResult);
-        const pBoxOutput = aplikujPBox(sBoxOutput);
+        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
         const novaPrava = xorOperace(leva.replace(/\s/g, ""), pBoxOutput);
         const spojeno = novaPrava + prava.replace(/\s/g, "");
         const konecna = aplikujPermutaci(spojeno, IP_INV);
@@ -574,11 +591,8 @@ export default {
         
         const R0 = L1;
         const pravaBits = R0.replace(/\s/g, "");
-        const expanded = aplikujExpanzi(pravaBits);
         const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const xorResult = xorOperace(expanded, roundKey);
-        const sBoxOutput = aplikujSBoxy(xorResult);
-        const pBoxOutput = aplikujPBox(sBoxOutput);
+        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
         const L0 = xorOperace(R1.replace(/\s/g, ""), pBoxOutput);
         const spojeno = L0 + R0.replace(/\s/g, "");
         const konecna = aplikujPermutaci(spojeno, IP_INV);

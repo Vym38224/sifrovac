@@ -9,7 +9,7 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
  * @param {number} a - klíč a
  * @returns {number|null} - inverze nebo null, pokud neexistuje
  */
-function inverseA(a) {
+export function inverseA(a) {
     for (let x = 1; x < 26; x++) {
         if ((a * x) % 26 === 1) {
             return x;

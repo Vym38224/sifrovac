@@ -16,17 +16,17 @@
         </header>
         <div class="lead">
           <p>
-            Objevte svět kryptografie od nejstarších šifer starověku až po
-            moderní metody šifrování. Každá šifra obsahuje
+            Tato aplikace slouží k vizualizaci šifrovacích algoritmů. Můžete si zde
+            vyzkoušet různé historické i moderní šifry. Stačí zadat text, klíč a
+            vizualizace vám ukáže postup šifrování nebo dešifrování. Pracuje pouze
+            se znaky anglické abecedy, některé šifry přitom převádí znaky na čísla pomocí <a class="primary-color without-underline" target="_blank" href="https://cs.wikipedia.org/wiki/ASCII">ASCII</a>.
+            Pokud vás zajímá teorie a použité vzorce, najdete
+            je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
               style="width: 14px"
               class="inline-icon"
-            />, kde je její popis, vysvětlení principů a vzorců. Můžete si šifry
-            vyzkoušet na vlastní kůži: stačí zvolit šifru, zadat text a klíč.
-            Aplikace zobrazí zašifrovaný nebo dešifrovaný výsledek spolu s
-            vizualizací procesu, která vám pomůže lépe pochopit, jak šifra
-            funguje.
+            />.
           </p>
         </div>
       </section>

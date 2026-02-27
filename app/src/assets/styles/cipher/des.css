@@ -18,6 +18,9 @@
 
 .binary-display {
   letter-spacing: 2px;
+  font-family: "Inter", sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
 
 .next {
@@ -230,6 +233,7 @@
 sub {
   font-size: 9px;
 }
+<<<<<<< HEAD
 
 .des.input-type-selector label {
   margin-top: 4px;
@@ -246,4 +250,8 @@ sub {
     margin-left: 25px;
   }
 
+=======
+.des.input-type-selector{
+  margin-left: 28px;
+>>>>>>> b6558f415adf1fa3c2f8dfbaebe8d42fc2408386
 }
