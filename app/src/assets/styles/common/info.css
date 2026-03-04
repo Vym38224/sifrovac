@@ -10,7 +10,7 @@
 }
 
 .info-article {
-  border-radius: 15px;
+  border-radius: 6px;
   margin: auto;
   margin-top: 2em;
   padding: 1.5em 2em 1em 2em;
@@ -24,11 +24,11 @@
 }
 
 .close-btn {
+  background: var(--delete-btn-bg);
   position: sticky;
   float: right;
   top: 0;
-  right: 0;
-  margin-left: auto;
+  left: 0;
   width: 1.75em;
   height: 1.75em;
   border: none;
@@ -40,7 +40,7 @@
 }
 
 .close-btn:hover {
-  background: #c0392b;
+  background: var(--delete-btn-bg-hover);
 }
 
 /* Fade transition */

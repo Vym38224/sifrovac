@@ -33,13 +33,12 @@
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  border-radius: 12px;
 }
 
 .ip-image {
   max-height: 400px;
   max-width: 800px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: block;

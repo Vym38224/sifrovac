@@ -1,7 +1,7 @@
 .sbox-modal-wrapper {
   position: relative;
   background: var(--viz-bg);
-  border-radius: 8px;
+  border-radius: 6px;
   padding-left: 17px;
   padding-right: 17px;
   padding-bottom: 0;

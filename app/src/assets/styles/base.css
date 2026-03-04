@@ -217,7 +217,7 @@ select:focus {
 /* Vizualizace - Bile obláčky */
 .viz-step {
   background-color: var(--viz-bg);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   padding-top: 5px;
   margin-bottom: 11.5px;
