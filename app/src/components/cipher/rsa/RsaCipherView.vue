@@ -82,7 +82,7 @@
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
-    <aside class="secondary-content flex">
+    <aside class="rsa secondary-content flex">
       
       <!-- Celý postup rozdělen na 
        1.Výpočet klíčů  = společne pro otevřený text a šifrovaný text

@@ -2,6 +2,7 @@
 .afinne.secondary-content {
   margin-top: -14px;
 }
+
 .affine-table thead {
   border: 2px solid var(--viz-border);
 }
@@ -52,4 +53,13 @@
   background-color: #42b98314;
   border: 1px solid #2d3e506a;
   padding: 0.4em;
+}
+
+
+@media (max-width: 1200px) {
+
+  .afinne.secondary-content {
+    margin-left: 50px;
+  }
+
 }
