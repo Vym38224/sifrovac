@@ -233,10 +233,6 @@ sub {
   font-size: 9px;
 }
 
-.des.input-type-selector label {
-  margin-top: 4px;
-}
-
 .des.input-type-selector {
   margin-left: auto;
   margin-right: -19px;
