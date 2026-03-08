@@ -84,8 +84,8 @@
 
       <!-- Komponenta pro tlačítka -->
       <CipherButtons
-        :disable-encrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0"
-        :disable-decrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0"
+        :disable-encrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0 || (vstupniText.length > 0 && typVstupu === 'bity')"
+        :disable-decrypt="isPocatecniVektorInvalid || isKoeficientyInvalid || m === 0 || (vstupniText.length > 0 && typVstupu === 'text')"
       />
 
       <div v-if="isPocatecniVektorInvalid || isKoeficientyInvalid">
@@ -155,6 +155,7 @@
             Generovat vše
           </button>
         </nav>
+        <p v-if="chybaVstup" class="warning-color">Chyba: chybí vstup!</p>
         <p class="viz-stream">
           Proud klíčů:
           <br/>
@@ -247,6 +248,7 @@ export default {
       zobrazitInfo: false,
       zobrazitToast: false,
       automatickePrepnuti: false,
+      chybaVstup: false,
     };
   },
   methods: {
@@ -320,6 +322,11 @@ export default {
     },
     // fce pro vizualizaci dalsiKrok = výpočet jednoho bitu proudu klíčů, generovatCelyproud = výpočet celého proudu
     dalsiKrok() {
+      if (this.vstupniText.trim() === "") {
+        this.chybaVstup = true;
+        return;
+      }
+      this.chybaVstup = false;
       if (this.proudKlicu.endsWith("...")) {
         return;
       }
@@ -343,6 +350,11 @@ export default {
       return new Promise((resolve) => setTimeout(resolve, ms));
     },
     async generovatCelyProud() {
+      if (this.vstupniText.trim() === "") {
+        this.chybaVstup = true;
+        return;
+      }
+      this.chybaVstup = false;
       if (this.proudKlicu.endsWith("...") || this.isGenerating) {
         return;
       }
@@ -388,6 +400,9 @@ export default {
     vstupniText(novaHodnota, staraHodnota) {
       this.aktualniStavRegistru = this.pocatecniVektorBity;
       this.proudKlicu = "";
+      if (novaHodnota.trim() !== "") {
+        this.chybaVstup = false;
+      }
 
       if (staraHodnota === "" && novaHodnota.length === 1) {
         const prvniZnak = novaHodnota[0];
