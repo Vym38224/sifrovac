@@ -1,6 +1,7 @@
 /* Vizualizace - tabulka */
 .afinne.secondary-content {
   margin-top: -14px;
+  margin-bottom: 0;
 }
 
 .affine-table thead {
@@ -13,10 +14,10 @@
 
 .affine-table {
   flex: 1 1 0;
-  height: 640px;
+  height: fit-content;
   width: 640px;
-  overflow-y: auto;
   overflow-x: auto;
+
 }
 
 .affine-table table {
@@ -47,6 +48,7 @@
 
 .secondary-content-info {
   gap: 0;
+  padding-bottom: 0;
 }
 
 .box-formula {
