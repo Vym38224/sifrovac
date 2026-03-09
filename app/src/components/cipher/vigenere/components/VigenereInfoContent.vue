@@ -1,107 +1,138 @@
 <!-- Komponenta pro informace o Vigenèrově šifře -->
 <template>
   <div>
-    <h3 id="info-title">O Vigenèrově šifře</h3>
-    <p>
-      Šifra vychází<router-link
-        to="/#alberti-h"
+    <h3 id="info-title">Vigenèrova šifra</h3>
+
+    <!-- Tabs -->
+    <div class="info-tabs">
+      <button
+        :class="['info-tab-btn', activeTab === 'definice' ? 'active' : '']"
+        @click="activeTab = 'definice'"
+      >Definice</button>
+      <button
+        :class="['info-tab-btn', activeTab === 'teorie' ? 'active' : '']"
+        @click="activeTab = 'teorie'"
+      >Teorie</button>
+    </div>
+
+    <!-- Teorie -->
+    <div v-if="activeTab === 'teorie'">
+      <p>
+        Šifra vychází
+        <router-link to="/#alberti-h" class="primary-color without-underline">z šifry</router-link>
+        florentského polyhistora Leona Battisty Albertiho.
+        <router-link to="/#vigenere-h" class="primary-color without-underline">Vigenèrova šifra</router-link>
+        je
+        <router-link to="/#polyalfabeticka" class="primary-color without-underline">polyalfabetická šifra</router-link>,
+        pojmenovaná po francouzském diplomatovi Blaise de Vigenère, který ji popularizoval v 16. století.
+        Na rozdíl od monoalfabetických šifer (Posuvná, Substituční) je každý znak plaintextu
+        šifrován jiným posuvem — klíčovým slovem.
+      </p>
+      <h4>Popis</h4>
+      <p>
+        Klíčem je slovo délky <strong class="primary-color">m</strong>, které se cyklicky opakuje
+        přes celý plaintext. Každé písmeno klíče určuje posun pro odpovídající písmeno textu.
+        Například pro klíč <strong class="primary-color">CIPHER</strong> a plaintext
+        <em>thiscryptosystem…</em> se klíč opakuje: C I P H E R C I P H E R …
+      </p>
+      <h4>Bezpečnost</h4>
+      <p>
+        Počet možných klíčů délky <em>m</em> je <strong class="primary-color">26<sup>m</sup></strong>.
+        Při m = 5 je to přes 1,1 × 10<sup>7</sup> klíčů. Útok hrubou silou ručně již není reálný,
+        ale počítačem stále možný. Šifra byla považována za nerozluštitelnou po 300 let, dokud nebyly
+        vyvinuty metody jako
+        <router-link to="/#kasiskeho-test" class="primary-color without-underline">Kasiskiho test</router-link>
+        a
+        <router-link to="/#fridmanuv-test" class="primary-color without-underline">Friedmanův test</router-link>.
+      </p>
+      <h4>Více informací</h4>
+      <a
+        href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher"
+        target="_blank"
         class="primary-color without-underline"
+        >Wikipedia: Vigenère cipher</a
       >
-        z šifry </router-link
-      >florentského polyhistora Leona Battisty Albertiho.
-      <router-link to="/#vigenere-h" class="primary-color without-underline">
-        Vigenèrova šifra</router-link
-      >
-      je
-      <router-link
-        to="/#polyalfabeticka"
-        class="primary-color without-underline"
-        >polyalfabetická šifra</router-link
-      >, která používá klíč k určení posunu pro každé písmeno v textu. Šifra
-      je pojmenována po francouzském diplomatovi Blaise de Vigenère, který ji
-      popularizoval v 16. století.
-    </p>
-    <h4>Popis</h4>
-    <p>
-      Vigenère šifra používá klíč, který se opakuje pro každé písmeno v textu.
-      Každé písmeno v klíči určuje posun pro odpovídající písmeno v textu.
-      Například, pokud je klíč "KEY" a text "HELLO", první písmeno "H" bude
-      posunuto o hodnotu "K", druhé "E" o hodnotu "E", atd.
-    </p>
-    <p>
-      Každé písmeno v původním textu je převedeno na svůj index v abecedě (0
-      pro A, 1 pro B atd.). Poté se použije vzorec pro šifrování:
-    </p>
-    <h5>Vzorec pro šifrování</h5>
-    <pre
-      style="
-        white-space: pre-wrap;
-        font-size: 1em;
-        font-weight: bold;
-        color: #36a06f;
-      "
-    >
-C = (P + K) MOD 26</pre
-    >
-    <p>
-      Kde C je index šifrovaného písmene, P je index původního písmene a K je
-      index písmene v klíči.
-    </p>
-    <h5>Vzorec pro dešifrování</h5>
-    <pre
-      style="
-        white-space: pre-wrap;
-        font-size: 1em;
-        font-weight: bold;
-        color: #36a06f;
-      "
-    >
-P = (C - K + 26) MOD 26</pre
-    >
-    <p>
-      Kde P je index původního písmene, C je index šifrovaného písmene a K je
-      index písmene v klíči.
-    </p>
-    <h4>Bezpečnost</h4>
-    <p>
-      Existuje 26 na m-tou různých klíčů délky m, ale stále není bezpečná.
-      Vigenère šifra byla považována za velmi bezpečnou až do 19. století, kdy
-      byly vyvinuty metody k prolomení šifry, jako je
-      <router-link
-        to="/#kasiskeho-test"
-        class="primary-color without-underline"
-        >Kasiskiho test</router-link
-      >
-      a
-      <router-link
-        to="/#fridmanuv-test"
-        class="primary-color without-underline"
-        >Friedmanův test</router-link
-      >. Dnes je Vigenèrova šifra považována za slabou a není doporučována pro
-      bezpečnou komunikaci.
-    </p>
-    <h4>Více informací</h4>
-    <a
-      href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher"
-      target="_blank"
-      class="primary-color without-underline"
-      >Vigenère cipher - Wikipedia</a
-    >
-    <h4>Test</h4>
-    <p>
-      Jaký je klíč pro šifrovaný text <strong>DIOIETXK</strong>, když původní
-      text je <strong>SECURITY</strong>? Klíč má 5 znaků a je tvořen pouze
-      písmeny.
-    </p>
-    <details>
-      <summary>Odpověď</summary>
-      <p>Klíč je <strong>LEMON</strong>.</p>
-    </details>
+    </div>
+
+    <!-- Definice -->
+    <div v-if="activeTab === 'definice'">
+      <h4>Definice</h4>
+      <p>
+        Nechť <strong class="primary-color">m</strong> je kladné celé číslo.
+        Definujeme <strong class="primary-color">P = C = K = (Z<sub>26</sub>)<sup>m</sup></strong>.
+        Pro klíč <strong class="primary-color">K = (k<sub>1</sub>, k<sub>2</sub>, …, k<sub>m</sub>)</strong>
+        jsou funkce definovány:
+      </p>
+      <pre class="formula">e<sub style="font-size: 14px;">K</sub>(x₁,…,xₘ) = (x₁+k₁, x₂+k₂, …, xₘ+kₘ)</pre>
+      <pre class="formula">d<sub style="font-size: 14px;">K</sub>(y₁,…,yₘ) = (y₁−k₁, y₂−k₂, …, yₘ−kₘ)</pre>
+      <p style="font-size: 0.9em; color: var(--text-muted, #888);">
+        kde všechny operace jsou prováděny v Z<sub>26</sub>.
+      </p>
+
+      <h4>Opakování klíče</h4>
+      <p>
+        Klíč délky <strong class="primary-color">m</strong> se cyklicky opakuje přes celý plaintext.
+        Pro i-tý znak plaintextu se použije posun odpovídající písmenu klíče na pozici
+        <strong class="primary-color">i mod m</strong>.
+      </p>
+      <pre class="formula">k<sub style="font-size: 14px;">(i mod m)</sub></pre>
+      <p>
+        Například pro klíč <strong class="primary-color">CIPHER</strong> (m = 6) a plaintext
+        <em>thiscryptosystem…</em> se klíč opakuje:<br>
+        C I P H E R C I P H E R …
+      </p>
+
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VigenereInfoContent'
+  name: 'VigenereInfoContent',
+  data () {
+    return {
+      activeTab: 'definice'
+    }
+  }
 }
 </script>
+
+<style scoped>
+.info-tabs {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid var(--border-color, #e0e0e0);
+  padding-bottom: 0;
+}
+
+.info-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: var(--text-color, #333);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.info-tab-btn:hover {
+  color: #42b983;
+}
+
+.info-tab-btn.active {
+  color: #42b983;
+  border-bottom: 2px solid #42b983;
+  font-weight: bold;
+}
+
+.formula {
+  white-space: pre-wrap;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #42b983;
+  margin: 0.3em 0 0.5em 0;
+}
+</style>

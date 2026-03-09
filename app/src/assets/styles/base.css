@@ -12,6 +12,7 @@
   --text-color: #2c3e50;
   --light-text-color: #666;
   --highlight-color: #42b983;
+  --text-muted: #888;
 
   /* Border */
   --border-color: #d1d5db;
@@ -36,7 +37,7 @@
   /* Text */
   --text-color: #d3dadf;
   --light-text-color: #cecece;
-
+  --text-muted: #c0c0c0;
   /* Border */
   --border-color: #3d453d;
   --viz-border: #585858;

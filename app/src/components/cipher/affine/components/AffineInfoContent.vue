@@ -1,112 +1,131 @@
 <template>
   <div>
-    <h3 id="info-title">O Afinní šifře</h3>
-    <p>
-      Afinní šifra je
-      <router-link
-        to="/#monoalfabeticka"
+    <h3 id="info-title">Afinní šifra</h3>
+
+    <!-- Tabs -->
+    <div class="info-tabs">
+      <button
+        :class="['info-tab-btn', activeTab === 'definice' ? 'active' : '']"
+        @click="activeTab = 'definice'"
+      >Definice</button>
+      <button
+        :class="['info-tab-btn', activeTab === 'teorie' ? 'active' : '']"
+        @click="activeTab = 'teorie'"
+      >Teorie</button>
+    </div>
+
+    <!-- Teorie -->
+    <div v-if="activeTab === 'teorie'">
+      <p>
+        Afinní šifra je
+        <router-link
+          to="/#monoalfabeticka"
+          class="primary-color without-underline"
+        >monoalfabetická šifra</router-link
+        >, která používá lineární funkci k šifrování a dešifrování textu.
+        Jde o rozšíření Posuvné šifry. Když je <strong class="primary-color">a = 1</strong>,
+        dostaneme právě Posuvnou šifru.
+      </p>
+      <h4>Popis</h4>
+      <p>
+        Šifra kombinuje dva klíče: <strong class="primary-color">a</strong> (násobení)
+        a <strong class="primary-color">b</strong> (posun). Každé písmeno se nejprve
+        přenásobí hodnotou <em>a</em> a poté posune o <em>b</em> pozic.
+        Aby bylo dešifrování jednoznačné, musí platit
+        <strong class="primary-color">gcd(a, 26) = 1</strong>. Tedy <em>a</em> musí
+        být nesoudělné s 26. Platné hodnoty <em>a</em> jsou:
+        1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25.
+      </p>
+      <h4>Bezpečnost</h4>
+      <p>
+        Existuje 12 platných hodnot <em>a</em> a 26 hodnot <em>b</em>, tedy
+        <strong class="primary-color">12 × 26 = 312</strong> možných klíčů.
+        To je stále velmi málo, útočník může snadno vyzkoušet všechny kombinace
+        <router-link to="/#brute-force" class="primary-color without-underline"
+          >brute-force</router-link
+        >.
+      </p>
+      <h4>Více informací</h4>
+      <a
+        href="https://en.wikipedia.org/wiki/Affine_cipher"
+        target="_blank"
         class="primary-color without-underline"
+        >Wikipedia: Affine cipher</a
       >
-        monoalfabetická šifra </router-link
-      >, která používá lineární funkci k šifrování a dešifrování textu. Pro
-      správné fungování musí být hodnota A nesoudělná s 26.
-    </p>
-    <h4>Popis</h4>
-    <p>
-      Šifru si můžete představit jako vylepšenou Caesarovu šifru, která
-      používá dva klíče (dvě hodnoty) místo jednoho. Nazvěme je hodnota A a
-      hodnota B.
-    </p>
-    <p>
-      Hodnota B (Posun): Tato hodnota funguje přesně jako u Caesarovy
-      šifry, jednoduše posune každé písmeno v abecedě o daný počet míst.
-      Například pokud je B=3, "A" se stane "D", "B"se stane "E" atd.
-    </p>
-    <p>
-      Hodnota A (Násobení): Toto je ten hlavní rozdíl. Než se písmeno posune
-      pomocí hodnoty B, jeho pozice v abecedě se nejprve přeskládá podle
-      hodnoty A.
-    </p>
-    <p>
-      Každé písmeno v původním textu je převedeno na svůj index v abecedě (0
-      pro A, 1 pro B atd.). Poté se použije vzorec pro šifrování:
-    </p>
-    <h5>Vzorec pro šifrování</h5>
-    <pre
-      style="
-        white-space: pre-wrap;
-        font-size: 1em;
-        font-weight: bold;
-        color: #36a06f;
-        margin-bottom: -1em;
-      "
-    >
-C = (A × P + B) MOD 26
-    </pre>
-    <p>
-      Kde C je index šifrovaného písmene, P je index původního písmene, A je
-      klíč šifry a B je posun. Pro dešifrování se používá inverzní hodnota A
-      (A⁻¹):
-    </p>
-    <h5>Vzorec pro dešifrování</h5>
-    <pre
-      style="
-        white-space: pre-wrap;
-        font-size: 1em;
-        font-weight: bold;
-        color: #36a06f;
-        margin-bottom: -1em;
-      "
-    >
-P = (A⁻¹ × (C - B)) MOD 26
-    </pre>
-    <p>
-      Kde P je index původního písmene, C je index šifrovaného písmene, A⁻¹ je
-      inverzní hodnota A a B je posun.
-    </p>
-    <h5>A⁻¹ je hodnota, která splňuje:</h5>
-    <pre
-      style="
-        white-space: pre-wrap;
-        font-size: 1em;
-        font-weight: bold;
-        color: #36a06f;
-        margin-bottom: -1em;
-      "
-    >
-A × A⁻¹ MOD 26 = 1
-    </pre>
-    <h4>Bezpečnost</h4>
-    <p>
-      Afinní šifra je relativně slabá, protože existuje pouze 12 možných
-      hodnot A, které jsou nesoudělné s 26. Proto existuje 12×26 = 312 různých
-      klíčů. To je stále velmi málo, protože útočník může snadno vyzkoušet
-      všechny kombinace a tím prolomit šifru
-      <router-link to="/#brute-force" class="primary-color without-underline"
-        >brute-force</router-link
-      >.
-    </p>
-    <h4>Více Informací</h4>
-    <a
-      href="https://en.wikipedia.org/wiki/Affine_cipher"
-      target="_blank"
-      class="primary-color without-underline"
-      >Wikipedia: Affine cipher</a
-    >
-    <h4>Test</h4>
-    <p>
-      Zkuste dešifrovat následující zprávu pomocí hodnoty B = 8:
-      <strong>ZCUZ</strong>
-    </p>
-    <details>
-      <summary>Odpověď</summary>
-      <p>Původní text je <strong>TEST</strong></p>
-    </details>
+    </div>
+
+    <!-- Definice -->
+    <div v-if="activeTab === 'definice'">
+      <h4>Definice</h4>
+      <p>
+        Nechť <strong class="primary-color">P = C = Z<sub>26</sub></strong> a klíčový prostor:
+      </p>
+      <pre class="formula" style="font-size:19px;">K = {(a, b) ∈ Z₂₆ × Z₂₆ : gcd(a, 26) = 1}</pre>
+      <p>Pro klíč <strong class="primary-color">K = (a, b)</strong> jsou funkce definovány:</p>
+      <pre class="formula">e<sub style="font-size: 14px;">K</sub>(x) = (ax + b) mod 26</pre>
+      <pre class="formula">d<sub style="font-size: 14px;">K</sub>(y) = a<sup>−1</sup>(y − b) mod 26</pre>
+      <p style="font-size: 0.9em; color: var(--text-muted);">
+        kde x, y ∈ Z<sub>26</sub> ; a<sup>−1</sup> je inverze k a v Z<sub>26</sub>.
+      </p>
+
+      <h4>Inverze a v Z<sub>26</sub></h4>
+      <p>Je to hodnota a<sup>−1</sup>, pro kterou platí:</p>
+      <pre class="formula">a × a<sup>−1</sup> mod 26 = 1</pre>
+      <p>
+        Například pro a = 5 je inverze a<sup>−1</sup> = 21, protože
+        5 × 21 mod 26 = 105 mod 26 = 1.
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AffineInfoContent'
+  name: 'AffineInfoContent',
+  data () {
+    return {
+      activeTab: 'definice'
+    }
+  }
 }
 </script>
+
+<style scoped>
+.info-tabs {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid var(--border-color, #e0e0e0);
+  padding-bottom: 0;
+}
+
+.info-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: var(--text-color, #333);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.info-tab-btn:hover {
+  color: #42b983;
+}
+
+.info-tab-btn.active {
+  color: #42b983;
+  border-bottom: 2px solid #42b983;
+  font-weight: bold;
+}
+
+.formula {
+  white-space: pre-wrap;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #42b983;
+  margin: 0.3em 0 0.5em 0;
+}
+</style>

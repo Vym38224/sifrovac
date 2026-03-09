@@ -20,13 +20,44 @@
             vyzkoušet různé historické i moderní šifry. Stačí zadat text, klíč a
             vizualizace vám ukáže postup šifrování nebo dešifrování. Pracuje pouze
             se znaky anglické abecedy, některé šifry přitom převádí znaky na čísla pomocí <a class="primary-color without-underline" target="_blank" href="https://cs.wikipedia.org/wiki/ASCII">ASCII</a>.
-            Pokud vás zajímá teorie a použité vzorce, najdete
+            Pokud vás zajímá teorie a formální definice, najdete
             je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
               style="width: 14px"
               class="inline-icon"
             />.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Úvod do kryptografie</h3>
+        <div class="viz-step">
+          <p>
+            Základním cílem kryptografie je umožnit dvěma osobám (tradičně nazývaným
+            <strong class="primary-color">Alice</strong> a <strong class="primary-color">Bob</strong>) komunikovat přes nezabezpečený kanál
+            tak, aby případný útočník <strong class="primary-color">Oscar</strong> nemohl pochopit obsah zprávy.
+            Informaci, kterou chce Alice odeslat, nazýváme <em>plaintext</em> (otevřený text).
+            Alice plaintext zašifruje pomocí předem dohodnutého klíče a výsledný
+            <em>ciphertext</em> (šifrovaný text) odešle přes kanál. Oscar sice ciphertext zachytí,
+            ale bez znalosti klíče nedokáže zjistit původní zprávu. Bob, který klíč zná,
+            ciphertext dešifruje a získá původní plaintext.
+          </p>
+          <p>
+            Formálně se kryptosystém definuje jako pětice <strong class="primary-color">(P, C, K, E, D)</strong>, kde:
+          </p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li><strong class="primary-color">P</strong>: konečná množina možných plaintextů,</li>
+            <li><strong class="primary-color">C</strong>: konečná množina možných ciphertextů,</li>
+            <li><strong class="primary-color">K</strong>: klíčový prostor; konečná množina možných klíčů,</li>
+            <li><strong class="primary-color">E</strong>: množina šifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje šifrovací funkce e<sub>K</sub> : P → C,</li>
+            <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce d<sub>K</sub> : C → P.</li>
+          </ul>
+          <p>
+            Důležitou vlastností je, že pro každý plaintext x ∈ P platí:
+            <strong class="primary-color">d<sub>K</sub>(e<sub>K</sub>(x)) = x</strong><br>
+            Tedy dešifrováním zašifrovaného textu vždy získáme zpět původní zprávu.
           </p>
         </div>
       </section>
