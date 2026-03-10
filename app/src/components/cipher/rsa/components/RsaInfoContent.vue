@@ -65,7 +65,7 @@
         <li>Spočítáme <strong class="primary-color">n = p × q</strong> a <strong class="primary-color">φ(n) = (p−1)(q−1)</strong>.</li>
         <li>Zvolíme <strong class="primary-color">b</strong>, kde gcd(b, φ(n)) = 1.</li>
         <li>Vypočítáme <strong class="primary-color">a</strong>, kde a = b<sup>−1</sup> mod φ(n).</li>
-        <li><strong>Veřejný klíč: (b, n)</strong> | <strong>Soukromý klíč: (a, p, q)</strong>.</li>
+        <li><strong class="primary-color">Veřejný klíč: (b, n)</strong> | <strong class="primary-color">Soukromý klíč: (a, p, q)</strong>.</li>
       </ol>
 
       <h4>Volba b</h4>

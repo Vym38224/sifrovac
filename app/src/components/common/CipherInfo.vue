@@ -35,7 +35,7 @@ export default {
   },
   data () {
     return {
-      posX: 170,
+      posX: 10,
       posY: 73,
       dragging: false,
       dragOffsetX: 0,
@@ -46,16 +46,7 @@ export default {
     show (val) {
       if (val) {
         this.$nextTick(() => {
-          const viz = document.querySelector('.secondary-content')
-          const panel = this.$el && this.$el.querySelector('.info-article')
-          const panelWidth = panel ? panel.offsetWidth : 500
-          const gap = 8
-          if (viz) {
-            const rect = viz.getBoundingClientRect()
-            this.posX = Math.max(0, rect.left - panelWidth - gap)
-          } else {
-            this.posX = 230
-          }
+          this.posX = 20
           this.posY = 73
         })
       }

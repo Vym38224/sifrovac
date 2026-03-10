@@ -30,15 +30,15 @@
       <p>
         Šifra kombinuje dva klíče: <strong class="primary-color">a</strong> (násobení)
         a <strong class="primary-color">b</strong> (posun). Každé písmeno se nejprve
-        přenásobí hodnotou <em>a</em> a poté posune o <em>b</em> pozic.
+        přenásobí hodnotou <strong class="primary-color">a</strong> a poté posune o <strong class="primary-color">b</strong> pozic.
         Aby bylo dešifrování jednoznačné, musí platit
-        <strong class="primary-color">gcd(a, 26) = 1</strong>. Tedy <em>a</em> musí
-        být nesoudělné s 26. Platné hodnoty <em>a</em> jsou:
+        <strong class="primary-color">gcd(a, 26) = 1</strong>. Tedy <strong class="primary-color">a</strong> musí
+        být nesoudělné s 26. Platné hodnoty <strong class="primary-color">a</strong> jsou:
         1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25.
       </p>
       <h4>Bezpečnost</h4>
       <p>
-        Existuje 12 platných hodnot <em>a</em> a 26 hodnot <em>b</em>, tedy
+        Existuje 12 platných hodnot <strong class="primary-color">a</strong> a 26 hodnot <strong class="primary-color">b</strong>, tedy
         <strong class="primary-color">12 × 26 = 312</strong> možných klíčů.
         To je stále velmi málo, útočník může snadno vyzkoušet všechny kombinace
         <router-link to="/#brute-force" class="primary-color without-underline"
