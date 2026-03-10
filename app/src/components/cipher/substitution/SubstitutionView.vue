@@ -176,7 +176,7 @@ export default {
       this.permutace = filtrovanaHodnota;
     },
     generovatNahodnouPermutaci() {
-      this.permutace = this.permutace.split("").sort(() => Math.random() -0.5).join("");
+      this.permutace = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").sort(() => Math.random() - 0.5).join("");
     }
   },
   // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
