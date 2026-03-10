@@ -46,7 +46,7 @@ export default {
     show (val) {
       if (val) {
         this.$nextTick(() => {
-          this.posX = 20
+          this.posX = 10
           this.posY = 73
         })
       }

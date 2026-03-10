@@ -48,7 +48,7 @@
     <div v-if="activeTab === 'definice'">
       <h4>Feistelova šifra</h4>
       <p>
-        DES je speciální typ iterované šifry založen na <strong class="primary-color">Feistelova šifře</strong>.
+        DES je speciální typ iterované šifry založen na <strong class="primary-color">Feistelově šifře</strong>.
         Každý stav je rozdělen na dvě stejně dlouhé poloviny
         <strong class="primary-color">L<sub>i</sub></strong> a <strong class="primary-color">R<sub>i</sub></strong>.
         Rundovní funkce g má tvar:

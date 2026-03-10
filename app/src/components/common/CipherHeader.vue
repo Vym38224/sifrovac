@@ -6,7 +6,7 @@
       src="@/assets/images/icons/infoicon.png"
       alt="Info"
       class="info-icon"
-      @click="$parent.zobrazitInfo = true"
+      @click="$parent.zobrazitInfo = !$parent.zobrazitInfo"
     />
   </header>
 </template>
