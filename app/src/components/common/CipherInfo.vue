@@ -35,7 +35,7 @@ export default {
   },
   data () {
     return {
-      posX: 10,
+      posX: 100,
       posY: 73,
       dragging: false,
       dragOffsetX: 0,
@@ -46,7 +46,7 @@ export default {
     show (val) {
       if (val) {
         this.$nextTick(() => {
-          this.posX = 10
+          this.posX = 100
           this.posY = 73
         })
       }
