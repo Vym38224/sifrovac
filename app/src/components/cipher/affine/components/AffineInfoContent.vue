@@ -42,7 +42,7 @@
         <strong class="primary-color">12 × 26 = 312</strong> možných klíčů.
         To je stále velmi málo, útočník může snadno vyzkoušet všechny kombinace
         <router-link to="/#brute-force" class="primary-color without-underline"
-          >brute-force</router-link
+          >útok hrubou silou</router-link
         >.
       </p>
       <h4>Více informací</h4>
@@ -90,42 +90,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.info-tabs {
-  display: flex;
-  gap: 0.5em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid var(--border-color, #e0e0e0);
-  padding-bottom: 0;
-}
-
-.info-tab-btn {
-  background: none;
-  border: none;
-  padding: 0.4em 1em;
-  cursor: pointer;
-  font-size: 0.95em;
-  color: var(--text-color, #333);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-
-.info-tab-btn:hover {
-  color: #42b983;
-}
-
-.info-tab-btn.active {
-  color: #42b983;
-  border-bottom: 2px solid #42b983;
-  font-weight: bold;
-}
-
-.formula {
-  white-space: pre-wrap;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #42b983;
-  margin: 0.3em 0 0.5em 0;
-}
-</style>

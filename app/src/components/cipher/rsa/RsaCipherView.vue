@@ -143,20 +143,20 @@
             </div>
 
             <div class="step">
-              <strong>3. Volba veřejného exponentu e</strong>
+              <strong>3. Volba veřejného exponentu b</strong>
               <div
-                v-if="validniHodnotyE.length > 0"
+                v-if="validniHodnotyB.length > 0"
                 style="gap: 10px"
                 class="flex"
               >
                 <label>
-                  e =
+                  b =
                   <select
-                    v-model.number="e"
+                    v-model.number="b"
                     style="cursor: pointer; width: 100px"
                   >
                     <option
-                      v-for="hodnota in validniHodnotyE"
+                      v-for="hodnota in validniHodnotyB"
                       :key="hodnota"
                       :value="hodnota"
                     >
@@ -165,26 +165,26 @@
                   </select>
                 </label>
                 <p class="quaternary-color">
-                  musí splňovat: nsd(e, φ(n)) = 1
+                  musí splňovat: nsd(b, φ(n)) = 1
                 </p>
               </div>
             </div>
 
             <div class="step">
-              <strong>4. Výpočet soukromého exponentu d</strong>
+              <strong>4. Výpočet soukromého exponentu a</strong>
               <div
-                v-if="validniHodnotyD.length > 0"
+                v-if="validniHodnotyA.length > 0"
                 style="gap: 10px"
                 class="flex"
               >
                 <label>
-                  d =
+                  a =
                   <select
-                    v-model.number="d"
+                    v-model.number="a"
                     style="cursor: pointer; width: 100px"
                   >
                     <option
-                      v-for="hodnota in validniHodnotyD"
+                      v-for="hodnota in validniHodnotyA"
                       :key="hodnota"
                       :value="hodnota"
                     >
@@ -193,19 +193,19 @@
                   </select>
                 </label>
                 <p class="quaternary-color">
-                  musí splňovat: (e × d) mod φ(n) = 1
+                  musí splňovat: a = b<sup>−1</sup> mod φ(n)
                 </p>
               </div>
             </div>
 
             <div class="step">
               <strong>Veřejný klíč</strong>
-              <p class="quaternary-color">(e, n) = ({{ e }}, {{ n }})</p>
+              <p class="quaternary-color">(b, n) = ({{ b }}, {{ n }})</p>
             </div>
 
             <div class="step">
               <strong>Soukromý klíč</strong>
-              <p class="quaternary-color">(d, n) = ({{ d }}, {{ n }})</p>
+              <p class="quaternary-color">(a, p, q) = ({{ a }}, {{ p }}, {{ q }})</p>
             </div>
           </div>
 
@@ -244,10 +244,10 @@
             <div class="step">
               <strong>Dešifrování</strong>
               <div v-if="aktualniZnak">
-                <p>Použití soukromého klíče (d = {{ d }}, n = {{ n }})</p>
+                <p>Použití soukromého klíče (a = {{ a }}, p, q ) s n = {{ n }}</p>
                 <p class="courier-new quaternary-color">
-                  m = c<sup>d</sup> mod n = {{ aktualniZnak.c
-                  }}<sup>{{ d }}</sup> mod {{ n }} =
+                  m = c<sup>a</sup> mod n = {{ aktualniZnak.c
+                  }}<sup>{{ a }}</sup> mod {{ n }} =
                   {{ aktualniZnak.mDesifrovane }}
                 </p>
                 <p>
@@ -300,10 +300,10 @@
             <div class="step">
               <strong>Šifrování</strong>
               <div v-if="aktualniZnak">
-                <p>Použití veřejného klíče (e = {{ e }}, n = {{ n }})</p>
+                <p>Použití veřejného klíče (b = {{ b }}, n = {{ n }})</p>
                 <p class="courier-new quaternary-color">
-                  c = m<sup>e</sup> mod n = {{ aktualniZnak.m
-                  }}<sup>{{ e }}</sup> mod {{ n }} = {{ aktualniZnak.c }}
+                  c = m<sup>b</sup> mod n = {{ aktualniZnak.m
+                  }}<sup>{{ b }}</sup> mod {{ n }} = {{ aktualniZnak.c }}
                 </p>
                 <p>
                   Šifrovaná hodnota: c = 
@@ -341,8 +341,8 @@
 import {
   jePrvocislo,
   vypocitatNaPhi,
-  najitValidniE,
-  najitValidniD,
+  najitValidniB,
+  najitValidniA,
   rsaEncrypt,
   rsaDecrypt,
   ziskatAktualniZnak,
@@ -364,17 +364,17 @@ export default {
       q: 0,
       n: 0,
       phi: 0,
-      e: 0,
-      d: 0,
+      b: 0,
+      a: 0,
       aktivniKrok: "klice",
-      validniHodnotyE: [],
-      validniHodnotyD: [],
+      validniHodnotyB: [],
+      validniHodnotyA: [],
     };
   },
   methods: {
     sifrovat() {
       try {
-        this.vystupniText = rsaEncrypt(this.vstupniText, this.e, this.n);
+        this.vystupniText = rsaEncrypt(this.vstupniText, this.b, this.n);
       } catch (error) {
         console.error("Došlo k chybě při šifrování:", error);
         alert("Chyba při šifrování, zkontrolujte parametry.");
@@ -382,7 +382,7 @@ export default {
     },
     desifrovat() {
       try {
-        this.vystupniText = rsaDecrypt(this.vstupniText, this.d, this.n);
+        this.vystupniText = rsaDecrypt(this.vstupniText, this.a, this.n);
       } catch (error) {
         console.error("Došlo k chybě při dešifrování:", error);
         alert("Chyba při dešifrování, zkontrolujte parametry.");
@@ -404,8 +404,8 @@ export default {
       this.q = 0;
       this.n = 0;
       this.phi = 0;
-      this.e = 0;
-      this.d = 0;
+      this.b = 0;
+      this.a = 0;
     },
     blokujNeciselnePismena(udalost) {
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
@@ -448,14 +448,14 @@ export default {
       if (vysledek) {
         this.n = vysledek.n;
         this.phi = vysledek.phi;
-        this.validniHodnotyE = najitValidniE(this.phi);
+        this.validniHodnotyB = najitValidniB(this.phi);
 
-        if (this.validniHodnotyE.length > 0) {
-          if (!this.validniHodnotyE.includes(this.e)) {
-            this.e = this.validniHodnotyE[0];
+        if (this.validniHodnotyB.length > 0) {
+          if (!this.validniHodnotyB.includes(this.b)) {
+            this.b = this.validniHodnotyB[0];
           }
         } else {
-          this.e = 0;
+          this.b = 0;
         }
 
         this.vypocitatValidniD();
@@ -463,18 +463,18 @@ export default {
         // vyresetovat hodnoty pokud nesplňují podmínky
         this.n = 0;
         this.phi = 0;
-        this.e = 0;
-        this.d = 0;
-        this.validniHodnotyE = [];
-        this.validniHodnotyD = [];
+        this.b = 0;
+        this.a = 0;
+        this.validniHodnotyB = [];
+        this.validniHodnotyA = [];
       }
     },
-    // prvních 7 nejmenších d
+    // prvních 7 nejmenších a
     vypocitatValidniD() {
-      this.validniHodnotyD = najitValidniD(this.e, this.phi);
+      this.validniHodnotyA = najitValidniA(this.b, this.phi);
 
-      if (this.validniHodnotyD.length > 0) {
-        this.d = this.validniHodnotyD[0];
+      if (this.validniHodnotyA.length > 0) {
+        this.a = this.validniHodnotyA[0];
       }
     },
     // omezeni vstupu p a q
@@ -493,7 +493,7 @@ export default {
     q() {
       this.vypocitatRSAParametry();
     },
-    e() {
+    b() {
       this.vypocitatValidniD();
     },
   },
@@ -515,7 +515,7 @@ export default {
       };
     },
     aktualniZnak() {
-      return ziskatAktualniZnak(this.vstupniText, this.e, this.d, this.n);
+      return ziskatAktualniZnak(this.vstupniText, this.b, this.a, this.n);
     },
     posledniIndexMezery() {
     if (!this.vstupniText) return -1;

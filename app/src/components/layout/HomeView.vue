@@ -260,13 +260,19 @@
             >: pokud symbol abecedy je mapován na jeden z několika symbolů<br />
             <span id="asymetricke" class="primary-color">Asymetrické šifry</span
             >: používají se dva různé klíče - veřejný klíč pro šifrování a
-            soukromý klíč pro dešifrování
+            soukromý klíč pro dešifrování<br />
+            <span id="blokova" class="primary-color">Bloková šifra</span
+            >: symetrická šifra, která zpracovává data po pevně daných blocích
+            bitů. Každý blok je šifrován stejným klíčem nezávisle<br />
+            <span id="proudova" class="primary-color">Proudová šifra</span
+            >: symetrická šifra, která šifruje data postupně bit po bitu (nebo
+            znak po znaku) pomocí generovaného proudu klíčů
           </p>
         </div>
         <div class="home viz-step">
           <h4>Kryptoanalýza</h4>
           <p>
-            <span id="brute-force" class="primary-color">Brute-force</span>:
+            <span id="brute-force" class="primary-color">Útok hrubou silou</span>:
             zkoušení všech možných klíčů, dokud se nenajde správný. Tato metoda
             je časově náročná a neefektivní pro šifry s dlouhými klíči.<br />
             <span id="frekvencni-analyza" class="primary-color"

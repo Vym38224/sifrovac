@@ -2,7 +2,6 @@
 .afinne.secondary-content {
   margin-top: -14px;
   margin-bottom: 0;
-
 }
 
 .affine-table thead {
@@ -18,7 +17,7 @@
   height: fit-content;
   width: 640px;
   overflow-x: auto;
-
+  margin-left: 40px;
 }
 
 .affine-table table {
@@ -26,6 +25,7 @@
   border-collapse: collapse;
   font-size: 0.85em;
   background: var(--viz-bg);
+  table-layout: fixed;
 }
 
 .affine-table td {
@@ -41,28 +41,11 @@
   border-right: 2px solid var(--viz-border);
 }
 
-/* Vizualizace - vzorce */
-.afinne.viz-step {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.secondary-content-info {
-  gap: 0;
-  padding-bottom: 0;
-}
-
-.box-formula {
-  background-color: #42b98314;
-  border: 1px solid #2d3e506a;
-  padding: 0.4em;
-}
-
 
 @media (max-width: 1200px) {
 
   .afinne.secondary-content {
-    margin-left: 50px;
+    margin-left: 340px;
   }
 
 }

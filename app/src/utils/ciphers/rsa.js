@@ -120,14 +120,14 @@ export function vypocitatNaPhi(p, q) {
  * @param {number} count Počet hodnot e (7)
  * @returns {number[]} Pole validních hodnot e
  */
-export function najitValidniE(phi, count = 7) {
-  const validniE = [];
-  for (let e = 3; e < phi && validniE.length < count; e += 2) {
-    if (nsd(e, phi) === 1) {
-      validniE.push(e);
+export function najitValidniB(phi, count = 7) {
+  const validniB = [];
+  for (let b = 3; b < phi && validniB.length < count; b += 2) {
+    if (nsd(b, phi) === 1) {
+      validniB.push(b);
     }
   }
-  return validniE;
+  return validniB;
 }
 
 /**
@@ -137,18 +137,18 @@ export function najitValidniE(phi, count = 7) {
  * @param {number} count Počet hodnot d (7)
  * @returns {number[]} Pole validních hodnot d
  */
-export function najitValidniD(e, phi, count = 7) {
-  const validniD = [];
+export function najitValidniA(b, phi, count = 7) {
+  const validniA = [];
   
-  const d = modInverse(e, phi);
+  const a = modInverse(b, phi);
   
-  if (d > 0) {
+  if (a > 0) {
     for (let k = 0; k < count; k++) {
-      validniD.push(d + k * phi);
+      validniA.push(a + k * phi);
     }
   }
   
-  return validniD;
+  return validniA;
 }
 
 /**
@@ -158,12 +158,12 @@ export function najitValidniD(e, phi, count = 7) {
  * @param {number} n Modul
  * @returns {string} Šifrovaný text (čísla oddělená mezerami)
  */
-export function rsaEncrypt(text, e, n) {
+export function rsaEncrypt(text, b, n) {
   const zasifrovana_cisla = [];
   
   for (let i = 0; i < text.length; i++) {
     const cislo_znaku = text.charCodeAt(i); 
-    const zasifrovane_cislo = modPow(cislo_znaku, e, n);
+    const zasifrovane_cislo = modPow(cislo_znaku, b, n);
     zasifrovana_cisla.push(zasifrovane_cislo);
   }
   
@@ -177,14 +177,14 @@ export function rsaEncrypt(text, e, n) {
  * @param {number} n Modul
  * @returns {string} Dešifrovaný text
  */
-export function rsaDecrypt(text, d, n) {
+export function rsaDecrypt(text, a, n) {
   const zasifrovana_cisla = text.trim().split(/\s+/);
   const desifrovane_znaky = [];
   
   for (let i = 0; i < zasifrovana_cisla.length; i++) {
     const zasifrovane_cislo = parseInt(zasifrovana_cisla[i]);
     if (!isNaN(zasifrovane_cislo)) {
-      const desifrovane_cislo = modPow(zasifrovane_cislo, d, n);
+      const desifrovane_cislo = modPow(zasifrovane_cislo, a, n);
       const znak = String.fromCharCode(desifrovane_cislo);
       desifrovane_znaky.push(znak);
     }
@@ -201,8 +201,8 @@ export function rsaDecrypt(text, d, n) {
  * @param {number} n Modul
  * @returns {Object|null} Informace o aktuálním znaku nebo null
  */
-export function ziskatAktualniZnak(vstupniText, e, d, n) {
-  if (!vstupniText || n === 0 || e === 0 || d === 0) {
+export function ziskatAktualniZnak(vstupniText, b, a, n) {
+  if (!vstupniText || n === 0 || b === 0 || a === 0) {
     return null;
   }
 
@@ -217,7 +217,7 @@ export function ziskatAktualniZnak(vstupniText, e, d, n) {
     
     if (isNaN(c)) return null;
     
-    const mDesifrovane = modPow(c, d, n);
+    const mDesifrovane = modPow(c, a, n);
     
     return {
       c,
@@ -228,7 +228,7 @@ export function ziskatAktualniZnak(vstupniText, e, d, n) {
     // pro ENCRYPT vizualizaci
     const posledniZnak = vstupniText[vstupniText.length - 1];
     const m = posledniZnak.charCodeAt(0);
-    const c = modPow(m, e, n);
+    const c = modPow(m, b, n);
 
     return {
       znak: posledniZnak,
@@ -245,20 +245,20 @@ export function ziskatAktualniZnak(vstupniText, e, d, n) {
  * @param {number} n Modul
  * @returns {Array} Pole objektů s informacemi o každém kroku šifrování
  */
-export function vytvorSifrovaciKroky(text, e, n) {
+export function vytvorSifrovaciKroky(text, b, n) {
   const kroky = [];
   
   for (let i = 0; i < text.length; i++) {
     const znak = text[i];
     const m = znak.charCodeAt(0);
-    const c = modPow(m, e, n);
+    const c = modPow(m, b, n);
     
     kroky.push({
       index: i,
       znak,
       m,
       c,
-      vypocet: `${m}^${e} mod ${n} = ${c}`
+      vypocet: `${m}^${b} mod ${n} = ${c}`
     });
   }
   
@@ -272,14 +272,14 @@ export function vytvorSifrovaciKroky(text, e, n) {
  * @param {number} n Modul
  * @returns {Array} Pole objektů s informacemi o každém kroku dešifrování
  */
-export function vytvorDesifrovaciKroky(text, d, n) {
+export function vytvorDesifrovaciKroky(text, a, n) {
   const kroky = [];
   const cisla = text.trim().split(/\s+/);
   
   for (let i = 0; i < cisla.length; i++) {
     const c = parseInt(cisla[i]);
     if (!isNaN(c)) {
-      const m = modPow(c, d, n);
+      const m = modPow(c, a, n);
       const znak = String.fromCharCode(m);
       
       kroky.push({
@@ -287,7 +287,7 @@ export function vytvorDesifrovaciKroky(text, d, n) {
         c,
         m,
         znak,
-        vypocet: `${c}^${d} mod ${n} = ${m}`
+        vypocet: `${c}^${a} mod ${n} = ${m}`
       });
     }
   }

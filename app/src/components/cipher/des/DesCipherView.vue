@@ -97,7 +97,7 @@
               Podmínky pro klíč jsou 8 znaků, <br />
               pro vstupní text 8 znaků, nebo 64 bitů
             </p>
-            <p>Upozornění: Šifrování a dešifrování používá pouze 1 rundu z celkových 16 rund (viz info)</p>
+            <p class="warning-color">Upozornění: Šifrování a dešifrování používá pouze 1 rundu z celkových 16 rund</p>
           </div>
         </div>
       </section>
@@ -218,7 +218,7 @@
           </code>
 
           <p class="step-description bold" style="margin-top: 5px">
-            Konečná permutace
+            Konečná inverzní permutace
             <a
               class="primary-color without-underline"
               href="#IP-inv"

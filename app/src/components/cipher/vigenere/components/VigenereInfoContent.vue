@@ -81,6 +81,9 @@
         <em>thiscryptosystem…</em> se klíč opakuje:<br>
         C I P H E R C I P H E R …
       </p>
+      <p style="font-size: 0.9em; color: var(--text-muted, #888);">
+        i je index znaku v plaintextu (počítáno od 0)
+      </p>
 
     </div>
   </div>
@@ -97,42 +100,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.info-tabs {
-  display: flex;
-  gap: 0.5em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid var(--border-color, #e0e0e0);
-  padding-bottom: 0;
-}
-
-.info-tab-btn {
-  background: none;
-  border: none;
-  padding: 0.4em 1em;
-  cursor: pointer;
-  font-size: 0.95em;
-  color: var(--text-color, #333);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-
-.info-tab-btn:hover {
-  color: #42b983;
-}
-
-.info-tab-btn.active {
-  color: #42b983;
-  border-bottom: 2px solid #42b983;
-  font-weight: bold;
-}
-
-.formula {
-  white-space: pre-wrap;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #42b983;
-  margin: 0.3em 0 0.5em 0;
-}
-</style>

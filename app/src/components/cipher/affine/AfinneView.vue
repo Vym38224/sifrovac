@@ -59,36 +59,14 @@
     <!-- 2.část: VIZUALIZACE -->
     <aside class="afinne secondary-content flex">
 
-      <!-- Vzorce pro šifrování a dešifrování -->
-      <div class="secondary-content-info flex column zero-gap">
-        <div class="afinne viz-step">
-          <h3>Vzorec pro šifrování</h3>
-          <div class="box-formula"><strong>C = (A × P + B) MOD 26</strong></div>
-          <p><strong>C</strong> je index šifrovaného písmene</p>
-          <p><strong>A</strong> je klíč šifry (nesoudělné s 26)</p>
-          <p><strong>P</strong> je index původního písmene</p>
-          <p><strong>B</strong> je posun (0 až 26)</p>
-        </div>
-        <div class="afinne viz-step">
-          <h3>Vzorec pro dešifrování</h3>
-          <div class="box-formula">
-            <strong>P = (A⁻¹ × (C - B)) MOD 26</strong>
-          </div>
-          <p><strong>P</strong> je index původního písmene</p>
-          <p><strong>A⁻¹</strong> je inverzní hodnota A mod 26</p>
-          <p><strong>C</strong> je index šifrovaného písmene</p>
-          <p><strong>B</strong> je posun (0 až 26)</p>
-        </div>
-      </div>
-
       <!-- Tabulka aktuálního šifrování znaků -->
       <div class="affine-table">
         <table class="neutral-background">
           <thead>
             <tr>
               <th>Index</th>
-              <th>Původní P</th>
-              <th>Šifrované C</th>
+              <th>Původní X</th>
+              <th>Šifrované Y</th>
             </tr>
           </thead>
           <tbody>
