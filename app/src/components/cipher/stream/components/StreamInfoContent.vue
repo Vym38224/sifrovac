@@ -24,11 +24,6 @@
         <strong class="primary-color">proud klíčů</strong> z = z<sub>1</sub>z<sub>2</sub>…
         a každý znak plaintextu je šifrován jiným prvkem proudu klíčů.
       </p>
-      <h4>Blokové vs. proudové šifry</h4>
-      <p>
-        Více viz <router-link to="/#blokova" class="primary-color without-underline">bloková šifra</router-link>
-        a <router-link to="/#proudova" class="primary-color without-underline">proudová šifra</router-link> v základních pojmech.
-      </p>
       <h4>LFSR (Linear Feedback Shift Register)</h4>
       <p>
         Aplikace v této šifře generuje proud klíčů pomocí

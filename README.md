@@ -20,3 +20,7 @@ cd app
 npm install
 npm run serve
 ````
+
+## Zdroje
+
+Pro podrobný seznam použitých zdrojů, literatury a materiálů viz [SOURCES.md](SOURCES.md).
