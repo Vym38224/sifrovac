@@ -76,7 +76,7 @@
       <p>
         Posuvná šifra je postavena na modulární aritmetice. Zápis
         <strong class="primary-color">a mod m</strong> označuje zbytek po dělení
-        <em>a</em> číslem <em>m</em> (vždy nezáporný). Například:
+        <strong class="primary-color">a</strong> číslem <strong class="primary-color">m</strong> (vždy nezáporný). Například:
         101 mod 7 = 3, protože 101 = 7 × 14 + 3.
       </p>
       <pre class="formula">a mod m = r </pre>

@@ -73,7 +73,7 @@
       <pre class="formula">a × a<sup>−1</sup> mod 26 = 1</pre>
       <p>
         Například pro a = 5 je inverze a<sup>−1</sup> = 21, protože
-        5 × 21 mod 26 = 105 mod 26 = 1.
+        5 × 21 mod 26 = 105 mod 26 = 1. Pro a = 4 inverze neexistuje, protože 4 × k mod 26 nikdy nedá 1 pro žádné k.
       </p>
     </div>
   </div>

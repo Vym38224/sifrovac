@@ -46,7 +46,7 @@
     <div v-if="activeTab === 'definice'">
       <h4>Definice</h4>
       <p>
-        Nechť <strong class="primary-color">n = p × q</strong>, kde <em>p</em> a <em>q</em>
+        Nechť <strong class="primary-color">n = p × q</strong>, kde <strong class="primary-color">p</strong> a <strong class="primary-color">q</strong>
         jsou různá prvočísla. Pak Eulerova funkce <strong class="primary-color">φ(n) = (p−1)(q−1)</strong>.
         Definujeme:
       </p>
@@ -61,7 +61,7 @@
     
       <h4>Generování parametrů RSA</h4>
       <ol>
-        <li>Zvolíme dvě velká prvočísla <em>p ≠ q</em>.</li>
+        <li>Zvolíme dvě velká prvočísla <strong class="primary-color">p ≠ q</strong>.</li>
         <li>Spočítáme <strong class="primary-color">n = p × q</strong> a <strong class="primary-color">φ(n) = (p−1)(q−1)</strong>.</li>
         <li>Zvolíme <strong class="primary-color">b</strong>, kde gcd(b, φ(n)) = 1.</li>
         <li>Vypočítáme <strong class="primary-color">a</strong>, kde a = b<sup>−1</sup> mod φ(n).</li>

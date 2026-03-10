@@ -32,12 +32,10 @@
       <p>
         Klíčem je slovo délky <strong class="primary-color">m</strong>, které se cyklicky opakuje
         přes celý plaintext. Každé písmeno klíče určuje posun pro odpovídající písmeno textu.
-        Například pro klíč <strong class="primary-color">CIPHER</strong> a plaintext
-        <em>thiscryptosystem…</em> se klíč opakuje: C I P H E R C I P H E R …
       </p>
       <h4>Bezpečnost</h4>
       <p>
-        Počet možných klíčů délky <em>m</em> je <strong class="primary-color">26<sup>m</sup></strong>.
+        Počet možných klíčů délky <strong class="primary-color">m</strong> je <strong class="primary-color">26<sup>m</sup></strong>.
         Při m = 5 je to přes 1,1 × 10<sup>7</sup> klíčů. Útok hrubou silou ručně již není reálný,
         ale počítačem stále možný. Šifra byla považována za nerozluštitelnou po 300 let, dokud nebyly
         vyvinuty metody jako
