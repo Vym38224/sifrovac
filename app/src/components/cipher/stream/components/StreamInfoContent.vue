@@ -43,7 +43,7 @@
       </ul>
       <h4>Bezpečnost</h4>
       <p>
-        Bezpečnost závisí na kvalitě generátoru proudu klíčů a správném použití inicializačního
+        Bezpečnost závisí na kvalitě generátoru proudu klíčů a správném použití počátečního
         vektoru. Nikdy nesmí být stejný proud klíčů použit dvakrát, útočník by mohl provést
         XOR dvou ciphertextů a eliminovat proud klíčů. Samotný LFSR není bezpečný pro moderní
         použití, ale slouží jako základ pro složitější proudové šifry.
