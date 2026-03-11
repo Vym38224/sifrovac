@@ -46,13 +46,6 @@
           >frekvenční analýze</router-link
         >, protože struktura jazyka (četnost písmen) zůstává zachována.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Substitution_cipher"
-        target="_blank"
-        class="primary-color without-underline"
-        >Wikipedia: Substitution cipher</a
-      >
     </div>
 
     <!-- Definice -->
@@ -62,7 +55,7 @@
         Nechť <strong class="primary-color">P = C = Z<sub>26</sub></strong>.
         Klíčový prostor <strong class="primary-color">K</strong> tvoří všechny možné
         permutace 26 symbolů {0, 1, …, 25}. Pro každou permutaci
-        <strong class="primary-color">π ∈ K</strong> jsou funkce definovány takto:
+        <strong class="primary-color">π ∈ K</strong> jsou funkce definovány:
       </p>
       <pre class="formula">e<sub style="font-size: 14px;">π</sub>(x) = π(x)</pre>
       <pre class="formula">d<sub style="font-size: 14px;">π</sub>(y) = π<sup>−1</sup>(y)</pre>
@@ -72,7 +65,7 @@
 
       <h4>Příklad permutace</h4>
       <p>Šifrovací permutace π:</p>
-      <pre class="formula" style="font-size: 1.2em;">a b c d e f g h i j k l m n o p q r s t u v w x y z
+      <pre class="formula" style="font-size: 1em;">a b c d e f g h i j k l m n o p q r s t u v w x y z
 X N Y A H P O G Z Q W B T S F L R C V M U E K J D I</pre>
     </div>
   </div>

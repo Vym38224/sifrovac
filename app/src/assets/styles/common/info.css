@@ -15,7 +15,7 @@
   background-color: var(--info-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   border-right: none;
-  width: 450px;
+  width: 415px;
   max-width: 90vw;
   max-height: 80vh;
   min-width: 280px;
@@ -37,28 +37,32 @@
   border-bottom: 1px solid var(--border-color, #e0e0e0);
   position: sticky;
   top: 0;
-  background-color: var(--info-bg);
+  background-color: rgb(225, 228, 227);
   background-image: none;
   z-index: 1;
   user-select: none;
   transition: background-image 0.1s;
 }
 
+[data-theme="dark"] .info-drag-handle {
+  background-color: rgb(62, 62, 62);
+}
+
 .info-drag-handle:hover {
-  background-image: linear-gradient(rgba(93, 129, 115, 0.07), rgba(93, 129, 115, 0.07));
+  background-image: linear-gradient(rgba(109, 149, 134, 0.07), rgba(109, 149, 115, 0.07));
 }
 
 .info-drag-handle:active {
   cursor: grabbing;
-  background-image: linear-gradient(rgba(93, 129, 115, 0.13), rgba(93, 129, 115, 0.13));
+  background-image: linear-gradient(rgba(109, 149, 134, 0.10), rgba(109, 149, 134, 0.10));
 }
 
 [data-theme="dark"] .info-drag-handle:hover {
-  background-image: linear-gradient(rgba(143, 197, 175, 0.07), rgba(143, 197, 175, 0.07));
+  background-image: linear-gradient(rgba(120, 119, 113, 0.07), rgba(120, 119, 113, 0.07));
 }
 
 [data-theme="dark"] .info-drag-handle:active {
-  background-image: linear-gradient(rgba(143, 197, 175, 0.13), rgba(143, 197, 175, 0.13));
+  background-image: linear-gradient(rgba(120, 119, 113, 0.10), rgba(120, 119, 113, 0.10));
 }
 
 .drag-handle-spacer {
@@ -71,9 +75,6 @@
   height: 1.3em;
   pointer-events: none;
   opacity: 0.7;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .close-btn {
@@ -135,7 +136,7 @@
 
 .info-article .formula {
   white-space: pre-wrap;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: bold;
   color: #42b983;
   margin: 0.3em 0 0.5em 0;

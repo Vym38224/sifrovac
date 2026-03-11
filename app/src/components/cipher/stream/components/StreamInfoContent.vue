@@ -43,13 +43,6 @@
         XOR dvou ciphertextů a eliminovat proud klíčů. Samotný LFSR není bezpečný pro moderní
         použití, ale slouží jako základ pro složitější proudové šifry.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Stream_cipher"
-        target="_blank"
-        class="primary-color without-underline"
-        >Wikipedia: Stream cipher</a
-      >
     </div>
 
     <!-- Definice -->

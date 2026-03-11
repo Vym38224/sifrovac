@@ -36,12 +36,6 @@
         digitálních práv) postavila <em>DES Cracker</em> (250 000 USD),
         který prolomil DES za 56 hodin. V lednu 1999 ho distributed.net prolomil za 22 hodin.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Data_Encryption_Standard"
-        target="_blank"
-        class="primary-color without-underline"
-      >Wikipedia: Data Encryption Standard</a>
     </div>
 
     <!-- Definice -->

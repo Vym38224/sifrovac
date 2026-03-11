@@ -45,7 +45,7 @@ export function binarniNaText(binarni) {
  * @returns {string} Permutovaný binární řetězec oddělený mezerami po 8 bitech
  */
 export function aplikujPermutaci(binaryString, tabulka) {
-  const bity = binaryString.replace(/\s/g, ""); 
+  const bity = binaryString.replace(/\s/g, "");
   let vysledek = "";
   for (let i = 0; i < tabulka.length; i++) {
     const pozice = tabulka[i] - 1;
@@ -55,7 +55,7 @@ export function aplikujPermutaci(binaryString, tabulka) {
   for (let i = 0; i < vysledek.length; i += 8) {
     formatovany += vysledek.slice(i, i + 8) + " ";
   }
-  return formatovany.trim();  
+  return formatovany.trim();
 }
 
 /**
@@ -145,32 +145,32 @@ export function aplikujPBox(vstup32bitu) {
  */
 export function vygenerujPrvniRundovniKlic(klic64) {
   const klicBezMezer = klic64.replace(/\s/g, "");
-  
+
   // PC-1 permutace (64 bitů -> 56 bitů)
   let klic56 = "";
   for (let i = 0; i < PC1.length; i++) {
     const pozice = PC1[i] - 1;
     klic56 += klicBezMezer[pozice];
   }
-  
+
   // dělení na C0 a D0
   let C = klic56.slice(0, 28);
   let D = klic56.slice(28, 56);
-  
+
   // rotace pro první rundu (1 bit doleva)
   C = rotujDoleva(C, 1);
   D = rotujDoleva(D, 1);
-  
+
   // spojení C1 a D1
   const CD = C + D;
-  
+
   // PC-2 permutace (56 bitů -> 48 bitů)
   let rundovniKlic = "";
   for (let i = 0; i < PC2.length; i++) {
     const pozice = PC2[i] - 1;
     rundovniKlic += CD[pozice];
   }
-  
+
   return rundovniKlic;
 }
 
@@ -208,7 +208,7 @@ export function ziskejD0(klic64) {
   }
   const D = klic56.slice(28, 56);
   let vysledek = "";
-  vysledek += D.slice(0, 4) + " "; 
+  vysledek += D.slice(0, 4) + " ";
   for (let i = 4; i < D.length; i += 8) {
     vysledek += D.slice(i, i + 8) + " ";
   }
@@ -251,7 +251,7 @@ export function ziskejD1(klic64) {
   let D = klic56.slice(28, 56);
   D = rotujDoleva(D, 1);
   let vysledek = "";
-  vysledek += D.slice(0, 4) + " "; 
+  vysledek += D.slice(0, 4) + " ";
   for (let i = 4; i < D.length; i += 8) {
     vysledek += D.slice(i, i + 8) + " ";
   }
@@ -285,19 +285,19 @@ export function ziskejKlic56PoPC1(klic64) {
  */
 export function feistelFunkce(pravaPulka, rundovniKlic) {
   const pravaBezMezer = pravaPulka.replace(/\s/g, "");
-  
+
   // 1. Expanze (32 bitů -> 48 bitů)
   const expandovana = aplikujExpanzi(pravaBezMezer);
-  
+
   // 2. XOR s rundovním klíčem
   const xorVysledek = xorOperace(expandovana, rundovniKlic);
-  
+
   // 3. S-boxy (48 bitů -> 32 bitů)
   const sBoxVystup = aplikujSBoxy(xorVysledek);
-  
+
   // 4. P-box permutace
   const pBoxVystup = aplikujPBox(sBoxVystup);
-  
+
   return {
     expandovana,
     xorVysledek,
@@ -316,33 +316,33 @@ export function sifrovat(text, klic) {
   // převod textu a klíče na binární
   const textBin = textNaBinarni(text);
   const klicBin = textNaBinarni(klic);
-  
+
   // počáteční permutace (IP)
   const permutovany = aplikujPermutaci(textBin, IP);
   const permutovanyBezMezer = permutovany.replace(/\s/g, "");
-  
+
   // rozdělení na L0 a R0
   const L0 = permutovanyBezMezer.slice(0, 32);
   const R0 = permutovanyBezMezer.slice(32, 64);
-  
+
   // generování rundovního klíče
   const K1 = vygenerujPrvniRundovniKlic(klicBin);
-  
+
   // Feistelova funkce
   const { pBoxVystup } = feistelFunkce(R0, K1);
-  
+
   // L1 = R0
   const L1 = R0;
-  
+
   // R1 = L0 ⊕ f(R0, K1)
   const R1 = xorOperace(L0, pBoxVystup);
-  
+
   // spojení R1 a L1
   const spojeno = R1 + L1;
-  
+
   // konečná permutace (IP^-1)
   const zasifrovany = aplikujPermutaci(spojeno, IP_INV);
-  
+
   return zasifrovany.replace(/\s/g, "");
 }
 
@@ -355,39 +355,39 @@ export function sifrovat(text, klic) {
 export function desifrovat(binarniText, klic) {
   // převod klíče na binární
   const klicBin = textNaBinarni(klic);
-  
+
   // počáteční permutace (IP) na zašifrovaný text
   let binarniTextFormatovany = "";
   for (let i = 0; i < binarniText.length; i += 8) {
     binarniTextFormatovany += binarniText.slice(i, i + 8) + " ";
   }
   binarniTextFormatovany = binarniTextFormatovany.trim();
-  
+
   const permutovany = aplikujPermutaci(binarniTextFormatovany, IP);
   const permutovanyBezMezer = permutovany.replace(/\s/g, "");
-  
+
   // rozdělení na R1 a L1
   const R1 = permutovanyBezMezer.slice(0, 32);
   const L1 = permutovanyBezMezer.slice(32, 64);
-  
+
   // generování rundovního klíče
   const K1 = vygenerujPrvniRundovniKlic(klicBin);
-  
+
   // R0 = L1
   const R0 = L1;
-  
+
   // Feistelova funkce
   const { pBoxVystup } = feistelFunkce(R0, K1);
-  
+
   // L0 = R1 ⊕ f(L1, K1)
   const L0 = xorOperace(R1, pBoxVystup);
-  
+
   // spojení L0 a R0
   const spojeno = L0 + R0;
-  
+
   // konečná permutace (IP^-1)
   const desifrovany = aplikujPermutaci(spojeno, IP_INV);
-  
+
   // převod binárního řetězce na text
   return binarniNaText(desifrovany.replace(/\s/g, ""));
 }
@@ -401,17 +401,17 @@ export function rozdelNaPulky(binarni) {
   const bezMezer = binarni.replace(/\s/g, "");
   const leva = bezMezer.slice(0, 32);
   const prava = bezMezer.slice(32, 64);
-  
+
   let levaFormat = "";
   for (let i = 0; i < leva.length; i += 8) {
     levaFormat += leva.slice(i, i + 8) + " ";
   }
-  
+
   let pravaFormat = "";
   for (let i = 0; i < prava.length; i += 8) {
     pravaFormat += prava.slice(i, i + 8) + " ";
   }
-  
+
   return {
     leva: levaFormat.trim(),
     prava: pravaFormat.trim()
@@ -430,6 +430,19 @@ export function formatujBinarni(binarni) {
     vysledek += bezMezer.slice(i, i + 8) + " ";
   }
   return vysledek.trim();
+}
+
+/**
+ * Formátuje binární řetězec po 8 bitech
+ * @param {string} binarni Binární řetězec
+ * @returns {Array} Pole 8-bitových kusů
+ */
+export function formatujPo8Bitech(binarni) {
+  const kusy = [];
+  for (let i = 0; i < binarni.length; i += 8) {
+    kusy.push(binarni.slice(i, i + 8));
+  }
+  return kusy;
 }
 
 /**

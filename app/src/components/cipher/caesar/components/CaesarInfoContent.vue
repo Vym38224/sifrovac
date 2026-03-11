@@ -46,14 +46,6 @@
           >útok hrubou silou</router-link
         >.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Caesar_cipher"
-        target="_blank"
-        class="primary-color without-underline"
-      >
-        Wikipedia: Caesar cipher
-      </a>
     </div>
 
     <!-- Definice -->

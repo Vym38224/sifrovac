@@ -26,7 +26,7 @@
         <router-link to="/#polyalfabeticka" class="primary-color without-underline">polyalfabetická šifra</router-link>,
         pojmenovaná po francouzském diplomatovi Blaise de Vigenère, který ji popularizoval v 16. století.
         Na rozdíl od monoalfabetických šifer (Posuvná, Substituční) je každý znak plaintextu
-        šifrován jiným posuvem — klíčovým slovem.
+        šifrován jiným posuvem.
       </p>
       <h4>Popis</h4>
       <p>
@@ -43,21 +43,14 @@
         a
         <router-link to="/#fridmanuv-test" class="primary-color without-underline">Friedmanův test</router-link>.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher"
-        target="_blank"
-        class="primary-color without-underline"
-        >Wikipedia: Vigenère cipher</a
-      >
     </div>
 
     <!-- Definice -->
     <div v-if="activeTab === 'definice'">
       <h4>Definice</h4>
       <p>
-        Nechť <strong class="primary-color">m</strong> je kladné celé číslo.
-        Definujeme <strong class="primary-color">P = C = K = (Z<sub>26</sub>)<sup>m</sup></strong>.
+        Nechť <strong class="primary-color">m</strong> je kladné celé číslo.<br>
+        Definujeme <strong class="primary-color">P = C = K = (Z<sub>26</sub>)<sup>m</sup></strong>.<br>
         Pro klíč <strong class="primary-color">K = (k<sub>1</sub>, k<sub>2</sub>, …, k<sub>m</sub>)</strong>
         jsou funkce definovány:
       </p>

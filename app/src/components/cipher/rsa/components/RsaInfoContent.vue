@@ -34,12 +34,6 @@
         Bezpečnost RSA stojí na <router-link to="/#obtiznost-faktorizace" class="primary-color without-underline"><strong class="primary-color">obtížnosti faktorizace čísla n</strong></router-link>.
         Pro dostatečně velká čísla (např. 2048 bitů) je faktorizace nereálná, což činí RSA bezpečným pro praktické použití.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"
-        target="_blank"
-        class="primary-color without-underline"
-      >Wikipedia: RSA</a>
     </div>
 
     <!-- Definice -->
@@ -51,8 +45,8 @@
         Definujeme:
       </p>
       <ul style="list-style: none; padding-left: 0;">
-        <li><strong class="primary-color">P</strong> = <strong class="primary-color">C</strong> = <strong class="primary-color">Z<sub>n</sub></strong></li>
-        <li><strong class="primary-color">K</strong> = {(n, p, q, a, b) : a = b<sup>−1</sup> mod φ(n)},</li>
+        <li><strong class="primary-color">P = C = Z<sub>n</sub></strong></li>
+        <li><strong class="primary-color">K = {(n, p, q, a, b) : a = b<sup>−1</sup> mod φ(n)}</strong></li>
         <li><strong class="primary-color">b</strong> – veřejný exponent</li>
         <li><strong class="primary-color">a</strong> – soukromý exponent</li>
       </ul>

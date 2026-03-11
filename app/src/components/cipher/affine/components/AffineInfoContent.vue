@@ -45,13 +45,6 @@
           >útok hrubou silou</router-link
         >.
       </p>
-      <h4>Více informací</h4>
-      <a
-        href="https://en.wikipedia.org/wiki/Affine_cipher"
-        target="_blank"
-        class="primary-color without-underline"
-        >Wikipedia: Affine cipher</a
-      >
     </div>
 
     <!-- Definice -->
@@ -60,7 +53,7 @@
       <p>
         Nechť <strong class="primary-color">P = C = Z<sub>26</sub></strong> a klíčový prostor:
       </p>
-      <pre class="formula" style="font-size:19px;">K = {(a, b) ∈ Z₂₆ × Z₂₆ : gcd(a, 26) = 1}</pre>
+      <pre class="formula" style="font-size:1.35em;">K = {(a, b) ∈ Z₂₆ × Z₂₆ : gcd(a, 26) = 1}</pre>
       <p>Pro klíč <strong class="primary-color">K = (a, b)</strong> jsou funkce definovány:</p>
       <pre class="formula">e<sub style="font-size: 14px;">K</sub>(x) = (ax + b) mod 26</pre>
       <pre class="formula">d<sub style="font-size: 14px;">K</sub>(y) = a<sup>−1</sup>(y − b) mod 26</pre>

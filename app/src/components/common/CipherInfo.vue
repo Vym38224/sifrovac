@@ -7,7 +7,6 @@
         :style="{ top: posY + 'px', left: posX + 'px' }"
       >
         <div class="info-drag-handle" @mousedown.prevent="startDrag">
-          <span class="drag-handle-spacer"></span>
           <img src="@/assets/images/icons/infoicon.png" alt="Info" class="drag-info-icon" />
           <button
             class="close-btn delete-background neutral-color"

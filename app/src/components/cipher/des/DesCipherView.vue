@@ -405,6 +405,7 @@ import {
   rozdelNaPulky,
   formatujBinarni,
   formatujPo6Bitech,
+  formatujPo8Bitech,
   formatujPo4Bitech
 } from '@/utils/ciphers/des.js';
 
@@ -566,8 +567,8 @@ export default {
           permutovany,
           leva,
           prava,
-          expanded: formatujPo6Bitech(expanded),
-          roundKey: formatujPo6Bitech(roundKey),
+          expanded: formatujPo8Bitech(expanded),
+          roundKey: formatujPo8Bitech(roundKey),
           xorResult: formatujPo6Bitech(xorResult),
           sBoxOutput: formatujPo4Bitech(sBoxOutput),
           pBoxOutput: formatujBinarni(pBoxOutput),
@@ -604,8 +605,8 @@ export default {
           R1,
           L1,
           R0,
-          expanded: formatujPo6Bitech(expanded),
-          roundKey: formatujPo6Bitech(roundKey),
+          expanded: formatujPo8Bitech(expanded),
+          roundKey: formatujPo8Bitech(roundKey),
           xorResult: formatujPo6Bitech(xorResult),
           sBoxOutput: formatujPo4Bitech(sBoxOutput),
           pBoxOutput: formatujBinarni(pBoxOutput),
