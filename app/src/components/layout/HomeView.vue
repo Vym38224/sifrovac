@@ -48,15 +48,15 @@
             Formálně se kryptosystém definuje jako pětice <strong class="primary-color">(P, C, K, E, D)</strong>, kde:
           </p>
           <ul style="list-style: none; padding-left: 0;">
-            <li><strong class="primary-color">P</strong>: konečná množina možných plaintextů,</li>
-            <li><strong class="primary-color">C</strong>: konečná množina možných ciphertextů,</li>
-            <li><strong class="primary-color">K</strong>: klíčový prostor; konečná množina možných klíčů,</li>
-            <li><strong class="primary-color">E</strong>: množina šifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje šifrovací funkce e<sub>K</sub> : P → C,</li>
-            <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce d<sub>K</sub> : C → P.</li>
+            <li><strong class="primary-color">P</strong>: konečná množina možných plaintextů</li>
+            <li><strong class="primary-color">C</strong>: konečná množina možných ciphertextů</li>
+            <li><strong class="primary-color">K</strong>: klíčový prostor; konečná množina možných klíčů</li>
+            <li><strong class="primary-color">E</strong>: množina šifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje šifrovací funkce <strong class="primary-color">e<sub>K</sub> : P → C</strong></li>
+            <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce <strong class="primary-color">d<sub>K</sub> : C → P</strong></li>
           </ul>
           <p>
             Důležitou vlastností je, že pro každý plaintext x ∈ P platí:
-            <strong class="primary-color">d<sub>K</sub>(e<sub>K</sub>(x)) = x</strong><br>
+            <strong class="primary-color">d<sub>K</sub>(e<sub>K</sub>(x)) = x</strong>.<br>
             Tedy dešifrováním zašifrovaného textu vždy získáme zpět původní zprávu.
           </p>
         </div>
