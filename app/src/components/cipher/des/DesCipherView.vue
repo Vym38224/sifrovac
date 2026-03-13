@@ -389,24 +389,24 @@ import DesPermutationModal from './components/DesPermutationModal.vue';
 import DesInfoContent from './components/DesInfoContent.vue';
 
 import {
-  textNaBinarni,
-  binarniNaText,
-  aplikujPermutaci,
-  xorOperace,
-  feistelFunkce,
-  vygenerujPrvniRundovniKlic,
-  ziskejC0,
-  ziskejD0,
-  ziskejC1,
-  ziskejD1,
-  ziskejKlic56PoPC1,
-  sifrovat,
-  desifrovat,
-  rozdelNaPulky,
-  formatujBinarni,
-  formatujPo6Bitech,
-  formatujPo8Bitech,
-  formatujPo4Bitech
+  textToBinary,
+  binaryToText,
+  applyPermutation,
+  xorOperation,
+  feistelFunction,
+  generateFirstRoundKey,
+  getC0,
+  getD0,
+  getC1,
+  getD1,
+  getKey56AfterPC1,
+  encrypt,
+  decrypt,
+  splitIntoHalves,
+  formatBinary,
+  formatBy6Bits,
+  formatBy8Bits,
+  formatBy4Bits
 } from '@/utils/ciphers/des.js';
 
 import { IP, IP_INV } from '../../../utils/constants/permutationTables.js';
@@ -449,7 +449,7 @@ export default {
         return;
       }
       try {
-        this.vystupniText = sifrovat(this.vstupniText, this.klic);
+        this.vystupniText = encrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při šifrování:", error);
         alert("Chyba při šifrování: " + error.message);
@@ -465,7 +465,7 @@ export default {
         return;
       }
       try {
-        this.vystupniText = desifrovat(this.vstupniText, this.klic);
+        this.vystupniText = decrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při dešifrování:", error);
         alert("Chyba při dešifrování: " + error.message);
@@ -549,17 +549,17 @@ export default {
 
       // Šifrování - když je text 
       if (this.jeRezimSifrovani && this.klic.length === 8 && this.vstupniText.length === 8) {
-        const klicBin = textNaBinarni(this.klic);
-        const textBin = textNaBinarni(this.vstupniText);
-        const permutovany = aplikujPermutaci(textBin, IP);
-        const { leva, prava } = rozdelNaPulky(permutovany);
+        const klicBin = textToBinary(this.klic);
+        const textBin = textToBinary(this.vstupniText);
+        const permutovany = applyPermutation(textBin, IP);
+        const { left: leva, right: prava } = splitIntoHalves(permutovany);
         
         const pravaBits = prava.replace(/\s/g, "");
-        const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
-        const novaPrava = xorOperace(leva.replace(/\s/g, ""), pBoxOutput);
+        const roundKey = generateFirstRoundKey(klicBin);
+        const { expanded, xorResult, sBoxOutput, pBoxOutput } = feistelFunction(pravaBits, roundKey);
+        const novaPrava = xorOperation(leva.replace(/\s/g, ""), pBoxOutput);
         const spojeno = novaPrava + prava.replace(/\s/g, "");
-        const konecna = aplikujPermutaci(spojeno, IP_INV);
+        const konecna = applyPermutation(spojeno, IP_INV);
 
         this.vizData = {
           klicBin,
@@ -567,37 +567,37 @@ export default {
           permutovany,
           leva,
           prava,
-          expanded: formatujPo8Bitech(expanded),
-          roundKey: formatujPo8Bitech(roundKey),
-          xorResult: formatujPo6Bitech(xorResult),
-          sBoxOutput: formatujPo4Bitech(sBoxOutput),
-          pBoxOutput: formatujBinarni(pBoxOutput),
-          novaPrava: formatujBinarni(novaPrava),
+          expanded: formatBy8Bits(expanded),
+          roundKey: formatBy8Bits(roundKey),
+          xorResult: formatBy6Bits(xorResult),
+          sBoxOutput: formatBy4Bits(sBoxOutput),
+          pBoxOutput: formatBinary(pBoxOutput),
+          novaPrava: formatBinary(novaPrava),
           konecna,
-          klic56PoPC1: ziskejKlic56PoPC1(klicBin),
-          C0: ziskejC0(klicBin),
-          D0: ziskejD0(klicBin),
-          C1: ziskejC1(klicBin),
-          D1: ziskejD1(klicBin),
+          klic56PoPC1: getKey56AfterPC1(klicBin),
+          C0: getC0(klicBin),
+          D0: getD0(klicBin),
+          C1: getC1(klicBin),
+          D1: getD1(klicBin),
         };
       }
 
       // Dešifrování - když je binární
       if (this.jeRezimDesifrovani && this.klic.length === 8 && this.vstupniText.length === 64) {
-        const klicBin = textNaBinarni(this.klic);
+        const klicBin = textToBinary(this.klic);
         const vstup = this.vstupniText.replace(/\s/g, "");
-        const permutovany = aplikujPermutaci(formatujBinarni(vstup), IP);
+        const permutovany = applyPermutation(formatBinary(vstup), IP);
         const permutovanyBezMezer = permutovany.replace(/\s/g, "");
-        const { leva: R1, prava: L1 } = rozdelNaPulky(permutovanyBezMezer);
+        const { left: R1, right: L1 } = splitIntoHalves(permutovanyBezMezer);
         
         const R0 = L1;
         const pravaBits = R0.replace(/\s/g, "");
-        const roundKey = vygenerujPrvniRundovniKlic(klicBin);
-        const { expandovana: expanded, xorVysledek: xorResult, sBoxVystup: sBoxOutput, pBoxVystup: pBoxOutput } = feistelFunkce(pravaBits, roundKey);
-        const L0 = xorOperace(R1.replace(/\s/g, ""), pBoxOutput);
+        const roundKey = generateFirstRoundKey(klicBin);
+        const { expanded, xorResult, sBoxOutput, pBoxOutput } = feistelFunction(pravaBits, roundKey);
+        const L0 = xorOperation(R1.replace(/\s/g, ""), pBoxOutput);
         const spojeno = L0 + R0.replace(/\s/g, "");
-        const konecna = aplikujPermutaci(spojeno, IP_INV);
-        const text = binarniNaText(konecna.replace(/\s/g, ""));
+        const konecna = applyPermutation(spojeno, IP_INV);
+        const text = binaryToText(konecna.replace(/\s/g, ""));
 
         this.dVizData = {
           klicBin,
@@ -605,19 +605,19 @@ export default {
           R1,
           L1,
           R0,
-          expanded: formatujPo8Bitech(expanded),
-          roundKey: formatujPo8Bitech(roundKey),
-          xorResult: formatujPo6Bitech(xorResult),
-          sBoxOutput: formatujPo4Bitech(sBoxOutput),
-          pBoxOutput: formatujBinarni(pBoxOutput),
-          L0: formatujBinarni(L0),
+          expanded: formatBy8Bits(expanded),
+          roundKey: formatBy8Bits(roundKey),
+          xorResult: formatBy6Bits(xorResult),
+          sBoxOutput: formatBy4Bits(sBoxOutput),
+          pBoxOutput: formatBinary(pBoxOutput),
+          L0: formatBinary(L0),
           konecna: konecna.replace(/\s/g, ""),
           text,
-          klic56PoPC1: ziskejKlic56PoPC1(klicBin),
-          C0: ziskejC0(klicBin),
-          D0: ziskejD0(klicBin),
-          C1: ziskejC1(klicBin),
-          D1: ziskejD1(klicBin),
+          klic56PoPC1: getKey56AfterPC1(klicBin),
+          C0: getC0(klicBin),
+          D0: getD0(klicBin),
+          C1: getC1(klicBin),
+          D1: getD1(klicBin),
         };
       }
     },
@@ -693,10 +693,10 @@ export default {
         return this.vizData.textBin;
       }
       if (this.jeRezimDesifrovani) {
-        return formatujBinarni(this.vstupniText);
+        return formatBinary(this.vstupniText);
       }
       if (this.jeRezimSifrovani && this.vstupniText.length > 0) {
-        return textNaBinarni(this.vstupniText);
+        return textToBinary(this.vstupniText);
       }
       return "";
     },
