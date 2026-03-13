@@ -1,6 +1,7 @@
 .home.content {
   width: 92%;
   margin: 0 auto;
+  margin-top: -2.3em;
 }
 
 /* Nadpis*/
@@ -168,6 +169,10 @@ h1 p {
   }
 
   .lead {
-    margin-top: 1.5em;
+    margin-top: 1em;
+  }
+
+  .home.content {
+    margin-top: 0;
   }
 }
