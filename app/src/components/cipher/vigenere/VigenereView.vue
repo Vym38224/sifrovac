@@ -49,7 +49,7 @@
 
       <!-- Tabulka recta  -->
       <section class="vigenere-table-wrapper">
-        <legend class="table-legend">Řádek (klíč) + Sloupec (otevřený text) = Šifrovaný text</legend>
+        <legend class="table-legend">Sloupec (otevřený text) + Řádek (klíč) = Šifrovaný text</legend>
         <table class="vigenere-table neutral-background">
           <thead>
             <tr>
