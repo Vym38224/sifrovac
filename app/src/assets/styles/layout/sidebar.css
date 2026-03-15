@@ -73,6 +73,7 @@
   min-width: 270px;
   max-width: 270px;
   flex-shrink: 0;
+  align-self: flex-start;
   transition: 0.15s;
   background: #42b9832f;
   padding: 12px 0;
@@ -203,7 +204,7 @@
 
   .sidebar,
   #sidebar {
-    height: 328vh;
-    max-height: 328vh;
+    height: 100vh;
+    max-height: 100vh;
   }
 }

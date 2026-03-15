@@ -299,8 +299,6 @@
         </div>
       </section>
     </section>
-
-    <section class="home secondary-content"></section>
   </main>
 </template>
 

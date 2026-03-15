@@ -34,7 +34,7 @@
         Hlavní výtkou byl malý klíčový prostor: 2<sup>56</sup> klíčů umožňuje vyčerpávající prohledávání.
         V roce 1998 organizace Electronic Frontier Foundation (nezisková organizace na ochranu
         digitálních práv) postavila <em>DES Cracker</em> (250 000 USD),
-        který prolomil DES za 56 hodin. V lednu 1999 ho distributed.net prolomil za 22 hodin.
+        který prolomil DES za 56 hodin.
       </p>
     </div>
 

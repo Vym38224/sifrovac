@@ -45,3 +45,9 @@
 .low-highlight {
   opacity: 0.5;
 }
+
+@media (max-width: 1200px) {
+  .vigenere.secondary-content {
+    margin-top: -6px;
+  }
+}

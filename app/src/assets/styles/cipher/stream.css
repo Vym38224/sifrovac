@@ -72,6 +72,10 @@
   margin-bottom: 0;
 }
 
+.stream.secondary-content {
+    margin-top: -6px;
+  }
+
 /* Vizualizace - Šifrování vstupu pomocí XOR*/
 .xor-visualization {
   width: 100%;

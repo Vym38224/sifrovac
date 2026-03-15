@@ -1,3 +1,4 @@
+
 /* Parametry */
 .form-range {
   accent-color: #42b983;
@@ -7,6 +8,11 @@
 }
 
 /* Vizualizace - kolo */
+.secondary-content {
+  overflow: invisible;
+  min-height: 38em;
+}
+
 .wheel {
   position: absolute;
   display: block;
@@ -42,7 +48,7 @@
 
 @media (max-width: 1200px) {
   .wheel {
-    left: 27px;
+    left: 26px;
   }
 
   .wheel.inner {

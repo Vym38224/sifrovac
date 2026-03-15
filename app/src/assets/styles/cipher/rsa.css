@@ -29,6 +29,9 @@
   background: #9090854e;
 }
 
+.rsa.secondary-content {
+    margin-top: -7px;
+  }
 /* Vizualizace - Úprava obláčku */
 .rsa.viz-step {
   padding: 0;
@@ -72,6 +75,7 @@
 
   .rsa.secondary-content {
     margin-left: 17px;
+    margin-top: -15px;
   }
 
 }

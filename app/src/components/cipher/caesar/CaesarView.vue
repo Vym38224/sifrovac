@@ -45,7 +45,7 @@
     </section>
 
     <!-- 2.část: VIZUALIZACE -->
-    <aside class="secondary-content flex">
+    <aside class="caesar secondary-content flex">
       <img alt="Vnější kolo" class="wheel outer" />
       <img
         alt="Vnitřní kolo"

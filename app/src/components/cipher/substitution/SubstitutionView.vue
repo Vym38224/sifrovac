@@ -62,51 +62,43 @@
       <!-- Tabulka aktuálního šifrování znaků -->
       <section>
         <table class="substitution-table neutral-background">
-          <thead>
+          <tbody>
             <tr>
-              <th v-for="pismeno in abeceda" :key="'orig-' + pismeno">
+              <th
+                v-for="pismeno in vizualizaceAbeceda"
+                :key="'orig-' + pismeno"
+                class="alphabet-cell"
+              >
                 {{ pismeno }}
               </th>
             </tr>
-          </thead>
-          <tbody
-            :class="[
-              {
-                'warning-color bold': jeCervena,
-                'primary-color bold': jeZelena,
-              },
-            ]"
-          >
-            <tr>
+            <tr class="arrow-row" aria-hidden="true">
+              <td v-for="(_, index) in vizualizaceAbeceda" :key="'arrow-' + index">
+                <img
+                  src="@/assets/images/ui/arrow-down.png"
+                  alt=""
+                  :class="['mapping-arrow', { 'mapping-arrow-up': aktivniSmerSipky === 'up' }]"
+                />
+              </td>
+            </tr>
+            <tr
+              :class="[
+                {
+                  'warning-color bold': jeCervena,
+                  'primary-color bold': jeZelena,
+                },
+              ]"
+            >
               <td
-                v-for="(pismeno, index) in permutace.split('')"
+                v-for="(pismeno, index) in permutaceZnaky"
                 :key="'perm-' + index"
+                class="mapped-cell"
               >
                 {{ pismeno }}
               </td>
             </tr>
           </tbody>
         </table>
-      </section>
-
-      <!-- Popis šifrování a dešifrování -->
-      <section class="substitution viz-step">
-        <h3>Popis</h3>
-        <p>
-          Každé písmeno ve vstupním textu je nahrazeno písmenem na stejném místě
-          v permutaci abecedy. Například, pokud je permutace abecedy:
-          <a
-            ><strong>{{ permutace }}</strong></a
-          >, pak písmeno <strong>A</strong> bude nahrazeno
-          <strong>{{ permutace.charAt(0) }}</strong
-          >, <strong>B</strong> bude nahrazeno
-          <strong>{{ permutace.charAt(1) }}</strong
-          >, a tak dále.
-        </p>
-        <p>
-          Pro dešifrování se proces obrátí: každé písmeno ve šifrovaném textu je
-          nahrazeno písmenem na stejném místě v původní abecedě.
-        </p>
       </section>
 
     </aside>
@@ -133,6 +125,7 @@ export default {
       vystupniText: "",
       permutace: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       abeceda: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), 
+      aktivniSmerSipky: "down",
       zobrazitInfo: false,
       zobrazitToast: false,
       jeCervena: false,
@@ -143,6 +136,7 @@ export default {
     async sifrovat() {
       try {
         this.vystupniText = encrypt(this.vstupniText, this.permutace);
+        this.aktivniSmerSipky = "down";
       } catch (error) {
         console.error("Došlo k chybě při šifrování:", error);
         alert("Chyba při šifrování, zkontrolujte parametry");
@@ -151,6 +145,7 @@ export default {
     async desifrovat() {
       try {
         this.vystupniText = decrypt(this.vstupniText, this.permutace);
+        this.aktivniSmerSipky = "up";
       } catch (error) {
         console.error("Došlo k chybě při dešifrování:", error);
         alert("Chyba při dešifrování, zkontrolujte parametry");
@@ -168,6 +163,7 @@ export default {
     vymazatVse() {
       this.vstupniText = "";
       this.vystupniText = "";
+      this.aktivniSmerSipky = "down";
       this.jeCervena = false;
       this.jeZelena = false;
     },
@@ -197,6 +193,12 @@ export default {
   },
   // COMPUTED: vypočítaná hodnota, která se automaticky přepočítá, jen když se změní data, na kterých závisí
   computed: {
+    vizualizaceAbeceda() {
+      return this.abeceda.slice(0, this.permutace.length);
+    },
+    permutaceZnaky() {
+      return this.permutace.split("");
+    },
     jePermutaceNeplatna() {
       if (this.permutace.length !== 26) {
         return true;
