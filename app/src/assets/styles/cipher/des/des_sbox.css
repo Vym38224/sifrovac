@@ -15,6 +15,18 @@
   transform: translateY(-80px);
 }
 
+.sbox-modal-content {
+  max-width: 70vw;
+  max-height: 62vh;
+  overflow: auto;
+  cursor: inherit;
+  user-select: auto;
+}
+
+.sbox-table-scroll {
+  min-width: max-content;
+}
+
 [data-theme="dark"] .sbox-modal-wrapper {
   background: #000000;
 }
@@ -32,7 +44,7 @@
 }
 
 .sbox-table {
-  width: 100%;
+  width: max-content;
   border-collapse: collapse;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;

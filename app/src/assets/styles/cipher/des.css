@@ -31,7 +31,7 @@
 
 .ip-image-container {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-50% + var(--drag-x, 0px)), calc(-50% + var(--drag-y, 0px)));
   z-index: 1000;
 }
 
@@ -42,7 +42,7 @@
   border: 1px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: block;
-  cursor: default;
+  cursor: inherit;
 }
 
 [data-theme="dark"] .ip-image {
@@ -52,6 +52,21 @@
 .ip-image-wrapper {
   position: relative;
   display: inline-block;
+}
+
+.ip-scrollable {
+  max-width: 88vw;
+  max-height: 78vh;
+  overflow: auto;
+  user-select: auto;
+}
+
+.ip-draggable-handle {
+  cursor: grab;
+}
+
+.ip-image-container.is-dragging .ip-draggable-handle {
+  cursor: grabbing;
 }
 
 .ip-close-button {
@@ -194,7 +209,6 @@
 .e.ip-image-container {
   top: 72%;
   left: calc(50% - 200px);
-  transform: translate(-50%, -50%);
 }
 
 .ip-image-container.p {
