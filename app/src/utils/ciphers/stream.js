@@ -159,7 +159,7 @@ export function visualizeStep(register, coefficients) {
             bitsForCalculation.push(register[i]);
         }
     }
-    const calculationExpression = bitsForCalculation.join(" ⊕ ");
+    const calculationExpression = bitsForCalculation.join(" XOR ");
 
     const newRegister = feedback + register.slice(0, -1);
 
