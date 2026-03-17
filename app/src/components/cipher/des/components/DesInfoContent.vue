@@ -48,12 +48,12 @@
         Rundovní funkce g má tvar:
       </p>
       <pre class="formula">L<sub style="font-size:14px;">i</sub> = R<sub style="font-size:14px;">i−1</sub></pre>
-      <pre class="formula">R<sub style="font-size:14px;">i</sub> = L<sub style="font-size:14px;">i−1</sub> ⊕ f(R<sub style="font-size:14px;">i−1</sub>, K<sub style="font-size:14px;">i</sub>)</pre>
+      <pre class="formula">R<sub style="font-size:14px;">i</sub> = L<sub style="font-size:14px;">i−1</sub> XOR f(R<sub style="font-size:14px;">i−1</sub>, K<sub style="font-size:14px;">i</sub>)</pre>
       <p>
         Feistelova rundovní funkce g je vždy invertibilní (bez ohledu na vlastnosti f),
         dešifrování jedné rundy proto probíhá jako:
       </p>
-      <pre class="formula">L<sub style="font-size:14px;">i−1</sub> = R<sub style="font-size:14px;">i</sub> ⊕ f(L<sub style="font-size:14px;">i</sub>, K<sub style="font-size:14px;">i</sub>)</pre>
+      <pre class="formula">L<sub style="font-size:14px;">i−1</sub> = R<sub style="font-size:14px;">i</sub> XOR f(L<sub style="font-size:14px;">i</sub>, K<sub style="font-size:14px;">i</sub>)</pre>
       <pre class="formula">R<sub style="font-size:14px;">i−1</sub> = L<sub style="font-size:14px;">i</sub></pre>
 
       <h4>DES</h4>
@@ -80,7 +80,7 @@
         </li>
         <li>
           <strong class="primary-color">XOR s rundovním klíčem</strong>:
-          Vypočítá se E(A) ⊕ J a výsledek se zapíše jako
+          Vypočítá se E(A) XOR J a výsledek se zapíše jako
           B = B<sub>1</sub>B<sub>2</sub>B<sub>3</sub>B<sub>4</sub>B<sub>5</sub>B<sub>6</sub>B<sub>7</sub>B<sub>8</sub>
           (osm 6bitových řetězců).
         </li>
