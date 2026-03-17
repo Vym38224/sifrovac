@@ -59,7 +59,7 @@
                 v-for="(col, indexSloupec) in abeceda" 
                 :key="'col-' + col"
                 :class="{
-                  'primary-background neutral-color': vysledky.includes('sloupec-' + indexSloupec) && aktualniVysledek !== 'sloupec-' + indexSloupec,
+                  'primary-btn-bg neutral-color': vysledky.includes('sloupec-' + indexSloupec) && aktualniVysledek !== 'sloupec-' + indexSloupec,
                   'tertiary-background neutral-color': aktualniVysledek === 'sloupec-' + indexSloupec,
                   'tertiary-background neutral-color low-highlight': aktualniSloupec === indexSloupec,
                 }"
@@ -82,7 +82,7 @@
               v-for="(pismenoSloupec, indexSloupec) in abeceda"
               :key="pismenoRadek + '-' + pismenoSloupec"
               :class="{
-                'neutral-color bold primary-background':
+                'neutral-color bold primary-btn-bg':
                   vysledky.includes(`${indexRadek}-${indexSloupec}`) && aktualniVysledek !== `${indexRadek}-${indexSloupec}`,
                 'neutral-color bold tertiary-background':
                   aktualniVysledek === `${indexRadek}-${indexSloupec}`,

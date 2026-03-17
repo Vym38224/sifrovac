@@ -173,6 +173,10 @@ code {
   background: #42b983;
 }
 
+.primary-btn-bg {
+  background: var(--primary-btn-bg);
+}
+
 .secondary-background {
   background: #2d3e50;
 }
