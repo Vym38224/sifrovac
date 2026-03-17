@@ -155,7 +155,7 @@
             Generovat vše
           </button>
         </nav>
-        <p v-if="chybaVstup" class="warning-color">Chyba: chybí vstup!</p>
+        <p v-if="chybaVstup" class="warning-color">Chyba: zadejte vstupní text</p>
         <p class="viz-stream">
           Proud klíčů:
           <br/>
