@@ -32,7 +32,7 @@
       <h4>Bezpečnost</h4>
       <p>
         Bezpečnost RSA stojí na <router-link to="/#obtiznost-faktorizace" class="primary-color without-underline"><strong class="primary-color">obtížnosti faktorizace čísla n</strong></router-link>.
-        Pro dostatečně velká čísla (např. 2048 bitů) je faktorizace nereálná, což činí RSA bezpečným pro praktické použití.
+        Pro dostatečně velká čísla <strong class="primary-color">p</strong> a <strong class="primary-color">q</strong> je faktorizace čísla <strong class="primary-color">n</strong> nereálná, což činí RSA bezpečným pro praktické použití.
       </p>
     </div>
 
