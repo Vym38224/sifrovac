@@ -17,6 +17,7 @@
   /* Border */
   --border-color: #d1d5db;
   --viz-border: #000;
+  --viz-grid-border: #d1d5db;
 
   /* Buttons */
   --primary-btn-bg: #42b983;
@@ -41,6 +42,7 @@
   /* Border */
   --border-color: #3d453d;
   --viz-border: #585858;
+  --viz-grid-border: #585858;
 
   /* Buttons */
   --primary-btn-bg: #2a7555;

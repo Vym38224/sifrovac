@@ -54,17 +54,17 @@
   width: 25px;
   height: 25px;
   justify-content: center;
-  border: 2px solid var(--text-color);
+  border: 2px solid var(--viz-grid-border);
   border-left: 0;
 }
 
 .register-bit:first-child {
-  border-left: 2px solid var(--text-color);
+  border-left: 2px solid var(--viz-grid-border);
 }
 
 .register-bit.feedback-bit {
   background-color: #42b9832f;
-  border-color: var(--text-color);
+  border-color: var(--viz-grid-border);
 }
 
 .viz-stream {

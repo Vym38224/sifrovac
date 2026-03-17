@@ -57,14 +57,14 @@
 
 .sbox-table th,
 .sbox-table td {
-  border: 1px solid rgb(167, 167, 167);
+  border: 1px solid var(--border-color);
   padding: 3px;
   text-align: center;
 }
 
 [data-theme="dark"] .sbox-table th,
 [data-theme="dark"] .sbox-table td {
-  border: 1px solid #444;
+  border: 1px solid var(--border-color);
 }
 
 .corner-cell {
