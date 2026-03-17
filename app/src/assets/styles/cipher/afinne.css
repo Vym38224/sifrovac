@@ -1,6 +1,6 @@
 /* Vizualizace - tabulka */
 .afinne.secondary-content {
-  margin-top: -8px;
+  margin-top: -24px;
   margin-bottom: 0;
 }
 
@@ -51,6 +51,7 @@
 
   .afinne.secondary-content {
     margin-left: 0;
+    margin-top: -9px;
   }
 
   .affine-table {
