@@ -17,14 +17,14 @@
           min="0"
           max="25"
           step="1"
-          v-model.number="posun"
-          @input="otocitKolo"
+          v-model.number="shift"
+          @input="rotateWheel"
         />
         <input
           type="number"
           min="0"
           max="25"
-          v-model.number="posun"
+          v-model.number="shift"
           class="input"
           @keydown="blokujNeciselnePismena"
         />
@@ -50,7 +50,7 @@
       <img
         alt="Vnitřní kolo"
         class="wheel inner"
-        :style="{ transform: 'rotate(' + uhelKola + 'deg)' }"
+        :style="{ transform: 'rotate(' + wheelAngle + 'deg)' }"
       />
     </aside>
 
@@ -72,10 +72,10 @@ export default {
   },
   data() {
     return {
-      posun: 0,
+      shift: 0,
       vstupniText: "",
       vystupniText: "",
-      uhelKola: 75,
+      wheelAngle: 75,
       zobrazitInfo: false,
       zobrazitToast: false,
     };
@@ -83,7 +83,7 @@ export default {
   methods: {
     async sifrovat() {
       try {
-        this.vystupniText = encrypt(this.vstupniText, this.posun);
+        this.vystupniText = encrypt(this.vstupniText, this.shift);
       } catch (error) {
         console.error("Došlo k chybě při šifrování:", error);
         alert("Chyba při šifrování, zkontrolujte parametry");
@@ -91,7 +91,7 @@ export default {
     },
     async desifrovat() {
       try {
-        this.vystupniText = decrypt(this.vstupniText, this.posun);
+        this.vystupniText = decrypt(this.vstupniText, this.shift);
       } catch (error) {
         console.error("Došlo k chybě při dešifrování:", error);
         alert("Chyba při dešifrování, zkontrolujte parametry");
@@ -109,8 +109,8 @@ export default {
     vymazatVse() {
       this.vstupniText = "";
       this.vystupniText = "";
-      this.posun = 0;
-      this.uhelKola = 75;
+      this.shift = 0;
+      this.wheelAngle = 75;
     },
     blokujNeciselnePismena(udalost) {
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
@@ -119,21 +119,21 @@ export default {
       }
     },
     // otáčení kola při změně posunu (klíče)
-    otocitKolo() {
-      const korekce = 75;
-      this.uhelKola = this.posun * (360 / 26) + korekce;
+    rotateWheel() {
+      const correction = 75;
+      this.wheelAngle = this.shift * (360 / 26) + correction;
     },
   },
   // WATCH: sleduje změny konkrétní reaktivní proměnné a spustí funkci, když se změní
   watch: {
-    posun() {
-      if (this.posun < 0) {
-        this.posun = 0;
+    shift() {
+      if (this.shift < 0) {
+        this.shift = 0;
       }
-      if (this.posun > 25) {
-        this.posun = 25;
+      if (this.shift > 25) {
+        this.shift = 25;
       }
-      this.otocitKolo();
+      this.rotateWheel();
     }
   },
 };
