@@ -16,7 +16,7 @@ git clone https://github.com/Vym38224/sifrovac.git
 
 ### Instalace a lokální spuštění
 ````bash
-cd app
+cd sifrovac/app
 npm install
 npm run serve
 ````
