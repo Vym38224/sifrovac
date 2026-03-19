@@ -24,6 +24,19 @@ h1 p {
   color: var(--text-color);
 }
 
+.home-h2{
+  font-size: 18.5px;
+}
+
+.timeline-content h3{
+  font-size: 15px;
+  margin: 0.2rem 0 0.1rem 0;
+}
+
+.home.viz-step h3 {
+  font-size: 15px;
+}
+
 .z-two {
   z-index: 2;
 }
@@ -140,7 +153,6 @@ h1 p {
 }
 
 .timeline-img {
-  width: 125px;
   margin-right: 1.5rem;
 }
 

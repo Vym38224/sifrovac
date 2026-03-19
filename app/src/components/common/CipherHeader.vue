@@ -5,6 +5,8 @@
     <img
       src="@/assets/images/icons/infoicon.png"
       alt="Info"
+      width="14"
+      height="16"
       class="info-icon"
       @click="$parent.zobrazitInfo = !$parent.zobrazitInfo"
     />

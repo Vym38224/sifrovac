@@ -10,6 +10,8 @@
               src="@/assets/images/logo/logo.svg"
               alt="Logo"
               class="logo-inline"
+              width="192"
+              height="192"
             />
             <p class="z-two">Interaktivní průvodce kryptografií</p>
           </h1>
@@ -24,15 +26,17 @@
             je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
-              style="width: 14px"
               class="inline-icon"
+              width="14"
+              height="14"
+              alt="Info ikona"
             />.
           </p>
         </div>
       </section>
 
       <section>
-        <h3>Úvod do kryptografie</h3>
+        <h2 class="home-h2">Úvod do kryptografie</h2>
         <div class="viz-step">
           <p>
             Základním cílem kryptografie je umožnit dvěma osobám (tradičně nazývaným
@@ -63,7 +67,7 @@
       </section>
 
       <section style="margin-top:0.7em;">
-        <h3>Historie šifrování</h3>
+        <h2 class="home-h2">Historie šifrování</h2>
 
         <div class="timeline">
           <article class="timeline-item">
@@ -71,15 +75,17 @@
             <div class="timeline-content flex">
               <div>
                 <span class="timeline-year">500 př. n. l.</span>
-                <h4>Skytale</h4>
+                <h3>Skytale</h3>
                 <p>Spartská transpoziční šifra používající dřevěný válec</p>
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/scytale.png"
+                  src="@/assets/images/history/scytale.webp"
                   alt="Scytale"
                   class="timeline-img"
-                  style="width: 101px; margin-right: 0.7rem; margin-top: 1.3rem"
+                  width="101"
+                  height="60"
+                  style="margin-right: 0.7rem; margin-top: 1.3rem"
                 />
               </div>
             </div>
@@ -89,17 +95,19 @@
             <div class="timeline-content flex" id="caesarova">
               <div>
                 <span class="timeline-year">100 př. n. l.</span>
-                <h4>Caesarova šifra</h4>
+                <h3>Caesarova šifra</h3>
                 <p>
                   Julius Caesar používal posun o 3 pozice pro vojenské zprávy
                 </p>
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/caesar.png"
+                  src="@/assets/images/history/caesar.webp"
                   alt="Caesarova šifra"
                   class="timeline-img"
-                  style="width: 127px; margin-right: -1rem"
+                  width="127"
+                  height="80"
+                  style="margin-right: -1rem"
                 />
               </div>
             </div>
@@ -110,15 +118,18 @@
             <div class="timeline-content flex" id="alberti-h">
               <div>
                 <span class="timeline-year">1467</span>
-                <h4>Albertiho disk</h4>
+                <h3>Albertiho disk</h3>
                 <p>První polyalfabetická šifra, předchůdce Vigenèrovy šifry</p>
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/alberti.png"
+                  src="@/assets/images/history/alberti.webp"
                   alt="Albertiho disk"
                   class="timeline-img alberti"
-                  style="width: 114px; margin-top: 5px; margin-right: 2px"
+                  width="114"
+                  height="78"
+                  loading="lazy"
+                  style="margin-top: 5px; margin-right: 2px"
                 />
               </div>
             </div>
@@ -129,7 +140,7 @@
             <div class="timeline-content flex" id="vigenere-h">
               <div>
                 <span class="timeline-year">1586</span>
-                <h4>Vigenèrova šifra</h4>
+                <h3>Vigenèrova šifra</h3>
                 <p>
                   Polyalfabetická šifra, považována za nerozluštitelnou po 300
                   let
@@ -137,10 +148,13 @@
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/vigenere.png"
+                  src="@/assets/images/history/vigenere.webp"
                   alt="Vigenèrova šifra"
                   class="timeline-img vigenere"
-                  style="width: 63px; margin-right: 25px; margin-top: 3px"
+                  width="63"
+                  height="82"
+                  style="margin-right: 25px; margin-top: 3px"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -151,7 +165,7 @@
             <div class="timeline-content flex">
               <div>
                 <span class="timeline-year">1918</span>
-                <h4>Enigma</h4>
+                <h3>Enigma</h3>
                 <p>
                   Elektromechanický šifrovací stroj používaný Německem ve 2.
                   světové válce
@@ -159,10 +173,12 @@
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/enigma.png"
+                  src="@/assets/images/history/enigma.webp"
                   alt="Enigma"
                   class="timeline-img"
-                  style="width: 54px; margin-right: 2rem; margin-top: 0.4rem"
+                  width="54"
+                  height="73"
+                  style="margin-right: 2rem; margin-top: 0.4rem"
                 />
               </div>
             </div>
@@ -173,7 +189,7 @@
             <div class="timeline-content flex" id="rsa">
               <div>
                 <span class="timeline-year">1977</span>
-                <h4>RSA</h4>
+                <h3>RSA</h3>
                 <p>
                   Nejznámější asymetrická šifra, základ moderní kryptografie.
                   Používá se pro zabezpečení dat a pro digitální podpisy
@@ -181,10 +197,12 @@
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/rsa.png"
+                  src="@/assets/images/history/rsa.webp"
                   alt="RSA autoři"
                   class="timeline-img"
-                  style="width: 110px; margin-top: 0.8rem; margin-right: 10px"
+                  width="110"
+                  height="63"
+                  style="margin-top: 0.8rem; margin-right: 10px"
                 />
               </div>
             </div>
@@ -195,7 +213,7 @@
             <div class="timeline-content flex" id="aes">
               <div>
                 <span class="timeline-year">2001</span>
-                <h4>AES</h4>
+                <h3>AES</h3>
                 <p>
                   Advanced Encryption Standard - současné symetrické šifrování.
                   Zabezpečení dat v různých oblastech, včetně šifrování disků,
@@ -204,15 +222,12 @@
               </div>
               <div class="timeline-image">
                 <img
-                  src="@/assets/images/history/aes.png"
+                  src="@/assets/images/history/aes.webp"
                   alt="AES"
                   class="timeline-img"
-                  style="
-                    width: 95px;
-                    margin-top: 1.2rem;
-                    padding-bottom: 1.5rem;
-                    margin-right: 13px;
-                  "
+                  width="95"
+                  height="50"
+                  style="margin-top: 1.2rem; padding-bottom: 1.5rem; margin-right: 13px"
                 />
               </div>
             </div>
@@ -221,9 +236,9 @@
       </section>
 
       <section>
-        <h3>Základní pojmy</h3>
+        <h2 class="home-h2">Základní pojmy</h2>
         <div class="home viz-step">
-          <h4>Terminologie</h4>
+          <h3>Terminologie</h3>
           <p>
             <span class="primary-color">Kryptografie</span>: věda o utajování
             zpráv<br />
@@ -240,7 +255,7 @@
           </p>
         </div>
         <div class="home viz-step">
-          <h4>Typy šifer</h4>
+          <h3>Typy šifer</h3>
           <p>
             <span class="primary-color">Omezené</span>: bezpečnost založena na
             utajení způsobu, jakým šifra pracuje. Na první pohled dobrý nápad,
@@ -270,7 +285,7 @@
           </p>
         </div>
         <div class="home viz-step">
-          <h4>Kryptoanalýza</h4>
+          <h3>Kryptoanalýza</h3>
           <p>
             <span id="brute-force" class="primary-color">Útok hrubou silou</span>:
             zkoušení všech možných klíčů, dokud se nenajde správný. Tato metoda

@@ -2,10 +2,10 @@
 <template>
   <button @click="toggleTheme" class="theme-toggle">
     <span v-if="isDark">
-      <img src="@/assets/images/ui/brightness.png" />
+      <img src="@/assets/images/ui/brightness.png" alt="svetlo" width="16" height="16" />
     </span>
     <span v-else>
-      <img src="@/assets/images/ui/moon.png" />
+      <img src="@/assets/images/ui/moon.png" alt="měsíc" width="16" height="16" />
     </span>
   </button>
 </template>
