@@ -30,15 +30,18 @@
 }
 
 .rsa.secondary-content {
-    margin-top: -7px;
-  }
+  margin-top: -7px;
+}
+
 /* Vizualizace - Úprava obláčku */
 .rsa.viz-step {
   padding: 0;
   margin: 0;
   padding-bottom: 15px;
   width: 100%;
-  max-height: fit-content;
+  max-width: 40em;
+  align-self: flex-start;
+
 }
 
 .steps {
