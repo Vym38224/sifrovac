@@ -81,6 +81,7 @@
               <div class="timeline-image">
                 <img
                   src="@/assets/images/history/scytale.webp"
+                  loading="lazy"
                   alt="Scytale"
                   class="timeline-img"
                   width="101"
@@ -103,6 +104,7 @@
               <div class="timeline-image">
                 <img
                   src="@/assets/images/history/caesar.webp"
+                  loading="lazy"
                   alt="Caesarova šifra"
                   class="timeline-img"
                   width="127"

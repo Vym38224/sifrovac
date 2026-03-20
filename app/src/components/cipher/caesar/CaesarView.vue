@@ -21,6 +21,7 @@
           @input="rotateWheel"
         />
         <input
+          id="shift-number"
           type="number"
           min="0"
           max="25"
@@ -46,10 +47,11 @@
 
     <!-- 2.část: VIZUALIZACE -->
     <aside class="caesar secondary-content flex">
-      <img alt="Vnější kolo" class="wheel outer" />
+      <img alt="Vnější kolo" class="wheel outer" fetchpriority="high"/>
       <img
         alt="Vnitřní kolo"
         class="wheel inner"
+        fetchpriority="high"
         :style="{ transform: 'rotate(' + wheelAngle + 'deg)' }"
       />
     </aside>

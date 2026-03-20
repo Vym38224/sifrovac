@@ -24,11 +24,11 @@ h1 p {
   color: var(--text-color);
 }
 
-.home-h2{
+.home-h2 {
   font-size: 18.5px;
 }
 
-.timeline-content h3{
+.timeline-content h3 {
   font-size: 15px;
   margin: 0.2rem 0 0.1rem 0;
 }
@@ -154,6 +154,9 @@ h1 p {
 
 .timeline-img {
   margin-right: 1.5rem;
+  max-width: 200px;
+  width: 100%;
+  object-fit: contain;
 }
 
 .timeline-content.force-hover {

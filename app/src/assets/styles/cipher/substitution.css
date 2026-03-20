@@ -8,11 +8,10 @@
 /* Vizualizace - Tabulka */
 .substitution.secondary-content {
   align-items: flex-start;
-  margin-top: 3.63em;
 }
 
-.substitution.secondary-content > section {
-  margin-top: 65px;
+.substitution.secondary-content>section {
+  margin-top: 7.7em;
   background: var(--viz-bg);
   border-radius: 6px;
   padding: 16px;
@@ -25,6 +24,7 @@
   border-collapse: collapse;
   table-layout: fixed;
   background: var(--viz-bg);
+
 }
 
 .substitution-table th,
@@ -75,7 +75,7 @@
     margin-left: 17px;
   }
 
-  .substitution.secondary-content > section {
+  .substitution.secondary-content>section {
     margin-top: 0;
   }
 }

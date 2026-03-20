@@ -1,6 +1,6 @@
 /* Vizualizace - tabulka */
 .vigenere.secondary-content {
-  margin-top: -25px;
+  margin-top: -28px;
   align-items: flex-start;
 }
 
@@ -57,5 +57,6 @@
 @media (max-width: 1200px) {
   .vigenere.secondary-content {
     margin-top: -9px;
+    margin-left: 18px;
   }
 }

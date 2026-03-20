@@ -51,9 +51,9 @@
     <div class="step-description">
       <h4>
         Rozdělení na 
-        <a class="tertiary-color">C<sub>0</sub></a>
+        <span class="tertiary-color" aria-label="C nula">C<sub>0</sub></span>
         a 
-        <a class="tertiary-color">D<sub>0</sub></a>
+        <span class="tertiary-color" aria-label="D nula">D<sub>0</sub></span>
       </h4>
     </div>
 
@@ -65,9 +65,9 @@
     <div class="step-description">
       <h4>
         Rotace doleva o 1 bit u 
-        <a class="tertiary-color">C<sub>0</sub></a>
+        <span class="tertiary-color" aria-label="C nula">C<sub>0</sub></span>
         i 
-        <a class="tertiary-color">D<sub>0</sub></a>
+        <span class="tertiary-color" aria-label="D nula">D<sub>0</sub></span>
       </h4>
     </div>
 
@@ -87,7 +87,7 @@
           PC-2
         </a>
         nám vytvoří 
-        <a class="primary-color without-underline">rundovní klíč</a>
+        <span class="primary-color without-underline" aria-label="rundovní klíč">rundovní klíč</span>
       </h4>
     </div>
 

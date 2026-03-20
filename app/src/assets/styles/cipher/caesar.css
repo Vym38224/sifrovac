@@ -1,4 +1,3 @@
-
 /* Parametry */
 .form-range {
   accent-color: #42b983;
@@ -25,7 +24,7 @@
 }
 
 .wheel.inner {
-  content: url("@/assets/images/ui/inner-wheel.png");
+  content: url("@/assets/images/ui/inner-wheel.webp");
   width: 28em;
   height: 27.8em;
   left: 81px;
@@ -34,16 +33,16 @@
 }
 
 .wheel.outer {
-  content: url("@/assets/images/ui/outer-wheel.png");
+  content: url("@/assets/images/ui/outer-wheel.webp");
   transform: rotate(75deg);
 }
 
 [data-theme="dark"] .wheel.outer {
-  content: url("@/assets/images/ui/outer-wheel-dark.png");
+  content: url("@/assets/images/ui/outer-wheel-dark.webp");
 }
 
 [data-theme="dark"] .wheel.inner {
-  content: url("@/assets/images/ui/inner-wheel-dark.png");
+  content: url("@/assets/images/ui/inner-wheel-dark.webp");
 }
 
 @media (max-width: 1200px) {

@@ -9,9 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex">
-        <label :class="{ 'warning-color': !jeAckoNesoudelne }"
-          >Hodnota A:</label
-        >
+        <label for="hodnotaA" :class="{ 'warning-color': !jeAckoNesoudelne }">Hodnota A:</label>
         <input
           type="number"
           class="input"
