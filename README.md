@@ -6,7 +6,7 @@ Cílem projektu je usnadnit pochopení principů šifrování a dešifrování s
 ## Návod Instalace
 
 ### Požadavky
-- Node.js (https://nodejs.org/en/download)
+- Node.js (https://nodejs.org/en/download) verze 22 LTS
 - Git (https://git-scm.com/downloads)
 
 ### Stažení projektu
