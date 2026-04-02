@@ -9,7 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex">
-        <label for="hodnotaA" :class="{ 'warning-color': !jeAckoNesoudelne }">Hodnota A:</label>
+        <label style="padding-top:3px;"  for="hodnotaA" :class="{ 'warning-color': !jeAckoNesoudelne }">Hodnota A:</label>
         <input
           type="number"
           class="input"
@@ -20,7 +20,7 @@
           :class="{ 'invalid-border invalid-background': !jeAckoNesoudelne }"
           @keydown="blokujNeciselnePismena"
         />
-        <label for="hodnotaB">Hodnota B:</label>
+        <label style="padding-top:3px;" for="hodnotaB">Hodnota B:</label>
         <input
           type="number"
           class="input"

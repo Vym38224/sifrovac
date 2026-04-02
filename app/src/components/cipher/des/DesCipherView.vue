@@ -9,7 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex" style="gap:10px;">
-        <label id="key-label" for="key" style="margin-top:1px;">Klíč:</label>
+        <label id="key-label" for="key" style="padding-top:3px;">Klíč:</label>
         <input
           type="text"
           id="key"

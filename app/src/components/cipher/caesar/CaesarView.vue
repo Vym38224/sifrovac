@@ -9,7 +9,7 @@
 
       <!-- Formulář pro nastavení parametrů -->
       <form class="params flex">
-        <label for="shift-slider">Zvolte klíč šifry:</label>
+        <label style="padding-top:1px;" for="shift-slider">Zvolte klíč šifry:</label>
         <input
           id="shift-slider"
           type="range"
