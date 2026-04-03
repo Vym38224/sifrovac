@@ -167,7 +167,7 @@
 
       <!-- bod3: Finále vstup XOR proud kíčů -->
       <section class="viz-step">
-        <h4>Šifrování vstupu pomocí operace XOR</h4>
+        <h4>{{ vizualizaceXorNadpis }}</h4>
         <table class="xor-visualization">
           <tbody>
             <tr class="xor-row">
@@ -469,6 +469,11 @@ export default {
     },
     vizualizaceBituZpetneVazby() {
       return calculateFeedback(this.aktualniStavRegistru, this.koeficientyBity);
+    },
+    vizualizaceXorNadpis() {
+      return this.typVstupu === "bity"
+        ? "Dešifrování vstupu pomocí operace XOR"
+        : "Šifrování vstupu pomocí operace XOR";
     },
     vizualizaceSifrovanehoTextuBity() {
       const textBity = this.vizualizaceCistehoTextuBity;
