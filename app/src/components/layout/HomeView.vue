@@ -59,7 +59,7 @@
             <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce <strong class="primary-color">d<sub>K</sub> : C → P</strong></li>
           </ul>
           <p>
-            Důležitou vlastností je, že pro každý plaintext x ∈ P platí:
+            Důležitou vlastností je, že pro každý plaintext x ∈ <strong class="primary-color">P</strong> platí:
             <strong class="primary-color">d<sub>K</sub>(e<sub>K</sub>(x)) = x</strong>.<br>
             Tedy dešifrováním zašifrovaného textu vždy získáme zpět původní zprávu.
           </p>
