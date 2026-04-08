@@ -41,10 +41,10 @@
           <p>
             Základním cílem kryptografie je umožnit dvěma osobám (tradičně nazývaným
             <strong class="primary-color">Alice</strong> a <strong class="primary-color">Bob</strong>) komunikovat přes nezabezpečený kanál
-            tak, aby případný útočník <strong class="primary-color">Oscar</strong> nemohl pochopit obsah zprávy.
+            tak, aby případný útočník <strong class="primary-color">Oskar</strong> nemohl pochopit obsah zprávy.
             Informaci, kterou chce Alice odeslat, nazýváme <em>plaintext</em> (otevřený text).
             Alice plaintext zašifruje pomocí předem dohodnutého klíče a výsledný
-            <em>ciphertext</em> (šifrovaný text) odešle přes kanál. Oscar sice ciphertext zachytí,
+            <em>ciphertext</em> (šifrovaný text) odešle přes kanál. Oskar sice ciphertext zachytí,
             ale bez znalosti klíče nedokáže zjistit původní zprávu. Bob, který klíč zná,
             ciphertext dešifruje a získá původní plaintext.
           </p>
@@ -59,7 +59,7 @@
             <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce <strong class="primary-color">d<sub>K</sub> : C → P</strong></li>
           </ul>
           <p>
-            Důležitou vlastností je, že pro každý plaintext x ∈ <strong class="primary-color">P</strong> platí:
+            Důležitou vlastností je, že pro každý plaintext x ∈ P platí:
             <strong class="primary-color">d<sub>K</sub>(e<sub>K</sub>(x)) = x</strong>.<br>
             Tedy dešifrováním zašifrovaného textu vždy získáme zpět původní zprávu.
           </p>
@@ -81,7 +81,6 @@
               <div class="timeline-image">
                 <img
                   src="@/assets/images/history/scytale.webp"
-                  loading="lazy"
                   alt="Scytale"
                   class="timeline-img"
                   width="101"
@@ -104,7 +103,6 @@
               <div class="timeline-image">
                 <img
                   src="@/assets/images/history/caesar.webp"
-                  loading="lazy"
                   alt="Caesarova šifra"
                   class="timeline-img"
                   width="127"
