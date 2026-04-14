@@ -21,6 +21,8 @@
               }"
               maxlength="26"
               @input="filtrovatPermutaci"
+              id="permutace-input"
+              name="permutace-input"
             />
             <button
               type="button"

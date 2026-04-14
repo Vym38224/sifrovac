@@ -20,6 +20,8 @@
               max="16"
               step="1"
               @keydown="blokujNeciselnePismena"
+              id="m-input"
+              name="m-input"
             />
           </label>
           <label class="input-pv">
@@ -32,6 +34,8 @@
               v-model="pocatecniVektorBity"
               :maxlength="m"
               @input="validaceBinVstupuParametru('pocatecniVektorBity', $event)"
+              id="pocatecni-vektor-input"
+              name="pocatecni-vektor-input"
             />
           </label>
         </fieldset>
@@ -47,6 +51,8 @@
               type="text"
               :maxlength="m"
               @input="validaceBinVstupuParametru('koeficientyBity', $event)"
+              id="koeficienty-input"
+              name="koeficienty-input"
             />
           </label>
           <div class=" stream input-type-selector flex">

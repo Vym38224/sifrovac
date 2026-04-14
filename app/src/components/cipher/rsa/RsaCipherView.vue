@@ -25,6 +25,8 @@
                 (p > 0 && q > 0 && p === q) ||
                 (p > 0 && q > 0 && p * q <= 90),
             }"
+            id="p-input"
+            name="p-input"
           />
         </label>
         <label>
@@ -43,6 +45,8 @@
                 (p > 0 && q > 0 && p === q) ||
                 (p > 0 && q > 0 && p * q <= 90),
             }"
+            id="q-input"
+            name="q-input"
           />
         </label>
       </form>
