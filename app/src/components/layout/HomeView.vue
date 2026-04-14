@@ -29,9 +29,10 @@
               class="home info-icon"
               style="cursor: pointer;"
               @click="zobrazitInfo = !zobrazitInfo"
-              width="15"
-              height="15"
+              width="18"
+              height="18"
               alt="Info ikona"
+              title="Zobrazit informace o aplikaci"
             />.
           </p>
         </div>
@@ -74,7 +75,7 @@
         <!-- Info panel pro definice z knížky Stinsona -->
         <CipherInfo :show="zobrazitInfo">
           <div>
-            <h3>Zdroje a definice</h3>
+            <h3>Definice a zdroje</h3>
             <div>
               <p>
                 Všechny definice a teoretické koncepty v této aplikaci byly převzaty z následující literatury:

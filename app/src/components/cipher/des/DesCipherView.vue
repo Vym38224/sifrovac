@@ -273,7 +273,7 @@
                 @click="zobrazitLevy"
                 title="Klikněte pro zobrazení R1"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">R<sub>1</sub>:</span>{{ dLevaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">R<sub>1</sub>:</span><span style="text-decoration: underline;">{{ dLevaBin }}</span>
               </code>
               <code
                 class="binary-display binary-half clickable tertiary-color"
@@ -281,7 +281,7 @@
                 @click="zobrazitPravy"
                 title="Klikněte pro zobrazení L1"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">L<sub>1</sub>:</span>{{ dPravaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">L<sub>1</sub>:</span><span style="text-decoration: underline;">{{ dPravaBin }}</span>
               </code>
             </div>
           </div>
