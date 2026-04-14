@@ -30,7 +30,7 @@
       <h4>Popis</h4>
       <p>
         Každé písmeno abecedy je nahrazeno jiným písmenem dle zvolené permutace.
-        Například pro permutaci <strong class="primary-color">XNYAHPOGZQWBTSFLRCVMUEDJKI</strong>
+        Například pro permutaci <span class="primary-color">XNYAHPOGZQWBTSFLRCVMUEDJKI</span>
         platí: a → X, b → N, c → Y, atd.
         Dešifrování probíhá pomocí inverzní permutace, tedy zpětným mapováním
         ciphertext písmen na plaintext.

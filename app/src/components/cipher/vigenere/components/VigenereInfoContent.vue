@@ -68,7 +68,7 @@
       </p>
       <pre class="formula">k<sub style="font-size: 14px;">(i mod m)</sub></pre>
       <p>
-        Například pro klíč <strong class="primary-color">CIPHER</strong> (m = 6) a plaintext
+        Například pro klíč <span class="primary-color">CIPHER</span> (m = 6) a plaintext
         <em>thiscryptosystem…</em> se klíč opakuje:<br>
         C I P H E R C I P H E R …
       </p>

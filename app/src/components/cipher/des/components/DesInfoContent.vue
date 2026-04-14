@@ -42,7 +42,7 @@
     <div v-if="activeTab === 'definice'">
       <h4>Feistelova šifra</h4>
       <p>
-        DES je speciální typ iterované šifry založen na <strong class="primary-color">Feistelově šifře</strong>.
+        DES je speciální typ iterované šifry založen na <span class="primary-color">Feistelově šifře</span>.
         Každý stav je rozdělen na dvě stejně dlouhé poloviny
         <strong class="primary-color">L<sub>i</sub></strong> a <strong class="primary-color">R<sub>i</sub></strong>.
         Rundovní funkce g má tvar:
@@ -75,22 +75,22 @@
       </p>
       <ol>
         <li>
-          <strong class="primary-color">Expanze E</strong>:
+          <span class="primary-color">Expanze E</span>:
           32bitový řetězec A se rozšíří na 48 bitů pomocí pevné expanzní permutace E.
         </li>
         <li>
-          <strong class="primary-color">XOR s rundovním klíčem</strong>:
+          <span class="primary-color">XOR s rundovním klíčem</span>:
           Vypočítá se E(A) XOR J a výsledek se zapíše jako
           B = B<sub>1</sub>B<sub>2</sub>B<sub>3</sub>B<sub>4</sub>B<sub>5</sub>B<sub>6</sub>B<sub>7</sub>B<sub>8</sub>
           (osm 6bitových řetězců).
         </li>
         <li>
-          <strong class="primary-color">S-boxy</strong>:
+          <span class="primary-color">S-boxy</span>:
           Osm S-boxů S<sub>1</sub>, …, S<sub>8</sub>, každý zobrazující
           6 bitů na 4 bity: C<sub>j</sub> = S<sub>j</sub>(B<sub>j</sub>),&nbsp; 1 ≤ j ≤ 8.
         </li>
         <li>
-          <strong class="primary-color">P-box</strong>:
+          <span class="primary-color">P-box</span>:
           32bitový řetězec C = C<sub>1</sub>…C<sub>8</sub> se permutuje podle P-boxu.
           Výsledek P-box(C) je hodnota f(A, J).
         </li>

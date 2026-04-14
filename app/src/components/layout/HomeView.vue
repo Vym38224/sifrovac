@@ -26,9 +26,11 @@
             je vždy pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
-              class="inline-icon"
-              width="14"
-              height="14"
+              class="home info-icon"
+              style="cursor: pointer;"
+              @click="zobrazitInfo = !zobrazitInfo"
+              width="15"
+              height="15"
               alt="Info ikona"
             />.
           </p>
@@ -40,8 +42,8 @@
         <div class="viz-step">
           <p>
             Základním cílem kryptografie je umožnit dvěma osobám (tradičně nazývaným
-            <strong class="primary-color">Alice</strong> a <strong class="primary-color">Bob</strong>) komunikovat přes nezabezpečený kanál
-            tak, aby případný útočník <strong class="primary-color">Oskar</strong> nemohl pochopit obsah zprávy.
+            <span class="primary-color">Alice</span> a <span class="primary-color">Bob</span>) komunikovat přes nezabezpečený kanál
+            tak, aby případný útočník <span class="primary-color">Oskar</span> nemohl pochopit obsah zprávy.
             Informaci, kterou chce Alice odeslat, nazýváme <em>plaintext</em> (otevřený text).
             Alice plaintext zašifruje pomocí předem dohodnutého klíče a výsledný
             <em>ciphertext</em> (šifrovaný text) odešle přes kanál. Oskar sice ciphertext zachytí,
@@ -52,11 +54,11 @@
             Formálně se kryptosystém definuje jako pětice <strong class="primary-color">(P, C, K, E, D)</strong>, kde:
           </p>
           <ul style="list-style: none; padding-left: 0;">
-            <li><strong class="primary-color">P</strong>: konečná množina možných plaintextů</li>
-            <li><strong class="primary-color">C</strong>: konečná množina možných ciphertextů</li>
-            <li><strong class="primary-color">K</strong>: klíčový prostor; konečná množina možných klíčů</li>
-            <li><strong class="primary-color">E</strong>: množina šifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje šifrovací funkce <strong class="primary-color">e<sub>K</sub> : P → C</strong></li>
-            <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce <strong class="primary-color">d<sub>K</sub> : C → P</strong></li>
+            <li><strong class="primary-color">P</strong>: konečná množina možných plaintextů,</li>
+            <li><strong class="primary-color">C</strong>: konečná množina možných ciphertextů,</li>
+            <li><strong class="primary-color">K</strong>: klíčový prostor; konečná množina možných klíčů,</li>
+            <li><strong class="primary-color">E</strong>: množina šifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje šifrovací funkce <strong class="primary-color">e<sub>K</sub> : P → C</strong>,</li>
+            <li><strong class="primary-color">D</strong>: množina dešifrovacích pravidel; pro každý klíč K ∈ <strong class="primary-color">K</strong> existuje dešifrovací funkce <strong class="primary-color">d<sub>K</sub> : C → P</strong>.</li>
           </ul>
           <p>
             Důležitou vlastností je, že pro každý plaintext x ∈ <strong class="primary-color">P</strong> platí:
@@ -68,6 +70,31 @@
 
       <section style="margin-top:0.7em;">
         <h2 class="home-h2">Historie šifrování</h2>
+
+        <!-- Info panel pro definice z knížky Stinsona -->
+        <CipherInfo :show="zobrazitInfo">
+          <div>
+            <h3>Zdroje a definice</h3>
+            <div>
+              <p>
+                Všechny definice a teoretické koncepty v této aplikaci byly převzaty z následující literatury:
+              </p>
+              <p>
+                <strong>Stinson, Douglas R.; Paterson, Maura B.</strong> <em>Cryptography: Theory and Practice.</em><br>
+                4. vyd. 2019. ISBN 978-1-138-19701-5.<br>
+                Dostupné online:
+                <a href="https://www.ic.unicamp.br/~rdahab/cursos/mo421-mc889/Welcome_files/Stinson-Paterson_CryptographyTheoryAndPractice-CRC%20Press%20%282019%29.pdf" target="_blank" class="without-underline primary-color">
+                  Stinson-Paterson PDF
+                </a>
+              </p>
+              <p>
+                Seznam veškerých použitých obrázků a jejich zdrojů je dostupný v repozitáři projektu.<br>
+                Odkaz na GitHub repozitář s kompletním seznamem zdrojů:
+                <a href="https://github.com/Vym38224/sifrovac/blob/main/SOURCES.md" target="_blank" class="without-underline primary-color">Přejít do repozitáře</a>
+              </p>
+            </div>
+          </div>
+        </CipherInfo>
 
         <div class="timeline">
           <article class="timeline-item">
@@ -318,8 +345,18 @@
 </template>
 
 <script>
+import CipherInfo from "@/components/common/CipherInfo.vue";
+
 export default {
   name: "HomeView",
+  components: {
+    CipherInfo,
+  },
+  data() {
+    return {
+      zobrazitInfo: false,
+    };
+  },
   mounted() {
     const odkazNaSekci = this.$route.hash;
     
