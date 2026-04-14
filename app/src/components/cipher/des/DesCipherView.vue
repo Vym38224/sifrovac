@@ -140,7 +140,7 @@
                 @click="zobrazitLevy"
                 title="Klikněte pro zobrazení L0"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">L<sub>0</sub>:</span>{{ levaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">L<sub>0</sub>:</span><span style="text-decoration: underline;">{{ levaBin }}</span>
               </code>
               <code
                 class="binary-display binary-half clickable tertiary-color"
@@ -148,7 +148,7 @@
                 @click="zobrazitPravy"
                 title="Klikněte pro zobrazení R0"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">R<sub>0</sub>:</span>{{ pravaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">R<sub>0</sub>:</span><span style="text-decoration: underline;">{{ pravaBin }}</span>
               </code>
             </div>
           </div>
@@ -532,7 +532,9 @@ export default {
       const key = [
         "PASSWORD", "SECURITY", "ENCODING", "DECIPHER",
         "PROTOCOL", "EXCHANGE", "BACKDOOR", "FIREWALL",
-        "COMPUTER", "SOFTWARE",
+        "COMPUTER", "SOFTWARE", "HARDWARE", "KEYBOARD",
+        "TRAPDOOR", "DATABASE",
+        "ENCRYPTS", "DECRYPTS", "FUNCTION"
       ];
       const message = "MESSAGES"
 
