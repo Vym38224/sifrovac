@@ -317,27 +317,27 @@
           <p>
             <span id="brute-force" class="primary-color">Útok hrubou silou</span>:
             zkoušení všech možných klíčů, dokud se nenajde správný. Tato metoda
-            je časově náročná a neefektivní pro šifry s dlouhými klíči.<br />
+            je časově náročná a neefektivní pro šifry s dlouhými klíči<br />
             <span id="frekvencni-analyza" class="primary-color"
               >Frekvenční analýza</span
             >: zkoumání frekvence výskytu jednotlivých písmen nebo skupin písmen
             v šifrovaném textu. Tato metoda je účinná u monoalfabetických šifer,
-            kde některá písmena se v jazyce vyskytují častěji než jiná.<br />
+            kde některá písmena se v jazyce vyskytují častěji než jiná<br />
             <span id="kasiskeho-test" class="primary-color">Kasiskiho test</span
             >: metoda používaná k určení délky klíče u polyalfabetických šifer.
             Analyzuje opakující se sekvence písmen v šifrovaném textu a
-            vzdálenosti mezi nimi.<br />
+            vzdálenosti mezi nimi<br />
             <span id="fridmanuv-test" class="primary-color">Fridmanův test</span
             >: statistická metoda pro odhad délky klíče u polyalfabetických
             šifer. Využívá indexu koincidence, který měří pravděpodobnost, že
-            dvě náhodně vybraná písmena ze šifrovaného textu jsou stejná.<br />
+            dvě náhodně vybraná písmena ze šifrovaného textu jsou stejná<br />
             <span id="obtiznost-faktorizace" class="primary-color"
               >Obtížnost faktorizace velkých čísel</span
             >: základní princip bezpečnosti mnoha moderních asymetrických šifer.
             Představte si, že máte obrovské číslo, které vzniklo vynásobením
             dvou tajných prvočísel. Najít zpět ta dvě původní čísla je extrémně
             časově náročné. Právě na této obtížnosti je postavena bezpečnost
-            moderního šifrování.
+            moderního šifrování
           </p>
         </div>
       </section>
