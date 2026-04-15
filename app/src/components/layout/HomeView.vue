@@ -23,7 +23,7 @@
             vizualizace vám ukáže postup šifrování nebo dešifrování. Pracuje pouze
             se znaky anglické abecedy, některé šifry přitom převádí znaky na čísla pomocí <a class="primary-color without-underline" target="_blank" href="https://cs.wikipedia.org/wiki/ASCII">ASCII</a>.
             Pokud vás zajímá teorie a formální definice, najdete
-            je vždy pod ikonou
+            je pod ikonou
             <img
               src="@/assets/images/icons/infoicon.png"
               class="home info-icon"
@@ -75,7 +75,7 @@
         <!-- Info panel pro definice z knížky Stinsona -->
         <CipherInfo :show="zobrazitInfo">
           <div>
-            <h3>Definice a zdroje</h3>
+            <h3>Zdroje</h3>
             <div>
               <p>
                 Všechny definice a teoretické koncepty v této aplikaci byly převzaty z následující literatury:
