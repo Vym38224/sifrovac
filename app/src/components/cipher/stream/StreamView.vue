@@ -149,14 +149,14 @@
           <button
             @click="dalsiKrok"
             class="btn-view neutral-color"
-            :disabled="isGenerating"
+            :disabled="isGenerating || m < 1 || m > 8"
           >
             Další krok
           </button>
           <button
             @click="generovatCelyProud"
             class="btn-view neutral-color"
-            :disabled="isGenerating"
+            :disabled="isGenerating || m < 1 || m > 8"
           >
             Generovat vše
           </button>
@@ -396,8 +396,8 @@ export default {
       this.proudKlicu = "";
     },
     m(novaHodnota) {
-      if (novaHodnota > 16) {
-        this.m = 16;
+      if (novaHodnota > 8) {
+        this.m = 8;
       }
       this.pocatecniVektorBity = this.pocatecniVektorBity.slice(0, this.m);
       this.koeficientyBity = this.koeficientyBity.slice(0, this.m);
