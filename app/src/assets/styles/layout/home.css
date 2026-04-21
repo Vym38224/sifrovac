@@ -77,13 +77,13 @@ h1 p {
 /* Home timeline */
 .timeline {
   position: relative;
-  padding-left: 0.3rem;
+  padding-left: 0.5rem;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: 4px;
   top: 0;
   bottom: 0;
   width: 2px;

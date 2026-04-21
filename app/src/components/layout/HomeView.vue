@@ -125,7 +125,7 @@
                 <span class="timeline-year">100 př. n. l.</span>
                 <h3>Caesarova šifra</h3>
                 <p>
-                  Julius Caesar používal posun o 3 pozice pro vojenské zprávy
+                  Julius Caesar používal posun o 3 pozice pro vojenské zprávy.
                 </p>
               </div>
               <div class="timeline-image">
@@ -147,7 +147,7 @@
               <div>
                 <span class="timeline-year">1467</span>
                 <h3>Albertiho disk</h3>
-                <p>První polyalfabetická šifra, předchůdce Vigenèrovy šifry</p>
+                <p>První polyalfabetická šifra, předchůdce Vigenèrovy šifry.</p>
               </div>
               <div class="timeline-image">
                 <img
@@ -171,7 +171,7 @@
                 <h3>Vigenèrova šifra</h3>
                 <p>
                   Polyalfabetická šifra, považována za nerozluštitelnou po 300
-                  let
+                  let.
                 </p>
               </div>
               <div class="timeline-image">
@@ -196,7 +196,7 @@
                 <h3>Enigma</h3>
                 <p>
                   Elektromechanický šifrovací stroj používaný Německem ve 2.
-                  světové válce
+                  světové válce.
                 </p>
               </div>
               <div class="timeline-image">
@@ -220,7 +220,7 @@
                 <h3>RSA</h3>
                 <p>
                   Nejznámější asymetrická šifra, základ moderní kryptografie.
-                  Používá se pro zabezpečení dat a pro digitální podpisy
+                  Používá se pro zabezpečení dat a pro digitální podpisy.
                 </p>
               </div>
               <div class="timeline-image">
@@ -243,9 +243,8 @@
                 <span class="timeline-year">2001</span>
                 <h3>AES</h3>
                 <p>
-                  Advanced Encryption Standard - současné symetrické šifrování.
-                  Zabezpečení dat v různých oblastech, včetně šifrování disků,
-                  Wi-Fi sítí, VPN a HTTPS
+                  Advanced Encryption Standard, současné symetrické šifrování.
+                  Používá se pro zabezpečení dat v mnoha oblastech.
                 </p>
               </div>
               <div class="timeline-image">
