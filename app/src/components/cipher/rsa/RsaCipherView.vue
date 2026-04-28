@@ -64,8 +64,8 @@
 
       <!-- Komponenta pro tlačítka -->
       <CipherButtons 
-      :disable-decrypt="vstupniText.length > 0 && !jeCislo(vstupniText)"
-      :disable-encrypt="vstupniText.length > 0 && jeCislo(vstupniText)"
+      :disable-decrypt="vstupniText.length > 0 && !jeCislo(vstupniText) || (p == 0 && q == 0 || n < 90)"
+      :disable-encrypt="vstupniText.length > 0 && jeCislo(vstupniText) || (p == 0 && q == 0 || n <90)"
       />
 
       <!-- Oznamení uživateli, že parametr p,q není validní (zpětná vazba)  -->

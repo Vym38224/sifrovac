@@ -63,10 +63,10 @@
       <CipherButtons
         :disable-encrypt="
           (vstupniText.length > 0 && vstupniText.length !== 8) ||
-          (klic.length > 0 && klic.length !== 8)
+          (klic.length > -1 && klic.length !== 8)
         "
         :disable-decrypt="
-          (klic.length > 0 && klic.length !== 8) ||
+          (klic.length > -1 && klic.length !== 8) ||
           (vstupniText.length > 0 && vstupniText.length !== 64) ||
           (vstupniText.length > 0 && !/^[01]+$/.test(vstupniText))
         "
@@ -440,14 +440,6 @@ export default {
   },
   methods: {
     sifrovat() {
-      if (this.klic.length !== 8) {
-        alert("Klíč musí mít přesně 8 znaků!");
-        return;
-      }
-      if (this.vstupniText.length !== 8) {
-        alert("Text musí mít přesně 8 znaků!");
-        return;
-      }
       try {
         this.vystupniText = encrypt(this.vstupniText, this.klic);
       } catch (error) {
@@ -456,14 +448,6 @@ export default {
       }
     },
     desifrovat() {
-      if (this.klic.length !== 8) {
-        alert("Klíč musí mít přesně 8 znaků!");
-        return;
-      }
-      if (this.vstupniText.length !== 64 || !/^[01]+$/.test(this.vstupniText)) {
-        alert("Pro dešifrování zadejte 64 bitů (pouze 0 a 1)!");
-        return;
-      }
       try {
         this.vystupniText = decrypt(this.vstupniText, this.klic);
       } catch (error) {
@@ -643,10 +627,6 @@ export default {
     },
     klic() {
       this.prepocitejVizualizaci();
-      if (this.klic.length !== 8) {
-        this.vstupniText = "";
-        this.vystupniText = "";
-      }
     },
     typVstupu() {
       if (this.automatickePrepnuti) {
