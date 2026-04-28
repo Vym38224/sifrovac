@@ -65,7 +65,7 @@
 
       <h4>Příklad permutace</h4>
       <p>Šifrovací permutace π:</p>
-      <pre class="formula" style="font-size: 1em;">a b c d e f g h i j k l m n o p q r s t u v w x y z
+      <pre class="formula" style="font-size: 0.9em;">a b c d e f g h i j k l m n o p q r s t u v w x y z
 X N Y A H P O G Z Q W B T S F L R C V M U E K J D I</pre>
     </div>
   </div>
