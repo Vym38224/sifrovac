@@ -61,15 +61,8 @@
 
       <!-- Komponenta pro tlačítka -->
       <CipherButtons
-        :disable-encrypt="
-          (vstupniText.length > 0 && vstupniText.length !== 8) ||
-          (klic.length > -1 && klic.length !== 8)
-        "
-        :disable-decrypt="
-          (klic.length > -1 && klic.length !== 8) ||
-          (vstupniText.length > 0 && vstupniText.length !== 64) ||
-          (vstupniText.length > 0 && !/^[01]+$/.test(vstupniText))
-        "
+        :disable-encrypt="computedDisableEncryptDes"
+        :disable-decrypt="computedDisableDecryptDes"
       />
       <div v-if="klic.length > 0 && klic.length !== 8">
         <p class="warning-color"> 
@@ -432,6 +425,7 @@ export default {
       zobrazitRundovniKlic: false,
       typVstupu: "text",
       automatickePrepnuti: false,
+      userInteracted: false,
 
       // Cache pro vizualizační data
       vizData: null,
@@ -440,19 +434,27 @@ export default {
   },
   methods: {
     sifrovat() {
+      if (!this.vstupniText || this.vstupniText.length !== 8 || !this.klic || this.klic.length !== 8) {
+        this.vystupniText = "";
+        return;
+      }
       try {
         this.vystupniText = encrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při šifrování:", error);
-        alert("Chyba při šifrování: " + error.message);
+        this.vystupniText = "";
       }
     },
     desifrovat() {
+      if (!this.vstupniText || this.vstupniText.length !== 64 || !/^[01]+$/.test(this.vstupniText) || !this.klic || this.klic.length !== 8) {
+        this.vystupniText = "";
+        return;
+      }
       try {
         this.vystupniText = decrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při dešifrování:", error);
-        alert("Chyba při dešifrování: " + error.message);
+        this.vystupniText = "";
       }
     },
     kopirovat(text) {
@@ -468,8 +470,10 @@ export default {
       this.vstupniText = "";
       this.vystupniText = "";
       this.klic = "";
+      this.userInteracted = false;
     },
     filtrovatKlic(udalost) {
+      this.userInteracted = true;
       const hodnota = udalost.target.value;
       let filtrovanaHodnota = "";
       for (let i = 0; i < hodnota.length; i++) {
@@ -526,7 +530,7 @@ export default {
       this.typVstupu = "text";
       this.klic = key[nahodnyIndex];
       this.vstupniText = message;
-      
+      this.userInteracted = true;
     },
     prepocitejVizualizaci() {
       // reset Cache
@@ -785,6 +789,17 @@ export default {
         return this.dVizData.L0 + " " + this.dVizData.R0;
       }
       return "";
+    },
+    computedDisableEncryptDes() {
+      if (!this.userInteracted) return false;
+      return (this.vstupniText.length > 0 && this.vstupniText.length !== 8) ||
+             (this.klic.length > 0 && this.klic.length !== 8);
+    },
+    computedDisableDecryptDes() {
+      if (!this.userInteracted) return false;
+      return (this.klic.length > 0 && this.klic.length !== 8) ||
+             (this.vstupniText.length > 0 && this.vstupniText.length !== 64) ||
+             (this.vstupniText.length > 0 && !/^[01]+$/.test(this.vstupniText));
     },
   },
 };

@@ -133,8 +133,9 @@ export default {
       }
 
       this.$parent.vstupniText = novaHodnota;
+      this.$parent.userInteracted = true;
       event.target.value = novaHodnota;
-    },
+    }
   },
 };
 </script>
