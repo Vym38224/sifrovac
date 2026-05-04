@@ -20,7 +20,7 @@
       <p>
         DES byl vyvinut společností IBM a v roce 1977 přijat jako americký federální standard
         pro šifrování. Vychází z dřívějšího systému <em>Lucifer</em> a stal se nejrozšířenějším
-        kryptosystémem na světě. Standard byl pravidelně přezkoumáván; v roce 1999 byl zahájen
+        kryptosystémem na světě. Standard byl pravidelně přezkoumáván a v roce 1999 byl zahájen
         vývoj nástupce <router-link to="/#aes" class="primary-color without-underline">AES (Advanced Encryption Standard)</router-link>.
       </p>
       <h4>Popis</h4>
@@ -31,9 +31,8 @@
       </p>
       <h4>Bezpečnost</h4>
       <p>
-        Hlavní výtkou byl malý klíčový prostor: 2<sup>56</sup> klíčů umožňuje vyčerpávající prohledávání.
-        V roce 1998 organizace Electronic Frontier Foundation (nezisková organizace na ochranu
-        digitálních práv) postavila <em>DES Cracker</em>,
+        Hlavní výtkou byl malý klíčový prostor: 2<sup>56</sup> klíčů.
+        V roce 1998 organizace Electronic Frontier Foundation postavila <em>DES Cracker</em>,
         který prolomil DES za 56 hodin.
       </p>
     </div>
