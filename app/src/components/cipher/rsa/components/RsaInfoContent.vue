@@ -24,14 +24,14 @@
       <h4>Veřejný a soukromý klíč</h4>
       <p>
         Princip spočívá v oddělení šifrovacího a dešifrovacího klíče.
-        <strong class="primary-color">Veřejný klíč (b,n)</strong> může být volně zveřejněn a
+        <span class="primary-color">Veřejný klíč <strong>(b,n)</strong></span> může být volně zveřejněn a
         kdokoli jím může zprávu zašifrovat. Dešifrovat ji umí jen držitel
-        <strong class="primary-color">soukromého klíče (a, p, q)</strong>,
+        <span class="primary-color">soukromého klíče <strong>(a, p, q)</strong></span>,
         protože výpočet <strong class="primary-color">a</strong> z <strong class="primary-color">b</strong> vyžaduje znát rozklad <strong class="primary-color">n = p × q</strong>.
       </p>
       <h4>Bezpečnost</h4>
       <p>
-        Bezpečnost RSA stojí na <router-link to="/#obtiznost-faktorizace" class="primary-color without-underline"><strong class="primary-color">obtížnosti faktorizace čísla n</strong></router-link>.
+        Bezpečnost RSA stojí na <router-link to="/#obtiznost-faktorizace" class="primary-color without-underline"><span class="primary-color">obtížnosti faktorizace čísla n</span></router-link>.
         Pro dostatečně velká čísla <strong class="primary-color">p</strong> a <strong class="primary-color">q</strong> je faktorizace čísla <strong class="primary-color">n</strong> nereálná, což činí RSA bezpečným pro praktické použití.
       </p>
     </div>
@@ -59,7 +59,7 @@
         <li>Spočítáme <strong class="primary-color">n = p × q</strong> a <strong class="primary-color">φ(n) = (p−1)(q−1)</strong>.</li>
         <li>Zvolíme <strong class="primary-color">b</strong>, kde gcd(b, φ(n)) = 1.</li>
         <li>Vypočítáme <strong class="primary-color">a</strong>, kde a = b<sup>−1</sup> mod φ(n).</li>
-        <li><strong class="primary-color">Veřejný klíč: (b, n)</strong> | <strong class="primary-color">Soukromý klíč: (a, p, q)</strong>.</li>
+        <li><span class="primary-color">Veřejný klíč: <strong>(b, n)</strong></span> | <span class="primary-color">Soukromý klíč: <strong>(a, p, q)</strong></span>.</li>
       </ol>
 
       <h4>Volba b</h4>

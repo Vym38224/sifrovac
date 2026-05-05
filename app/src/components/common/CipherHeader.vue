@@ -5,6 +5,7 @@
     <img
       src="@/assets/images/icons/infoicon.png"
       alt="Info"
+      title="Zobrazit informace o šifře"
       width="14"
       height="16"
       class="info-icon"

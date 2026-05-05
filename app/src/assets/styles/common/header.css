@@ -5,11 +5,12 @@ h2 {
 
 .info-icon {
   margin: 0.5em;
-  margin-top: 0;
-  width: 1em;
+  margin-top: -8px;
+  width:17px;
+  height:17px;
   cursor: pointer;
 }
 
 .info-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.125);
 }

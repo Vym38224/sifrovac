@@ -21,13 +21,13 @@
         <router-link to="/#proudova" class="primary-color without-underline">Proudová šifra</router-link> je typ šifrovacího algoritmu, který šifruje data postupně znak po znaku
         (nebo bit po bitu). Na rozdíl od <router-link to="/#blokova" class="primary-color without-underline">blokových šifer</router-link>, kde se stejný klíč <strong class="primary-color">K</strong>
         použije pro každý blok vstupního textu, proudová šifra generuje
-        <strong class="primary-color">proud klíčů</strong> z = z<sub>1</sub>z<sub>2</sub>…
+        <span class="primary-color">proud klíčů</span> z = z<sub>1</sub>z<sub>2</sub>…
         a každý znak plaintextu je šifrován jiným prvkem proudu klíčů.
       </p>
       <h4>LFSR (Linear Feedback Shift Register)</h4>
       <p>
         Aplikace v této šifře generuje proud klíčů pomocí
-        <strong class="primary-color">lineárního zpětnovazebního posuvného registru (LFSR)</strong>.
+        <span class="primary-color">lineárního zpětnovazebního posuvného registru (LFSR)</span>.
         Registr délky <strong class="primary-color">m</strong> je inicializován počátečním
         vektorem (k<sub>1</sub>, …, k<sub>m</sub>). Na každém kroku:
       </p>

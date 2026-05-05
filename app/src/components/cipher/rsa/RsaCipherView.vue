@@ -25,6 +25,8 @@
                 (p > 0 && q > 0 && p === q) ||
                 (p > 0 && q > 0 && p * q <= 90),
             }"
+            id="p-input"
+            name="p-input"
           />
         </label>
         <label>
@@ -43,6 +45,8 @@
                 (p > 0 && q > 0 && p === q) ||
                 (p > 0 && q > 0 && p * q <= 90),
             }"
+            id="q-input"
+            name="q-input"
           />
         </label>
       </form>
@@ -60,8 +64,8 @@
 
       <!-- Komponenta pro tlačítka -->
       <CipherButtons 
-      :disable-decrypt="vstupniText.length > 0 && !jeCislo(vstupniText)"
-      :disable-encrypt="vstupniText.length > 0 && jeCislo(vstupniText)"
+      :disable-decrypt="computedDisableDecryptRsa"
+      :disable-encrypt="computedDisableEncryptRsa"
       />
 
       <!-- Oznamení uživateli, že parametr p,q není validní (zpětná vazba)  -->
@@ -369,23 +373,32 @@ export default {
       aktivniKrok: "klice",
       validniHodnotyB: [],
       validniHodnotyA: [],
+      userInteracted: false,
     };
   },
   methods: {
     sifrovat() {
+      if (!this.vstupniText || this.jeCislo(this.vstupniText) || this.p <= 0 || this.q <= 0 || this.n < 90) {
+        this.vystupniText = "";
+        return;
+      }
       try {
         this.vystupniText = rsaEncrypt(this.vstupniText, this.b, this.n);
       } catch (error) {
         console.error("Došlo k chybě při šifrování:", error);
-        alert("Chyba při šifrování, zkontrolujte parametry.");
+        this.vystupniText = "";
       }
     },
     desifrovat() {
+      if (!this.vstupniText || !this.jeCislo(this.vstupniText) || this.p <= 0 || this.q <= 0 || this.n < 90) {
+        this.vystupniText = "";
+        return;
+      }
       try {
         this.vystupniText = rsaDecrypt(this.vstupniText, this.a, this.n);
       } catch (error) {
         console.error("Došlo k chybě při dešifrování:", error);
-        alert("Chyba při dešifrování, zkontrolujte parametry.");
+        this.vystupniText = "";
       }
     },
     kopirovat(text) {
@@ -406,6 +419,7 @@ export default {
       this.phi = 0;
       this.b = 0;
       this.a = 0;
+      this.userInteracted = false;
     },
     blokujNeciselnePismena(udalost) {
       const zakazaneKlavesy = ['e', 'E', '+', '-', '.', ','];
@@ -522,6 +536,14 @@ export default {
     const posledniMezera = this.vstupniText.lastIndexOf(' '); 
     // pokud není mezera, zvýrazní celý text (vrátí -1)
     return posledniMezera;
+    },
+    computedDisableEncryptRsa() {
+      if (!this.userInteracted) return false;
+      return this.vstupniText.length > 0 && this.jeCislo(this.vstupniText) || (this.p == 0 && this.q == 0 || this.n < 90);
+    },
+    computedDisableDecryptRsa() {
+      if (!this.userInteracted) return false;
+      return this.vstupniText.length > 0 && !this.jeCislo(this.vstupniText) || (this.p == 0 && this.q == 0 || this.n < 90);
     },
   },
 };

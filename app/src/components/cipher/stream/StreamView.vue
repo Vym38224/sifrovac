@@ -20,6 +20,8 @@
               max="16"
               step="1"
               @keydown="blokujNeciselnePismena"
+              id="m-input"
+              name="m-input"
             />
           </label>
           <label class="input-pv">
@@ -32,6 +34,8 @@
               v-model="pocatecniVektorBity"
               :maxlength="m"
               @input="validaceBinVstupuParametru('pocatecniVektorBity', $event)"
+              id="pocatecni-vektor-input"
+              name="pocatecni-vektor-input"
             />
           </label>
         </fieldset>
@@ -47,6 +51,8 @@
               type="text"
               :maxlength="m"
               @input="validaceBinVstupuParametru('koeficientyBity', $event)"
+              id="koeficienty-input"
+              name="koeficienty-input"
             />
           </label>
           <div class=" stream input-type-selector flex">
@@ -143,14 +149,14 @@
           <button
             @click="dalsiKrok"
             class="btn-view neutral-color"
-            :disabled="isGenerating"
+            :disabled="isGenerating || m < 1 || m > 8"
           >
             Další krok
           </button>
           <button
             @click="generovatCelyProud"
             class="btn-view neutral-color"
-            :disabled="isGenerating"
+            :disabled="isGenerating || m < 1 || m > 8"
           >
             Generovat vše
           </button>
@@ -390,8 +396,8 @@ export default {
       this.proudKlicu = "";
     },
     m(novaHodnota) {
-      if (novaHodnota > 16) {
-        this.m = 16;
+      if (novaHodnota > 8) {
+        this.m = 8;
       }
       this.pocatecniVektorBity = this.pocatecniVektorBity.slice(0, this.m);
       this.koeficientyBity = this.koeficientyBity.slice(0, this.m);

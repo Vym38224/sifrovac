@@ -8,6 +8,8 @@
         :placeholder="vstupniPlaceholder"
         :value="vstupniText"
         @input="zpracovatVstup"
+        id="vstupni-textarea"
+        name="vstupni-textarea"
       ></textarea>
 
       <button
@@ -54,6 +56,8 @@
         :placeholder="vystupniPlaceholder"
         :value="vystupniText"
         readonly
+        id="vystupni-textarea"
+        name="vystupni-textarea"
       ></textarea>
       <button
         type="button"
@@ -129,8 +133,9 @@ export default {
       }
 
       this.$parent.vstupniText = novaHodnota;
+      this.$parent.userInteracted = true;
       event.target.value = novaHodnota;
-    },
+    }
   },
 };
 </script>

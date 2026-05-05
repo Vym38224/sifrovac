@@ -61,15 +61,8 @@
 
       <!-- Komponenta pro tlačítka -->
       <CipherButtons
-        :disable-encrypt="
-          (vstupniText.length > 0 && vstupniText.length !== 8) ||
-          (klic.length > 0 && klic.length !== 8)
-        "
-        :disable-decrypt="
-          (klic.length > 0 && klic.length !== 8) ||
-          (vstupniText.length > 0 && vstupniText.length !== 64) ||
-          (vstupniText.length > 0 && !/^[01]+$/.test(vstupniText))
-        "
+        :disable-encrypt="computedDisableEncryptDes"
+        :disable-decrypt="computedDisableDecryptDes"
       />
       <div v-if="klic.length > 0 && klic.length !== 8">
         <p class="warning-color"> 
@@ -140,7 +133,7 @@
                 @click="zobrazitLevy"
                 title="Klikněte pro zobrazení L0"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">L<sub>0</sub>:</span>{{ levaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">L<sub>0</sub>:</span><span style="text-decoration: underline;">{{ levaBin }}</span>
               </code>
               <code
                 class="binary-display binary-half clickable tertiary-color"
@@ -148,7 +141,7 @@
                 @click="zobrazitPravy"
                 title="Klikněte pro zobrazení R0"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">R<sub>0</sub>:</span>{{ pravaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">R<sub>0</sub>:</span><span style="text-decoration: underline;">{{ pravaBin }}</span>
               </code>
             </div>
           </div>
@@ -273,7 +266,7 @@
                 @click="zobrazitLevy"
                 title="Klikněte pro zobrazení R1"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">R<sub>1</sub>:</span>{{ dLevaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">R<sub>1</sub>:</span><span style="text-decoration: underline;">{{ dLevaBin }}</span>
               </code>
               <code
                 class="binary-display binary-half clickable tertiary-color"
@@ -281,7 +274,7 @@
                 @click="zobrazitPravy"
                 title="Klikněte pro zobrazení L1"
               >
-                <span style="font-family: 'Inter'; font-size:10px;">L<sub>1</sub>:</span>{{ dPravaBin }}
+                <span style="font-family: 'Inter'; font-size:10px;">L<sub>1</sub>:</span><span style="text-decoration: underline;">{{ dPravaBin }}</span>
               </code>
             </div>
           </div>
@@ -432,6 +425,7 @@ export default {
       zobrazitRundovniKlic: false,
       typVstupu: "text",
       automatickePrepnuti: false,
+      userInteracted: false,
 
       // Cache pro vizualizační data
       vizData: null,
@@ -440,35 +434,27 @@ export default {
   },
   methods: {
     sifrovat() {
-      if (this.klic.length !== 8) {
-        alert("Klíč musí mít přesně 8 znaků!");
-        return;
-      }
-      if (this.vstupniText.length !== 8) {
-        alert("Text musí mít přesně 8 znaků!");
+      if (!this.vstupniText || this.vstupniText.length !== 8 || !this.klic || this.klic.length !== 8) {
+        this.vystupniText = "";
         return;
       }
       try {
         this.vystupniText = encrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při šifrování:", error);
-        alert("Chyba při šifrování: " + error.message);
+        this.vystupniText = "";
       }
     },
     desifrovat() {
-      if (this.klic.length !== 8) {
-        alert("Klíč musí mít přesně 8 znaků!");
-        return;
-      }
-      if (this.vstupniText.length !== 64 || !/^[01]+$/.test(this.vstupniText)) {
-        alert("Pro dešifrování zadejte 64 bitů (pouze 0 a 1)!");
+      if (!this.vstupniText || this.vstupniText.length !== 64 || !/^[01]+$/.test(this.vstupniText) || !this.klic || this.klic.length !== 8) {
+        this.vystupniText = "";
         return;
       }
       try {
         this.vystupniText = decrypt(this.vstupniText, this.klic);
       } catch (error) {
         console.error("Chyba při dešifrování:", error);
-        alert("Chyba při dešifrování: " + error.message);
+        this.vystupniText = "";
       }
     },
     kopirovat(text) {
@@ -484,8 +470,10 @@ export default {
       this.vstupniText = "";
       this.vystupniText = "";
       this.klic = "";
+      this.userInteracted = false;
     },
     filtrovatKlic(udalost) {
+      this.userInteracted = true;
       const hodnota = udalost.target.value;
       let filtrovanaHodnota = "";
       for (let i = 0; i < hodnota.length; i++) {
@@ -532,7 +520,9 @@ export default {
       const key = [
         "PASSWORD", "SECURITY", "ENCODING", "DECIPHER",
         "PROTOCOL", "EXCHANGE", "BACKDOOR", "FIREWALL",
-        "COMPUTER", "SOFTWARE",
+        "COMPUTER", "SOFTWARE", "HARDWARE", "KEYBOARD",
+        "TRAPDOOR", "DATABASE",
+        "ENCRYPTS", "DECRYPTS", "FUNCTION"
       ];
       const message = "MESSAGES"
 
@@ -540,7 +530,7 @@ export default {
       this.typVstupu = "text";
       this.klic = key[nahodnyIndex];
       this.vstupniText = message;
-      
+      this.userInteracted = true;
     },
     prepocitejVizualizaci() {
       // reset Cache
@@ -641,10 +631,6 @@ export default {
     },
     klic() {
       this.prepocitejVizualizaci();
-      if (this.klic.length !== 8) {
-        this.vstupniText = "";
-        this.vystupniText = "";
-      }
     },
     typVstupu() {
       if (this.automatickePrepnuti) {
@@ -803,6 +789,17 @@ export default {
         return this.dVizData.L0 + " " + this.dVizData.R0;
       }
       return "";
+    },
+    computedDisableEncryptDes() {
+      if (!this.userInteracted) return false;
+      return (this.vstupniText.length > 0 && this.vstupniText.length !== 8) ||
+             (this.klic.length > 0 && this.klic.length !== 8);
+    },
+    computedDisableDecryptDes() {
+      if (!this.userInteracted) return false;
+      return (this.klic.length > 0 && this.klic.length !== 8) ||
+             (this.vstupniText.length > 0 && this.vstupniText.length !== 64) ||
+             (this.vstupniText.length > 0 && !/^[01]+$/.test(this.vstupniText));
     },
   },
 };

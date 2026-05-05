@@ -54,8 +54,8 @@
         Pro klíč <strong class="primary-color">K = (k<sub>1</sub>, k<sub>2</sub>, …, k<sub>m</sub>)</strong>
         jsou funkce definovány:
       </p>
-      <pre class="formula">e<sub style="font-size: 14px;">K</sub>(x₁,…,xₘ) = (x₁+k₁, x₂+k₂, …, xₘ+kₘ)</pre>
-      <pre class="formula">d<sub style="font-size: 14px;">K</sub>(y₁,…,yₘ) = (y₁−k₁, y₂−k₂, …, yₘ−kₘ)</pre>
+      <pre style = "font-size:1.31em" class="formula">e<sub style="font-size: 14px;">K</sub>(x₁,…,xₘ) = (x₁+k₁, x₂+k₂, …, xₘ+kₘ)</pre>
+      <pre style = "font-size:1.31em" class="formula">d<sub style="font-size: 14px;">K</sub>(y₁,…,yₘ) = (y₁−k₁, y₂−k₂, …, yₘ−kₘ)</pre>
       <p style="font-size: 0.9em; color: var(--text-muted, #888);">
         kde všechny operace jsou prováděny v Z<sub>26</sub>.
       </p>
@@ -68,12 +68,12 @@
       </p>
       <pre class="formula">k<sub style="font-size: 14px;">(i mod m)</sub></pre>
       <p>
-        Například pro klíč <strong class="primary-color">CIPHER</strong> (m = 6) a plaintext
+        Například pro klíč <span class="primary-color">CIPHER</span> (m = 6) a plaintext
         <em>thiscryptosystem…</em> se klíč opakuje:<br>
         C I P H E R C I P H E R …
       </p>
       <p style="font-size: 0.9em; color: var(--text-muted, #888);">
-        i je index znaku v plaintextu (počítáno od 0)
+        i je index znaku v plaintextu (počítáno od 0).
       </p>
 
     </div>

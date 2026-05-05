@@ -169,6 +169,10 @@ code {
   color: #42b983;
 }
 
+a.primary-color:hover {
+  text-decoration: underline;
+}
+
 .primary-background {
   background: #42b983;
 }
