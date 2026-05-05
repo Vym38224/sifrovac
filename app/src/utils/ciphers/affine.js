@@ -6,8 +6,8 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 /**
  * Inverse čísla: a modulo 26
- * @param {number} a - klíč a
- * @returns {number|null} - inverze nebo null, pokud neexistuje
+ * @param {number} a Klíč a
+ * @returns {number|null} Inverze nebo null, pokud neexistuje
  */
 export function inverseA(a) {
     for (let x = 1; x < 26; x++) {
@@ -21,8 +21,8 @@ export function inverseA(a) {
 /**
  * ENCRYPT
  * @param {string} text Otevřený text
- * @param {number} a klíč a, musí být nesoudělný s 26 (má inverzi modulo 26)
- * @param {number} b klíč b
+ * @param {number} a Klíč a, musí být nesoudělný s 26 (má inverzi modulo 26)
+ * @param {number} b Klíč b
  * @returns {string} Zašifrovaný text
  * @throws {Error} Pokud a není nesoudělné s 26
  */
@@ -49,8 +49,8 @@ export function encrypt(text, a, b) {
 /**
  * DECRYPT
  * @param {string} text Zašifrovaný text
- * @param {number} a klíč a, musí být nesoudělný s 26 (má inverzi modulo 26)
- * @param {number} b klíč b
+ * @param {number} a Klíč a, musí být nesoudělný s 26 (má inverzi modulo 26)
+ * @param {number} b Klíč b
  * @returns {string} Dešifrovaný text
  * @throws {Error} Pokud a není nesoudělné s 26
  */

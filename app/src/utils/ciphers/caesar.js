@@ -7,7 +7,7 @@ const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 /**
  * ENCRYPT
  * @param {string} text Otevřený text
- * @param {number} shift klíč
+ * @param {number} shift Klíč
  * @returns {string} Zašifrovaný text
  */
 export function encrypt(text, shift) {
@@ -30,7 +30,7 @@ export function encrypt(text, shift) {
 /**
  * DECRYPT
  * @param {string} text Zašifrovaný text
- * @param {number} shift klíč
+ * @param {number} shift Klíč
  * @returns {string} Dešifrovaný text
  */
 export function decrypt(text, shift) {
