@@ -22,7 +22,7 @@ npm run serve
 ````
 
 ### Online verze
-Projekt je dostupný i online: vym38224.github.io/sifrovac/
+Projekt je dostupný i online: [vym38224.github.io/sifrovac/](https://vym38224.github.io/sifrovac/)
 
 ## Zdroje
 
