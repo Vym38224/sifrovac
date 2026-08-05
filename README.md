@@ -21,6 +21,9 @@ npm install
 npm run serve
 ````
 
+### Online verze
+Projekt je dostupný i online: vym38224.github.io/sifrovac/
+
 ## Zdroje
 
 Pro podrobný seznam použitých zdrojů, literatury a materiálů viz [SOURCES.md](SOURCES.md).
