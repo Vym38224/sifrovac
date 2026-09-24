@@ -329,6 +329,10 @@
               kroků.
             </p>
             <p>p × q musí být větší než 90</p>
+            <p class="warning-color"
+            style = "padding-left:33px; padding-right:33px;">
+              Upozornění: Pro demonstrační účely se převádí každý znak na ASCII a šifruje se samostatně. Běžně RSA šifruje číselné bloky zprávy.
+            </p>
           </div>
 
         </section>
